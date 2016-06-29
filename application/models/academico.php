@@ -17,7 +17,7 @@ class Academico extends CI_Model {
         parent::__construct();
     }
 
-    public function inserir(){
+    public function Salvar(){
        return $this->db->insert('academico', $this);
    }
 

@@ -35,10 +35,10 @@
                                 Cadastre-se <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="cadastro_academico.php"><i class="fa fa-graduation-cap fa-fw"></i> Acadêmico</a></li>
+                                <li><a href="cadastro_academico"><i class="fa fa-graduation-cap fa-fw"></i> Acadêmico</a></li>
                                 <li class="divider"></li>
                                 <li>
-                                    <a href="cadastro_empregador.php"><i class="fa fa-suitcase fa-fw"></i> Empregador</a>
+                                    <a href="cadastro_empregador"><i class="fa fa-suitcase fa-fw"></i> Empregador</a>
                                 </li>
                             </ul>
                         </li>
@@ -118,10 +118,10 @@
                                 <small>Cadastre-se, é gratuíto!</small>
                             </h3>
                             <small class="text-right">
-                                <a href="cadastro_empregador.php">Oops! Não sou acadêmico!</a>
+                                <a href="cadastro_empregador">Oops! Não sou acadêmico!</a>
                             </small>
                             <hr>
-                            <form class="form-horizontal"  method="POST" >
+                            <form class="form-horizontal"  method="POST" action="<?=base_url('salvar')?>" >
                                <input type="hidden" name="acao" value="inserir" />
                                 <div class="form-group">
                                     <label for="nome" class="col-sm-2 control-label">Nome:</label>
@@ -219,7 +219,7 @@
                                     </div>
                                 </div>
 
-                                
+
 
                                 <input type="hidden" name="data_cadastro" value="<?php echo date('Y/m/d'); ?>"/>
                             </form>

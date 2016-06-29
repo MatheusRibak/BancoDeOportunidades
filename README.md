@@ -1,2 +1,2 @@
 # BancoDeOportunidades
-Banco de currículos. 
+Sistema de currículos

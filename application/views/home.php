@@ -37,11 +37,11 @@
 					</a>
 					<ul class="dropdown-menu" role="menu">
 						<li>
-							<a href="cadastro_academico"><i class="fa fa-graduation-cap fa-fw"></i> Acadêmico</a>
+							<a href="academico"><i class="fa fa-graduation-cap fa-fw"></i> Acadêmico</a>
 						</li>
 						<li class="divider"></li>
 						<li>
-							<a href="cadastro_empregador"><i class="fa fa-suitcase fa-fw"></i> Empregador</a>
+							<a href="empregador"><i class="fa fa-suitcase fa-fw"></i> Empregador</a>
 						</li>
 					</ul>
 				</li>

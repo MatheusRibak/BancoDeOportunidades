@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Cadastro_empregador extends CI_Controller {
+class Empregador extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.

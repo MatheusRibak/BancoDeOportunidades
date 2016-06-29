@@ -1,6 +1,6 @@
 <?php
 
-class Academico extends CI_Model {
+class Academico_model extends CI_Model {
 
     public $id_academico;
     public $nome;
@@ -102,11 +102,6 @@ class Academico extends CI_Model {
         $this->cidade = $cidade;
     }
 
-
-
-    public function alterar() {
-
-    }
 
 
 

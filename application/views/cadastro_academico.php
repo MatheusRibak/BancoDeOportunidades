@@ -121,7 +121,8 @@
                                 <a href="cadastro_empregador.php">Oops! Não sou acadêmico!</a>
                             </small>
                             <hr>
-                            <form class="form-horizontal"  method="POST" action="controller/cadastra_academico.php">
+                            <form class="form-horizontal"  method="POST" >
+                               <input type="hidden" name="acao" value="inserir" />
                                 <div class="form-group">
                                     <label for="nome" class="col-sm-2 control-label">Nome:</label>
 
@@ -217,6 +218,9 @@
                                         <button type="submit" class="btn btn-primary">Cadastrar</button>
                                     </div>
                                 </div>
+
+                                
+
                                 <input type="hidden" name="data_cadastro" value="<?php echo date('Y/m/d'); ?>"/>
                             </form>
                         </div>

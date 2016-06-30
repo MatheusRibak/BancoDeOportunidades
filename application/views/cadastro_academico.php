@@ -121,7 +121,7 @@
                                 <a href="cadastro_empregador">Oops! Não sou acadêmico!</a>
                             </small>
                             <hr>
-                            <form class="form-horizontal"  method="POST" action="<?=base_url('salvar')?>" >
+                            <form class="form-horizontal"  method="POST" action="<?=base_url('cadastro_academico')?>" >
                                <input type="hidden" name="acao" value="inserir" />
                                 <div class="form-group">
                                     <label for="nome" class="col-sm-2 control-label">Nome:</label>

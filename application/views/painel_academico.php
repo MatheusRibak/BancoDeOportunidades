@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Banco de Oportunidades</title>
 
-	<link rel="icon" href="estilo/img/favicon.png">
+  <link rel="icon" href="<?= base_url('assets/img/favicon.png') ?>">
   <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>" type="text/css">
   <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.min.css') ?>" type="text/css">
   <link rel="stylesheet" href="<?= base_url('assets/fonts/font-awesome-4.3.0/css/font-awesome.min.css') ?>" type="text/css">
@@ -24,7 +24,7 @@
 				<span class="icon-bar"></span>
 			</button>
 			<a href="#" class="navbar-brand">
-				<img src="estilo/img/favicon.png" alt="logo">
+				<img src="<?= base_url('assets/img/favicon.png') ?>" alt="logo">
 			</a>
 			<a class="navbar-brand hidden-xs" href="index.php">Banco de Oportunidades</a>
 		</div>

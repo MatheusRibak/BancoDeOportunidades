@@ -4,7 +4,7 @@
         <title>Banco de Oportunidades</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" href="<?= base_url('assets/img/favicon.png') ?>">
         <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>" type="text/css">
         <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.min.css') ?>" type="text/css">
@@ -42,68 +42,22 @@
                                 </li>
                             </ul>
                         </li>
+
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <b>Login</b> <span class="caret"></span>
+                                Login <span class="caret"></span>
                             </a>
-                            <ul id="login-dp" class="dropdown-menu">
-                                <li class="hidden" id="i-forgot-form">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <form action="">
-                                                <div class="form-group input-group">
-                                                    <label for="email-remember" class="input-group-addon">
-                                                        <i class="fa fa-envelope fa-fw"></i>
-                                                    </label>
-                                                    <input type="email" class="form-control" id="email-remember" placeholder="E-mail cadastrado" required>
-                                                    <span class="input-group-btn">
-                                                        <button class="btn btn-primary" type="submit">Redefinir</button>
-                                                    </span>
-                                                </div>
-                                                <div class="help-block text-center">
-                                                    <p class="text-danger danger text-left">
-                                                        Será feita a redefinição da sua senha e será enviada para o e-mail cadastrado.
-                                                        <span class="text-muted">Lembrou da senha? <a class="pointer" id="i-remember">Login aqui.</a></span>
-                                                    </p>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="<?= base_url('academico/carregaLogin') ?>"><i class="fa fa-suitcase fa-fw"></i> Acadêmico</a>
                                 </li>
-                                <li id="login-form">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <form class="form" role="form" method="get" action="usuario_academico.php" id="login-nav">
-                                                <div class="form-group input-group">
-                                                    <label for="email-login" class="input-group-addon">
-                                                        <i class="fa fa-envelope fa-fw"></i>
-                                                    </label>
-                                                    <input type="email" class="form-control" id="email-login" placeholder="E-mail" required>
-                                                </div>
-                                                <div class="form-group input-group">
-                                                    <label for="senha-login" class="input-group-addon">
-                                                        <i class="fa fa-lock fa-fw"></i>
-                                                    </label>
-                                                    <input type="password" class="form-control" id="senha-login" placeholder="Senha" required>
-                                                </div>
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox" id="remember-me">
-                                                        <label for="remember-me" class="no-padding">Manter-me logado</label>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <button type="submit" class="btn btn-primary btn-block">Entrar</button>
-                                                </div>
-                                                <div class="help-block text-center">
-                                                    <a class="pointer" id="i-forgot">Esqueceu sua senha?</a>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="<?= site_url('Empregador') ?>"><i class="fa fa-suitcase fa-fw"></i> Empregador</a>
                                 </li>
                             </ul>
                         </li>
+
                     </ul>
                 </div>
             </div>

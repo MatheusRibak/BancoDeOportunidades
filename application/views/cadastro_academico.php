@@ -1,16 +1,17 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
-
     <head>
+        <title>Banco de Oportunidades</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Banco de Oportunidades</title>
-
-        <link rel="icon" href="assets/img/favicon.png">
-        <link rel="stylesheet" href="assets/css/style.css" type="text/css">
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css">
-        <link rel="stylesheet" href="assets/fonts/font-awesome-4.3.0/css/font-awesome.min.css" type="text/css">
+        <link rel="icon" href="<?= base_url('assets/img/favicon.png') ?>">
+        <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>" type="text/css">
+        <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.min.css') ?>" type="text/css">
+        <link rel="stylesheet" href="<?= base_url('assets/fonts/font-awesome-4.3.0/css/font-awesome.min.css') ?>" type="text/css">
     </head>
 
     <body>
@@ -24,9 +25,9 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a href="#" class="navbar-brand">
-                        <img src="estilo/img/favicon.png" alt="logo">
+                        <img src="<?= base_url('assets/img/favicon.png') ?>" alt="logo">
                     </a>
-                    <a class="navbar-brand hidden-xs" href="index.php">Banco de Oportunidades</a>
+                    <a class="navbar-brand hidden-xs" href="<?= site_url('Home') ?>">Banco de Oportunidades</a>
                 </div>
                 <div class="collapse navbar-collapse" id="navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
@@ -35,10 +36,26 @@
                                 Cadastre-se <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="academico"><i class="fa fa-graduation-cap fa-fw"></i> Acadêmico</a></li>
+                                <li>
+                                    <a href="<?= site_url('Academico') ?>"><i class="fa fa-suitcase fa-fw"></i> Acadêmico</a>
+                                </li>
                                 <li class="divider"></li>
                                 <li>
-                                    <a href="empregador"><i class="fa fa-suitcase fa-fw"></i> Empregador</a>
+                                    <a href="<?= site_url('Empregador') ?>"><i class="fa fa-suitcase fa-fw"></i> Empregador</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                Login <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="<?= base_url('academico/carregaLogin') ?>"><i class="fa fa-suitcase fa-fw"></i> Acadêmico</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="<?= site_url('Empregador') ?>"><i class="fa fa-suitcase fa-fw"></i> Empregador</a>
                                 </li>
                             </ul>
                         </li>
@@ -116,13 +133,20 @@
                             <h3>
                                 Acadêmico
                                 <small>Cadastre-se, é gratuíto!</small>
+
                             </h3>
+                            <?php echo validation_errors(); ?>
+                            <?php if ($this->input->get('aviso') == 1) { ?>
+                                <div class="alert alert-success">
+                                    Academico Cadastrado com sucesso! Por favor faça login para usar o sistema!
+                                </div>
+                            <?php } ?>
                             <small class="text-right">
-                                <a href="cadastro_empregador">Oops! Não sou acadêmico!</a>
+                                <a href="<?= site_url('Empregador') ?>">Oops! Não sou acadêmico!</a>
                             </small>
                             <hr>
-                            <form class="form-horizontal"  method="POST" action="<?=base_url('cadastro_academico')?>" >
-                               <input type="hidden" name="acao" value="inserir" />
+                            <form class="form-horizontal"  method="POST" action="<?= base_url('cadastro_academico') ?>" >
+                                <input type="hidden" name="acao" value="inserir" />
                                 <div class="form-group">
                                     <label for="nome" class="col-sm-2 control-label">Nome:</label>
 
@@ -218,9 +242,6 @@
                                         <button type="submit" class="btn btn-primary">Cadastrar</button>
                                     </div>
                                 </div>
-
-
-
                                 <input type="hidden" name="data_cadastro" value="<?php echo date('Y/m/d'); ?>"/>
                             </form>
                         </div>
@@ -249,9 +270,8 @@
                 </div>
             </div>
         </div>
-        <script src="assets/js/jquery.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/scripts.js"></script>
+        <script src="<?= base_url('assets/js/jquery.js') ?>"></script>
+        <script src="<?= base_url('assets/js/bootstrap.min.js') ?>"></script>
+        <script src="<?= base_url('assets/js/scripts.js') ?>"></script>
     </body>
-
 </html>

@@ -120,6 +120,8 @@
                             <small class="text-right">
                                 <a href="cadastro_empregador.php">Oops! Não sou acadêmico!</a>
                             </small>
+                                                        <?php echo validation_errors(); ?>
+                                                        <br><br>
                             <hr>
                             <form class="form-horizontal"  method="POST" action="controller/cadastra_academico.php">
                                 <div class="form-group">
@@ -201,7 +203,7 @@
                                         <input type="password" class="form-control" name = "senha" id="senha" placeholder="Digite sua senha" required>
                                     </div>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <div class="col-sm-offset-2 col-sm-10">
                                         <div class="checkbox">
@@ -224,7 +226,7 @@
                 </div>
             </div>
         </div>
-       
+
         <div class="modal fade" id="modal-contrato" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">

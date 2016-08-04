@@ -58,7 +58,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                     <label for="email-remember" class="input-group-addon">
                                                         <i class="fa fa-envelope fa-fw"></i>
                                                     </label>
-                                                    <input type="email" class="form-control" id="email-remember" placeholder="E-mail cadastrado" >
+                                                    <input type="email" class="form-control" id="email-remember" placeholder="E-mail cadastrado" required>
                                                     <span class="input-group-btn">
                                                         <button class="btn btn-primary" type="submit">Redefinir</button>
                                                     </span>
@@ -76,18 +76,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <li id="login-form">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <form class="form" role="form" method="get" action="usuario_academico.php" id="login-nav">
+                                            <form class="form" role="form" method="GET"  id="login-nav">
                                                 <div class="form-group input-group">
                                                     <label for="email-login" class="input-group-addon">
                                                         <i class="fa fa-envelope fa-fw"></i>
                                                     </label>
-                                                    <input type="email" class="form-control" id="email-login" placeholder="E-mail" >
+                                                    <input type="email" class="form-control" id="email-login" placeholder="E-mail" required>
                                                 </div>
                                                 <div class="form-group input-group">
                                                     <label for="senha-login" class="input-group-addon">
                                                         <i class="fa fa-lock fa-fw"></i>
                                                     </label>
-                                                    <input type="password" class="form-control" id="senha-login" placeholder="Senha" >
+                                                    <input type="password" class="form-control" id="senha-login" placeholder="Senha" required>
                                                 </div>
                                                 <div class="checkbox">
                                                     <label>
@@ -117,119 +117,55 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="panel panel-default col-md-8 col-md-offset-2">
                         <div class="panel-body">
                             <h3>
-                                Empregador <small>Cadastre-se, é gratuíto!</small>
+                                Acadêmico
+                                <small>Login</small>
+
                             </h3>
-                            <small class="text-right">
-                                <a href="<?= site_url('Academico') ?>">Oops! Não sou empregador!</a>
-                            </small>
                             <?php echo validation_errors(); ?>
-                            <br><br>
-                            <?php if ($this->input->get('aviso') == 1) { ?>
-                                <div class="alert alert-success">
-                                    Empregador Cadastrado com sucesso! Por favor faça login para usar o sistema!
-                                </div>
-                            <?php } ?>
+
+                            <small class="text-right">
+                                <a href="<?= site_url('Empregador') ?>">Oops! Não sou acadêmico!</a>
+                            </small>
+
                             <hr>
-                            <form class="form-horizontal"  method="POST" action="<?= site_url('Empregador/cadastraEmpregador') ?>">
+
+                            <form class="form-horizontal"  method="POST" action="<?= base_url('academico/loginAcademico') ?>" >
+
                                 <div class="form-group">
-                                    <label for="cnpj" class="col-sm-2 control-label">CNPJ:</label>
-                                    <div class="col-sm-5">
-                                        <input type="text" class="form-control" id="cnpj" placeholder="Digite o CNPJ da empresa"  name="cnpj">
+                                    <label for="nome" class="col-sm-2 control-label">Login</label>
+
+                                    <div class="col-sm-10">
+                                        <input type="email" class="form-control"  name = "email" placeholder="Digite seu login" required>
                                     </div>
                                 </div>
+
                                 <div class="form-group">
-                                    <label for="empresa" class="col-sm-2 control-label">Empresa:</label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="empresa" placeholder="Digite o nome da empresa"  name="nome">
-                                    </div>
-                                </div>    
-                                <div class="form-group">
-                                    <label for="telefone" class="col-sm-2 control-label">Telefone:</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" id="nome" name = "telefone" placeholder="Digite seu telefone"  name="telefone">
+                                    <label for="nome" class="col-sm-2 control-label">Senha</label>
+
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control"  name = "senha" placeholder="Digite sua senha" required>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="endereco" class="col-sm-2 control-label">Endereço:</label>
-                                    <div class="col-sm-6">
-                                        <input type="text" class="form-control" id="nome" name = "endereco" placeholder="Digite seu endereço"  name="endereco">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="estado" class="col-sm-2 control-label">Estado  *</label>
-                                    <div class="col-sm-4">
-                                        <select name="estado" lang="pt" class="form-control" name = "estado">
-                                            <option value="">Selecione o Estado</option>
-                                            <option value="AC">Acre</option>
-                                            <option value="AL">Alagoas</option>
-                                            <option value="AM">Amazonas</option>
-                                            <option value="AP">Amapá</option>
-                                            <option value="BA">Bahia</option>
-                                            <option value="CE">Ceará</option>
-                                            <option value="DF">Distrito Federal</option>
-                                            <option value="ES">Espírito Santo</option>
-                                            <option value="GO">Goiás</option>
-                                            <option value="MA">Maranhão</option>
-                                            <option value="MT">Mato Grosso</option>
-                                            <option value="MS">Mato Grosso do Sul</option>
-                                            <option value="MG">Minas Gerais</option>
-                                            <option value="PA">Pará</option>
-                                            <option value="PB">Paraíba</option>
-                                            <option value="PR">Paraná</option>
-                                            <option value="PE">Pernambuco</option>
-                                            <option value="PI">Piauí</option>
-                                            <option value="RJ">Rio de Janeiro</option>
-                                            <option value="RN">Rio Grande do Norte</option>
-                                            <option value="RO">Rondônia</option>
-                                            <option value="RS">Rio Grande do Sul</option>
-                                            <option value="RR">Roraima</option>
-                                            <option value="SC">Santa Catarina</option>
-                                            <option value="SE">Sergipe</option>
-                                            <option value="SP">São Paulo</option>
-                                            <option value="TO">Tocantins</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="nome" class="col-sm-2 control-label">Cidade:</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" id="nome"  placeholder="Digite seu cidade"  name="cidade" >
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email-cad" class="col-sm-2 control-label">E-mail:</label>
-                                    <div class="col-sm-7">
-                                        <input type="email" class="form-control" id="email-cad" placeholder="Digite o e-mail da empresa"  name="email">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="senha" class="col-sm-2 control-label">Senha:</label>
-                                    <div class="col-sm-3">
-                                        <input type="password" class="form-control" id="senha" placeholder="Digite a senha"  name="senha">
-                                    </div>
-                                </div>
-                                <input type="hidden" name="data_cadastro" value="<?php echo date('Y/m/d'); ?>"/>
-                                <div class="form-group">
-                                    <div class="col-sm-offset-2 col-sm-10">
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" > Aceito os
-                                            </label>
-                                            <a href="#" data-toggle="modal" data-target="#modal-contrato">Termos e Condições</a> do contrato.
-                                        </div>
-                                    </div>
-                                </div>
+
+
+
+
+
+
+
                                 <div class="form-group">
                                     <div class="col-sm-offset-2 col-sm-10">
                                         <button type="submit" class="btn btn-primary">Cadastrar</button>
                                     </div>
                                 </div>
+                                <input type="hidden" name="data_cadastro" value="<?php echo date('Y/m/d'); ?>"/>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
         <div class="modal fade" id="modal-contrato" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">

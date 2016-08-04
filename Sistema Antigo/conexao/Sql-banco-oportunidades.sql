@@ -1,5 +1,5 @@
 create table academico(
-    id_academico int not null auto_increment,
+    id_academico int not null auto_increment primary key,
     nome varchar(500),
     endereco varchar(100),
     estado char(2),
@@ -12,7 +12,7 @@ create table academico(
 );
 
 create table dados_curriculo(
-	id_curriculo int not null auto_increment,
+	id_curriculo int not null auto_increment primary key,
     id_academico int,
     graduacao varchar(300),
     instituicao_graduacao varchar(300),

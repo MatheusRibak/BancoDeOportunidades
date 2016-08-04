@@ -101,16 +101,18 @@
 								<table class="table table-hover no-margin">
 									<thead>
 									<tr>
-										<th>teste</th>
-										<th>teste</th>
-										<th>teste</th>
-										<th>teste</th>
+										<th>Curso</th>
+										<th>Tipo</th>
+										<th>Instituição</th>
+										<th>Data de Inicio</th>
+										<th>Data de Termino</th>
 										<th>Opções</th>
 									</tr>
 									</thead>
 									<tbody>
 									<tr>
 										<td>teste</td>
+											<td>teste</td>
 										<td>teste</td>
 										<td>teste</td>
 										<td>teste</td>
@@ -128,6 +130,7 @@
 										<td>teste</td>
 										<td>teste</td>
 										<td>teste</td>
+											<td>teste</td>
 										<td>
 											<a href="#" class="btn btn-primary btn-xs">
 												<i class="fa fa-pencil fa-fw"></i>
@@ -142,6 +145,7 @@
 										<td>teste</td>
 										<td>teste</td>
 										<td>teste</td>
+											<td>teste</td>
 										<td>
 											<a href="#" class="btn btn-primary btn-xs">
 												<i class="fa fa-pencil fa-fw"></i>
@@ -156,6 +160,7 @@
 										<td>teste</td>
 										<td>teste</td>
 										<td>teste</td>
+											<td>teste</td>
 										<td>
 											<a href="#" class="btn btn-primary btn-xs">
 												<i class="fa fa-pencil fa-fw"></i>
@@ -170,6 +175,7 @@
 										<td>teste</td>
 										<td>teste</td>
 										<td>teste</td>
+											<td>teste</td>
 										<td>
 											<a href="#" class="btn btn-primary btn-xs">
 												<i class="fa fa-pencil fa-fw"></i>
@@ -200,10 +206,9 @@
 								<table class="table table-hover no-margin">
 									<thead>
 									<tr>
-										<th>teste</th>
-										<th>teste</th>
-										<th>teste</th>
-										<th>teste</th>
+										<th>Ocupação</th>
+										<th>Empresa</th>
+										<th>Atividades</th>
 										<th>Opções</th>
 									</tr>
 									</thead>
@@ -212,7 +217,6 @@
 										<td>teste</td>
 										<td>teste</td>
 										<td>teste</td>
-										<td>teste</td>
 										<td>
 											<a href="#" class="btn btn-primary btn-xs">
 												<i class="fa fa-pencil fa-fw"></i>
@@ -226,7 +230,6 @@
 										<td>teste</td>
 										<td>teste</td>
 										<td>teste</td>
-										<td>teste</td>
 										<td>
 											<a href="#" class="btn btn-primary btn-xs">
 												<i class="fa fa-pencil fa-fw"></i>
@@ -237,7 +240,6 @@
 										</td>
 									</tr>
 									<tr>
-										<td>teste</td>
 										<td>teste</td>
 										<td>teste</td>
 										<td>teste</td>

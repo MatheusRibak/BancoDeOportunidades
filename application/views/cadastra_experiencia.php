@@ -60,8 +60,8 @@
 						<div class="panel-body">
 							<div class="pn-heading">
 								<span class="pull-left">
-									<strong>Formação
-										<small class="text-muted">Adicione a sua formação</small>
+									<strong>Experiencia Profissional
+										<small class="text-muted">Adicione a sua experiencia</small>
 									</strong>
 								</span>
 							</div>
@@ -75,7 +75,7 @@
 									<label for="nome" class="col-sm-2 control-label">Ocupação</label>
 
 									<div class="col-sm-10">
-										<input type="text" class="form-control" name="nome" placeholder="Digite aonde voce trabalhava" required>
+										<input type="text" class="form-control" name="nome" placeholder="Digite a sua função" required>
 									</div>
 								</div>
 
@@ -100,7 +100,7 @@
 									<label for="email-cad" class="col-sm-2 control-label">Data de inicio do trabalho</label>
 
 									<div class="col-sm-10">
-										<input type="date" class="form-control" name="inicio" placeholder="Digite a data" required>
+										<input type="date" class="form-control" name="inicio"  required>
 									</div>
 								</div>
 
@@ -114,7 +114,7 @@
                 <div class="form-group">
                   	<label for="email-cad" class="col-sm-2 control-label">data de termino do emprego</label>
                   <div class="col-sm-10">
-                    <input type="date" class="form-control" id="termino" name="termino" placeholder="" disabled="">
+                    <input type="date" class="form-control" id="termino" name="termino"  disabled="">
                   </div>
                 </div>
 

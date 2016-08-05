@@ -71,7 +71,7 @@
                       Formação Cadastrada com sucesso!
                   </div>
               <?php } ?>
-							<form class="form-horizontal" action="<?= base_url('academico/salvaFormacao') ?>" method="post">
+							<form class="form-horizontal" action="<?= base_url('Painel_academico/salvaFormacao') ?>" method="post">
 								<div class="form-group">
 									<label for="nome" class="col-sm-2 control-label">Nome do curso</label>
 

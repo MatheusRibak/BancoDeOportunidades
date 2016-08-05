@@ -32,7 +32,7 @@
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						<b>Manolo da Silva</b> <span class="caret"></span>
+						<b><?php echo $dadosAcademico->email ?></b> <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
 						<li>
@@ -43,7 +43,7 @@
 						</li>
 						<li class="divider"></li>
 						<li>
-							<a href="#"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
+							<a href="<?= base_url('Painel_academico/deslogar') ?>"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
 						</li>
 					</ul>
 				</li>
@@ -63,7 +63,7 @@
 									<strong>Perfil</strong>
 								</span>
 								<span class="pull-right">
-									<a href="#" class="btn btn-primary btn-xs">
+									<a href="<?= base_url('Painel_academico/carregaEditPerfil') ?>" class="btn btn-primary btn-xs">
 										Editar <i class="fa fa-wrench fa-fw"></i>
 									</a>
 								</span>
@@ -71,9 +71,10 @@
 							<div class="row">
 								<div class="col-xs-6 col-md-12">
 									<ul class="list-unstyled">
-										<li>Manolo da Silva</li>
-										<li>manolo_silva@example.com</li>
-										<li>Cidade - UF</li>
+										<li><?php echo $dadosAcademico->nome ?></li>
+										<li><?php echo $dadosAcademico->email ?></li>
+										<li><?php echo $dadosAcademico->cidade ?></li>
+										<li><?php echo $dadosAcademico->estado ?></li>
 									</ul>
 									<hr class="hidden-xs hidden-sm pn-divider">
 								</div>
@@ -92,7 +93,7 @@
 								<strong>Formação</strong>
 							</span>
 							<span class="pull-right">
-								<a href="<?= base_url('academico/carregaFormacao') ?>" class="btn btn-primary btn-xs">
+								<a href="<?= base_url('Painel_academico/carregaFormacao') ?>" class="btn btn-primary btn-xs">
 									Adicionar <i class="fa fa-plus fa-fw"></i>
 								</a>
 							</span>
@@ -197,7 +198,7 @@
 								<strong>Experiências Profissionais</strong>
 							</span>
 							<span class="pull-right">
-								<a href="<?= base_url('academico/carregaExp') ?>" class="btn btn-primary btn-xs">
+								<a href="<?= base_url('Painel_academico/carregaExp') ?>" class="btn btn-primary btn-xs">
 									Adicionar <i class="fa fa-plus fa-fw"></i>
 								</a>
 							</span>

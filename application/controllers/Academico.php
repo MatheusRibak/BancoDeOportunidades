@@ -16,14 +16,10 @@ class Academico extends CI_Controller {
       $this->load->view('login_academico');
     }
 
-    public function carregaFormacao(){
-      $this->load->view('cadastra_formacao');
-    }
 
-    public function carregaExp(){
 
-      $this->load->view('cadastra_experiencia');
-    }
+
+
 
   public function Salvar(){
     $nome = $this->input->post('nome');
@@ -63,68 +59,11 @@ class Academico extends CI_Controller {
     redirect('Academico/index/?aviso=1');
 }
 
-  public function salvaFormacao(){
-    $nome = $this->input->post('nome');
-    $tipo = $this->input->post('tipo');
-    $inicio = $this->input->post('inicio');
-    $termino = $this->input->post('termino');
-    $escola = $this->input->post('escola');
-    $id_academico =  $this->session->userdata('id_academico');
+public function perfilEditado(){
+  echo "aaa";
+}
 
-    $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
-    $this->form_validation->set_rules('nome', 'Nome', 'required|max_length[120]');
-    $this->form_validation->set_rules('tipo', 'Tipo', 'required|max_length[5]');
-    $this->form_validation->set_rules('termino', 'termino', 'required|max_length[120]');
-    $this->form_validation->set_rules('inicio', 'inicio', 'required|max_length[120]');
-    $this->form_validation->set_rules('escola', 'escola', 'required|max_length[120]');
-    if ($this->form_validation->run() == FALSE) {
-        $this->carregaFormacao();
-        return;
-    }
 
-    $this->load->model('Formacao_model');
-    $this->Formacao_model->salvaFormacao([
-        "id_academico" => $id_academico,
-        "nome" => $nome,
-        "tipo" => $tipo,
-        "inicio" => $inicio,
-        "termino" => $termino,
-        "escola" => $escola
-    ]);
-    redirect('Academico/carregaFormacao/?aviso=1');
-  }
-
-  public function salvaExp(){
-    $nome = $this->input->post('nome');
-    $empresa = $this->input->post('empresa');
-    $inicio = $this->input->post('inicio');
-    $termino = $this->input->post('termino');
-    $id_academico =  $this->session->userdata('id_academico');
-    $atividade = $this->input->post('atividade');
-
-    $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
-    $this->form_validation->set_rules('nome', 'Nome', 'required|max_length[120]');
-    $this->form_validation->set_rules('termino', 'termino', 'max_length[120]');
-    $this->form_validation->set_rules('inicio', 'inicio', 'required|max_length[120]');
-    $this->form_validation->set_rules('empresa', 'Empresa', 'required|max_length[120]');
-    $this->form_validation->set_rules('atividade', 'atividade', 'required|max_length[120]');
-
-    if ($this->form_validation->run() == FALSE) {
-        $this->carregaExp();
-        return;
-    }
-
-    $this->load->model('Experiencia_model');
-    $this->Experiencia_model->salvaExp([
-        "id_academico" => $id_academico,
-        "nome" => $nome,
-        "inicio" => $inicio,
-        "termino" => $termino,
-        "empresa" => $empresa,
-        "atividade" => $atividade
-    ]);
-    redirect('Academico/carregaExp/?aviso=1');
-  }
 
 public function loginAcademico(){
 
@@ -158,7 +97,7 @@ public function loginAcademico(){
 				$this->session->set_userdata('logado', TRUE);
 				$this->session->set_userdata('id_academico', $academico->id_academico);
 
-        $this->load->view('painel_academico');
+          redirect('/Painel_academico');
 
 				} else {
 					//se não tiver login e senha certo vai cair aqui

@@ -70,7 +70,7 @@
                     Experiencia Cadastrada com sucesso!
                   </div>
               <?php } ?>
-							<form class="form-horizontal" action="<?= base_url('academico/salvaExp') ?>" method="post">
+							<form class="form-horizontal" action="<?= base_url('Painel_academico/salvaExp') ?>" method="post">
 								<div class="form-group">
 									<label for="nome" class="col-sm-2 control-label">Ocupação</label>
 

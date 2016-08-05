@@ -32,18 +32,13 @@
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						<b>Manolo da Silva</b> <span class="caret"></span>
+						<b><?php echo $dadosAcademico->email ?></b> <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
+
+						
 						<li>
-							<a href="#"><i class="fa fa-file-text fa-fw"></i> Meu Currículo</a>
-						</li>
-						<li>
-							<a href="#"><i class="fa fa-wrench fa-fw"></i> Editar Perfil</a>
-						</li>
-						<li class="divider"></li>
-						<li>
-							<a href="#"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
+							<a href="<?= base_url('Painel_academico/deslogar') ?>"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
 						</li>
 					</ul>
 				</li>

@@ -111,82 +111,22 @@
 									</tr>
 									</thead>
 									<tbody>
-									<tr>
-										<td>teste</td>
-											<td>teste</td>
-										<td>teste</td>
-										<td>teste</td>
-										<td>teste</td>
-										<td>
-											<a href="#" class="btn btn-primary btn-xs">
-												<i class="fa fa-pencil fa-fw"></i>
-											</a>
-											<a href="#" class="btn btn-danger btn-xs">
-												<i class="fa fa-trash fa-fw"></i>
-											</a>
-										</td>
-									</tr>
-									<tr>
-										<td>teste</td>
-										<td>teste</td>
-										<td>teste</td>
-										<td>teste</td>
-											<td>teste</td>
-										<td>
-											<a href="#" class="btn btn-primary btn-xs">
-												<i class="fa fa-pencil fa-fw"></i>
-											</a>
-											<a href="#" class="btn btn-danger btn-xs">
-												<i class="fa fa-trash fa-fw"></i>
-											</a>
-										</td>
-									</tr>
-									<tr>
-										<td>teste</td>
-										<td>teste</td>
-										<td>teste</td>
-										<td>teste</td>
-											<td>teste</td>
-										<td>
-											<a href="#" class="btn btn-primary btn-xs">
-												<i class="fa fa-pencil fa-fw"></i>
-											</a>
-											<a href="#" class="btn btn-danger btn-xs">
-												<i class="fa fa-trash fa-fw"></i>
-											</a>
-										</td>
-									</tr>
-									<tr>
-										<td>teste</td>
-										<td>teste</td>
-										<td>teste</td>
-										<td>teste</td>
-											<td>teste</td>
-										<td>
-											<a href="#" class="btn btn-primary btn-xs">
-												<i class="fa fa-pencil fa-fw"></i>
-											</a>
-											<a href="#" class="btn btn-danger btn-xs">
-												<i class="fa fa-trash fa-fw"></i>
-											</a>
-										</td>
-									</tr>
-									<tr>
-										<td>teste</td>
-										<td>teste</td>
-										<td>teste</td>
-										<td>teste</td>
-											<td>teste</td>
-										<td>
-											<a href="#" class="btn btn-primary btn-xs">
-												<i class="fa fa-pencil fa-fw"></i>
-											</a>
-											<a href="#" class="btn btn-danger btn-xs">
-												<i class="fa fa-trash fa-fw"></i>
-											</a>
-										</td>
-									</tr>
-									</tbody>
+								                                            <?php foreach ($dadosFormacao as $formacao): ?>
+								                                                    <tr>
+								                                                        <td><?php echo $formacao->nome; ?></td>
+								                                                        <td><?php echo $formacao->tipo; ?></td>
+																																				<td><?php echo $formacao->escola; ?></td>
+																																				<td><?php echo $formacao->inicio; ?></td>
+																																				<td><?php echo $formacao->termino; ?></td>
+								                                                        <td>
+								                                                            <a  href="" class="btn btn-primary btn-xs">
+								                                                                <i class="fa fa-pencil fa-fw"></i>
+								                                                            </a>
+
+								                                                        </td>
+								                                                    </tr>
+								                                                <?php endforeach; ?>
+								                                            </tbody>
 								</table>
 							</div>
 						</div>
@@ -213,47 +153,21 @@
 										<th>Opções</th>
 									</tr>
 									</thead>
-									<tbody>
-									<tr>
-										<td>teste</td>
-										<td>teste</td>
-										<td>teste</td>
-										<td>
-											<a href="#" class="btn btn-primary btn-xs">
-												<i class="fa fa-pencil fa-fw"></i>
-											</a>
-											<a href="#" class="btn btn-danger btn-xs">
-												<i class="fa fa-trash fa-fw"></i>
-											</a>
-										</td>
-									</tr>
-									<tr>
-										<td>teste</td>
-										<td>teste</td>
-										<td>teste</td>
-										<td>
-											<a href="#" class="btn btn-primary btn-xs">
-												<i class="fa fa-pencil fa-fw"></i>
-											</a>
-											<a href="#" class="btn btn-danger btn-xs">
-												<i class="fa fa-trash fa-fw"></i>
-											</a>
-										</td>
-									</tr>
-									<tr>
-										<td>teste</td>
-										<td>teste</td>
-										<td>teste</td>
-										<td>
-											<a href="#" class="btn btn-primary btn-xs">
-												<i class="fa fa-pencil fa-fw"></i>
-											</a>
-											<a href="#" class="btn btn-danger btn-xs">
-												<i class="fa fa-trash fa-fw"></i>
-											</a>
-										</td>
-									</tr>
-									</tbody>
+									<?php foreach ($dadosExperiencia as $exp): ?>
+													<tr>
+															<td><?php echo $exp->nome; ?></td>
+															<td><?php echo $exp->empresa; ?></td>
+															<td><?php echo $exp->atividade; ?></td>
+															<td><?php echo $exp->inicio; ?></td>
+															
+															<td>
+																	<a  href="" class="btn btn-primary btn-xs">
+																			<i class="fa fa-pencil fa-fw"></i>
+																	</a>
+
+															</td>
+													</tr>
+											<?php endforeach; ?>
 								</table>
 							</div>
 						</div>

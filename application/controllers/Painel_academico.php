@@ -8,28 +8,47 @@ class Painel_academico extends MY_ControllerLogado {
     public function index() {
         $this->load->model('Academico_model');
         $this->load->model('Formacao_model');
+        $this->load->model('Experiencia_model');
 
 
 
         $id_academico = $this->session->userdata('id_academico');
         $data = array(
-            "dadosAcademico" => $this->Academico_model->getAcademico($id_academico)->row()
+            "dadosAcademico" => $this->Academico_model->getAcademico($id_academico)->row(),
+            "dadosFormacao" => $this->Formacao_model->getFormacao($id_academico)->result(),
+            "dadosExperiencia" => $this->Experiencia_model->getExp($id_academico)->result()
         );
 
-        $dados = array(
-          "dadosFormacao" => $this->Formacao_model->getFormacao($id_academico)->row()
-        );
 
-        $this->load->view('painel_academico', $data, $dados);
+
+        $this->load->view('painel_academico', $data);
     }
 
     public function carregaFormacao(){
-      $this->load->view('cadastra_formacao');
+      $this->load->model('Academico_model');
+      $this->load->model('Formacao_model');
+      $this->load->model('Experiencia_model');
+        $id_academico = $this->session->userdata('id_academico');
+      $data = array(
+          "dadosAcademico" => $this->Academico_model->getAcademico($id_academico)->row(),
+          "dadosFormacao" => $this->Formacao_model->getFormacao($id_academico)->result(),
+          "dadosExperiencia" => $this->Experiencia_model->getExp($id_academico)->result()
+      );
+      $this->load->view('cadastra_formacao', $data);
     }
 
     public function carregaExp(){
+      $this->load->model('Academico_model');
+      $this->load->model('Formacao_model');
+      $this->load->model('Experiencia_model');
+        $id_academico = $this->session->userdata('id_academico');
+      $data = array(
+          "dadosAcademico" => $this->Academico_model->getAcademico($id_academico)->row(),
+          "dadosFormacao" => $this->Formacao_model->getFormacao($id_academico)->result(),
+          "dadosExperiencia" => $this->Experiencia_model->getExp($id_academico)->result()
+      );
 
-      $this->load->view('cadastra_experiencia');
+      $this->load->view('cadastra_experiencia', $data);
     }
 
     public function salvaExp(){
@@ -61,7 +80,7 @@ class Painel_academico extends MY_ControllerLogado {
           "empresa" => $empresa,
           "atividade" => $atividade
       ]);
-      redirect('Academico/carregaExp/?aviso=1');
+      redirect('Painel_academico/carregaExp/?aviso=1');
     }
 
     public function salvaFormacao(){
@@ -79,7 +98,7 @@ class Painel_academico extends MY_ControllerLogado {
     $this->form_validation->set_rules('inicio', 'inicio', 'required|max_length[120]');
     $this->form_validation->set_rules('escola', 'escola', 'required|max_length[120]');
     if ($this->form_validation->run() == FALSE) {
-        $this->load->view('cadastra_formacao');
+        redirect('Painel_academico/carregaFormacao/?aviso=2');
         return;
     }
     $this->load->model('Formacao_model');
@@ -91,7 +110,7 @@ class Painel_academico extends MY_ControllerLogado {
         "termino" => $termino,
         "escola" => $escola
     ]);
-    redirect('Academico/carregaFormacao/?aviso=1');
+    redirect('Painel_academico/carregaFormacao/?aviso=1');
   }
 
   public function carregaEditPerfil(){

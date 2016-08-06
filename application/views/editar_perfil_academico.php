@@ -32,18 +32,13 @@
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						<b>Manolo da Silva</b> <span class="caret"></span>
+						<b><?php echo $dadosAcademico->email ?></b> <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
+
+
 						<li>
-							<a href="#"><i class="fa fa-file-text fa-fw"></i> Meu Currículo</a>
-						</li>
-						<li>
-							<a href="#"><i class="fa fa-wrench fa-fw"></i> Editar Perfil</a>
-						</li>
-						<li class="divider"></li>
-						<li>
-							<a href="#"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
+							<a href="<?= base_url('Painel_academico/deslogar') ?>"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
 						</li>
 					</ul>
 				</li>
@@ -52,6 +47,13 @@
 	</div>
 </nav>
 <div class="page-content">
+	<div class="col-sm-12">
+		<div class="col-sm-offset-2">
+			<br><br>
+			<a href="<?= base_url('Painel_academico/voltar') ?>">Voltar</a>
+			<br>
+		</div>
+	</div>
 	<div class="form-add-content">
 		<div class="container">
 			<div class="row">
@@ -65,12 +67,13 @@
 									</strong>
 								</span>
 							</div>
+							  <?php echo validation_errors(); ?>
               <?php if ($this->input->get('aviso') == 1) { ?>
                   <div class="alert alert-success">
-                    Experiencia Cadastrada com sucesso!
+                  Perfil Editado com sucesso!
                   </div>
               <?php } ?>
-              <form class="form-horizontal"  method="POST" action="<?= base_url('academico/perfilEditado') ?>">
+              <form class="form-horizontal"  method="POST" action="<?= base_url('Painel_academico/editarPerfil') ?>">
                   <div class="form-group">
                       <label for="nome" class="col-sm-2 control-label">Nome:</label>
 
@@ -140,8 +143,9 @@
                       <label for="email-cad" class="col-sm-2 control-label">E-mail:</label>
 
                       <div class="col-sm-10">
-                          <input type="email" class="form-control" name = "email" id="email-cad" value="<?php echo $dadosAcademico->email?>" placeholder="Digite seu e-mail" required>
+                          <input type="email" class="form-control" name = "emailuser" id="email-cad" value="<?php echo $dadosAcademico->email?>" disabled placeholder="Digite seu e-mail" required>
                       </div>
+											<input type="hidden" class="form-control" name = "email" id="email-cad" value="<?php echo $dadosAcademico->email?>">
                   </div>
                   <div class="form-group">
                       <label for="senha" class="col-sm-2 control-label">Senha:</label>

@@ -35,13 +35,8 @@
 						<b><?php echo $dadosAcademico->email ?></b> <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
-						<li>
-							<a href="#"><i class="fa fa-file-text fa-fw"></i> Meu Currículo</a>
-						</li>
-						<li>
-							<a href="#"><i class="fa fa-wrench fa-fw"></i> Editar Perfil</a>
-						</li>
-						<li class="divider"></li>
+
+
 						<li>
 							<a href="<?= base_url('Painel_academico/deslogar') ?>"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
 						</li>
@@ -107,7 +102,7 @@
 										<th>Instituição</th>
 										<th>Data de Inicio</th>
 										<th>Data de Termino</th>
-										<th>Opções</th>
+
 									</tr>
 									</thead>
 									<tbody>
@@ -119,9 +114,6 @@
 																																				<td><?php echo $formacao->inicio; ?></td>
 																																				<td><?php echo $formacao->termino; ?></td>
 								                                                        <td>
-								                                                            <a  href="" class="btn btn-primary btn-xs">
-								                                                                <i class="fa fa-pencil fa-fw"></i>
-								                                                            </a>
 
 								                                                        </td>
 								                                                    </tr>
@@ -150,7 +142,8 @@
 										<th>Ocupação</th>
 										<th>Empresa</th>
 										<th>Atividades</th>
-										<th>Opções</th>
+
+
 									</tr>
 									</thead>
 									<?php foreach ($dadosExperiencia as $exp): ?>
@@ -158,12 +151,10 @@
 															<td><?php echo $exp->nome; ?></td>
 															<td><?php echo $exp->empresa; ?></td>
 															<td><?php echo $exp->atividade; ?></td>
-															<td><?php echo $exp->inicio; ?></td>
-															
+
+
 															<td>
-																	<a  href="" class="btn btn-primary btn-xs">
-																			<i class="fa fa-pencil fa-fw"></i>
-																	</a>
+																	
 
 															</td>
 													</tr>

@@ -23,7 +23,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a href="#" class="navbar-brand">
+			<a href="<?= site_url('Painel_academico/index') ?>" class="navbar-brand">
 				<img src="<?= base_url('assets/img/favicon.png') ?>" alt="logo">
 			</a>
 			<a class="navbar-brand hidden-xs" href="index.php">Banco de Oportunidades</a>
@@ -47,9 +47,20 @@
 	</div>
 </nav>
 <div class="page-content">
+	<div class="col-sm-12">
+		<div class="col-sm-offset-2">
+			<br><br>
+			<a href="<?= base_url('Painel_academico/voltar') ?>">Voltar</a>
+			<br>
+		</div>
+	</div>
 	<div class="form-add-content">
+
+
 		<div class="container">
+
 			<div class="row">
+
 				<div class="col-md-offset-1 col-md-10">
 					<div class="panel panel-default">
 						<div class="panel-body">

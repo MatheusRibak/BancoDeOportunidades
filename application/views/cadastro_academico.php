@@ -79,6 +79,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     Academico Cadastrado com sucesso! Por favor faça login para usar o sistema!
                                 </div>
                             <?php } ?>
+                            <?php if ($this->input->get('aviso') == 2) { ?>
+                                <div class="alert alert-danger">
+                                    E-mail já está cadastrado no sistema! Tente colocar outro e-mail, ou verifique se você já não é cadastrado!
+                                </div>
+                            <?php } ?>
                             <small class="text-right">
                                 <a href="<?= site_url('Empregador') ?>">Oops! Não sou acadêmico!</a>
                             </small>

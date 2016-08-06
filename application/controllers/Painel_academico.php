@@ -37,6 +37,19 @@ class Painel_academico extends MY_ControllerLogado {
       $this->load->view('cadastra_formacao', $data);
     }
 
+    public function voltar(){
+      $this->load->model('Academico_model');
+      $this->load->model('Formacao_model');
+      $this->load->model('Experiencia_model');
+        $id_academico = $this->session->userdata('id_academico');
+      $data = array(
+          "dadosAcademico" => $this->Academico_model->getAcademico($id_academico)->row(),
+          "dadosFormacao" => $this->Formacao_model->getFormacao($id_academico)->result(),
+          "dadosExperiencia" => $this->Experiencia_model->getExp($id_academico)->result()
+      );
+      $this->load->view('painel_academico', $data);
+    }
+
     public function carregaExp(){
       $this->load->model('Academico_model');
       $this->load->model('Formacao_model');
@@ -120,6 +133,44 @@ class Painel_academico extends MY_ControllerLogado {
     );
     $this->load->view('editar_perfil_academico', $data);
   }
+
+  public function editarPerfil(){
+    $nome = $this->input->post('nome');
+    $endereco = $this->input->post('endereco');
+    $cidade = $this->input->post('cidade');
+    $estado = $this->input->post('estado');
+    $email = $this->input->post('email');
+    $telefone = $this->input->post('telefone');
+    $senha = md5($this->input->post('senha'));
+    $data_cadastro = $this->input->post('data_cadastro');
+
+    $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
+    $this->form_validation->set_rules('nome', 'Nome', 'required|max_length[120]');
+    $this->form_validation->set_rules('endereco', 'Endereço', 'required|max_length[120]');
+    $this->form_validation->set_rules('cidade', 'Cidade', 'required|max_length[120]');
+    $this->form_validation->set_rules('estado', 'Estado', 'required|max_length[120]');
+    $this->form_validation->set_rules('email', 'E-mail', 'required|max_length[120]');
+    $this->form_validation->set_rules('telefone', 'Telefone', 'required|max_length[120]');
+    $this->form_validation->set_rules('senha', 'Senha', 'required|max_length[120]');
+
+    if ($this->form_validation->run() == FALSE) {
+        $this->carregaEditPerfil();
+        return;
+    }
+
+    $this->load->model('Academico_model');
+    $this->Academico_model->Editar([
+        "nome" => $nome,
+        "endereco" => $endereco,
+        "cidade" => $cidade,
+        "estado" => $estado,
+        "email" => $email,
+        "telefone" => $telefone,
+        "senha" => $senha,
+        "data_cadastro" => $data_cadastro
+    ]);
+    redirect('Painel_academico/carregaEditPerfil/?aviso=1');
+}
 
   function deslogar(){
     $this->session->sess_destroy();

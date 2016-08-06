@@ -36,7 +36,7 @@
 					</a>
 					<ul class="dropdown-menu">
 
-						
+
 						<li>
 							<a href="<?= base_url('Painel_academico/deslogar') ?>"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
 						</li>
@@ -47,6 +47,13 @@
 	</div>
 </nav>
 <div class="page-content">
+	<div class="col-sm-12">
+		<div class="col-sm-offset-2">
+			<br><br>
+			<a href="<?= base_url('Painel_academico/voltar') ?>">Voltar</a>
+			<br>
+		</div>
+	</div>
 	<div class="form-add-content">
 		<div class="container">
 			<div class="row">

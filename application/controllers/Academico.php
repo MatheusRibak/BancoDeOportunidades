@@ -45,18 +45,30 @@ class Academico extends CI_Controller {
         return;
     }
 
-    $this->load->model('Academico_model');
-    $this->Academico_model->Salvar([
-        "nome" => $nome,
-        "endereco" => $endereco,
-        "cidade" => $cidade,
-        "estado" => $estado,
-        "email" => $email,
-        "telefone" => $telefone,
-        "senha" => $senha,
-        "data_cadastro" => $data_cadastro
-    ]);
-    redirect('Academico/index/?aviso=1');
+    $this->db->select('email');
+        $this->db->where('email', $this->input->post('email'));
+        $retorno = $this->db->get('academico')->num_rows();
+         //verifica se já existe um email igual cadastrado, caso exista vai mostrar a mensagem
+         //caso não o cadastro será realizado
+         if($retorno > 0 ){
+          redirect('Academico/index/?aviso=2');
+         } else {
+           # code...
+           $this->load->model('Academico_model');
+           $this->Academico_model->Salvar([
+               "nome" => $nome,
+               "endereco" => $endereco,
+               "cidade" => $cidade,
+               "estado" => $estado,
+               "email" => $email,
+               "telefone" => $telefone,
+               "senha" => $senha,
+               "data_cadastro" => $data_cadastro
+           ]);
+           redirect('Academico/index/?aviso=1');
+         }
+
+
 }
 
 public function perfilEditado(){

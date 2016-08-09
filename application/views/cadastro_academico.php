@@ -1,16 +1,17 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
-
     <head>
+        <title>Banco de Oportunidades</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Banco de Oportunidades</title>
-
-        <link rel="icon" href="assets/img/favicon.png">
-        <link rel="stylesheet" href="assets/css/style.css" type="text/css">
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css">
-        <link rel="stylesheet" href="assets/fonts/font-awesome-4.3.0/css/font-awesome.min.css" type="text/css">
+        <link rel="icon" href="<?= base_url('assets/img/favicon.png') ?>">
+        <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>" type="text/css">
+        <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.min.css') ?>" type="text/css">
+        <link rel="stylesheet" href="<?= base_url('assets/fonts/font-awesome-4.3.0/css/font-awesome.min.css') ?>" type="text/css">
     </head>
 
     <body>
@@ -24,9 +25,9 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a href="#" class="navbar-brand">
-                        <img src="estilo/img/favicon.png" alt="logo">
+                        <img src="<?= base_url('assets/img/favicon.png') ?>" alt="logo">
                     </a>
-                    <a class="navbar-brand hidden-xs" href="index.php">Banco de Oportunidades</a>
+                    <a class="navbar-brand hidden-xs" href="<?= site_url('Home') ?>">Banco de Oportunidades</a>
                 </div>
                 <div class="collapse navbar-collapse" id="navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
@@ -35,72 +36,26 @@
                                 Cadastre-se <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="academico"><i class="fa fa-graduation-cap fa-fw"></i> Acadêmico</a></li>
+                                <li>
+                                    <a href="<?= site_url('Academico') ?>"><i class="fa fa-graduation-cap fa-fw"></i> Acadêmico</a>
+                                </li>
                                 <li class="divider"></li>
                                 <li>
-                                    <a href="empregador"><i class="fa fa-suitcase fa-fw"></i> Empregador</a>
+                                    <a href="<?= site_url('Empregador') ?>"><i class="fa fa-suitcase fa-fw"></i> Empregador</a>
                                 </li>
                             </ul>
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <b>Login</b> <span class="caret"></span>
+                                Login <span class="caret"></span>
                             </a>
-                            <ul id="login-dp" class="dropdown-menu">
-                                <li class="hidden" id="i-forgot-form">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <form action="">
-                                                <div class="form-group input-group">
-                                                    <label for="email-remember" class="input-group-addon">
-                                                        <i class="fa fa-envelope fa-fw"></i>
-                                                    </label>
-                                                    <input type="email" class="form-control" id="email-remember" placeholder="E-mail cadastrado" required>
-                                                    <span class="input-group-btn">
-                                                        <button class="btn btn-primary" type="submit">Redefinir</button>
-                                                    </span>
-                                                </div>
-                                                <div class="help-block text-center">
-                                                    <p class="text-danger danger text-left">
-                                                        Será feita a redefinição da sua senha e será enviada para o e-mail cadastrado.
-                                                        <span class="text-muted">Lembrou da senha? <a class="pointer" id="i-remember">Login aqui.</a></span>
-                                                    </p>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="<?= base_url('academico/carregaLogin') ?>"><i class="fa fa-graduation-cap fa-fw"></i> Sou acadêmico</a>
                                 </li>
-                                <li id="login-form">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <form class="form" role="form" method="GET"  id="login-nav">
-                                                <div class="form-group input-group">
-                                                    <label for="email-login" class="input-group-addon">
-                                                        <i class="fa fa-envelope fa-fw"></i>
-                                                    </label>
-                                                    <input type="email" class="form-control" id="email-login" placeholder="E-mail" required>
-                                                </div>
-                                                <div class="form-group input-group">
-                                                    <label for="senha-login" class="input-group-addon">
-                                                        <i class="fa fa-lock fa-fw"></i>
-                                                    </label>
-                                                    <input type="password" class="form-control" id="senha-login" placeholder="Senha" required>
-                                                </div>
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox" id="remember-me">
-                                                        <label for="remember-me" class="no-padding">Manter-me logado</label>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <button type="submit" class="btn btn-primary btn-block">Entrar</button>
-                                                </div>
-                                                <div class="help-block text-center">
-                                                    <a class="pointer" id="i-forgot">Esqueceu sua senha?</a>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="<?= site_url('Login') ?>"><i class="fa fa-suitcase fa-fw"></i> Sou empregador</a>
                                 </li>
                             </ul>
                         </li>
@@ -116,48 +71,52 @@
                             <h3>
                                 Acadêmico
                                 <small>Cadastre-se, é gratuíto!</small>
+
                             </h3>
+                            <?php echo validation_errors(); ?>
+                            <?php if ($this->input->get('aviso') == 1) { ?>
+                                <div class="alert alert-success">
+                                    Academico Cadastrado com sucesso! Por favor faça login para usar o sistema!
+                                </div>
+                            <?php } ?>
+                            <?php if ($this->input->get('aviso') == 2) { ?>
+                                <div class="alert alert-danger">
+                                    E-mail já está cadastrado no sistema! Tente colocar outro e-mail, ou verifique se você já não é cadastrado!
+                                </div>
+                            <?php } ?>
                             <small class="text-right">
-                                <a href="cadastro_empregador">Oops! Não sou acadêmico!</a>
+                                <a href="<?= site_url('Empregador') ?>">Oops! Não sou acadêmico!</a>
                             </small>
                             <hr>
-                            <form class="form-horizontal"  method="POST" action="<?=base_url('cadastro_academico')?>" >
-                               <input type="hidden" name="acao" value="inserir" />
+                            <form class="form-horizontal"  method="POST" action="<?= site_url('Academico/cadastrarAcademico') ?>" >
                                 <div class="form-group">
                                     <label for="nome" class="col-sm-2 control-label">Nome:</label>
-
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="nome" name = "nome" placeholder="Digite seu nome completo" required>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="nome" name = "nome" placeholder="Digite seu nome completo" >
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="nome" class="col-sm-2 control-label">Endereço:</label>
-
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="nome" name = "endereco" placeholder="Digite seu endereço" required>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="nome" name = "endereco" placeholder="Digite seu endereço" >
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="nome" class="col-sm-2 control-label">Telefone:</label>
-
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" id="nome" name = "telefone" placeholder="Digite seu telefone" required>
+                                        <input type="text" class="form-control phone" id="nome" name = "telefone" placeholder="Digite seu telefone" >
                                     </div>
                                 </div>
-
                                 <div class="form-group">
                                     <label for="nome" class="col-sm-2 control-label">Cidade:</label>
-
-                                    <div class="col-sm-5">
-                                        <input type="text" class="form-control" id="nome" name = "cidade" placeholder="Digite seu cidade" required>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="nome" name = "cidade" placeholder="Digite seu cidade" >
                                     </div>
                                 </div>
-
                                 <div class="form-group">
                                     <label for="estado" class="col-sm-2 control-label">Estado  *</label>
-                                    <div class="col-sm-4">
-                                        <select name="estado" lang="pt" class="form-control" name = "estado" required="">
-                                            <option value="">Selecione o Estado</option>
+                                    <div class="col-sm-3">
+                                        <select name="estado" lang="pt" class="form-control" name = "estado">
                                             <option value="AC">Acre</option>
                                             <option value="AL">Alagoas</option>
                                             <option value="AM">Amazonas</option>
@@ -190,16 +149,14 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="email-cad" class="col-sm-2 control-label">E-mail:</label>
-
-                                    <div class="col-sm-9">
-                                        <input type="email" class="form-control" name = "email" id="email-cad" placeholder="Digite seu e-mail" required>
+                                    <div class="col-sm-7">
+                                        <input type="email" class="form-control" name = "email" id="email-cad" placeholder="Digite seu e-mail" >
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="senha" class="col-sm-2 control-label">Senha:</label>
-
-                                    <div class="col-sm-6">
-                                        <input type="password" class="form-control" name = "senha" id="senha" placeholder="Digite sua senha" required>
+                                    <div class="col-sm-4">
+                                        <input type="password" class="form-control" name = "senha" id="senha" placeholder="Digite sua senha" >
                                     </div>
                                 </div>
 
@@ -207,7 +164,7 @@
                                     <div class="col-sm-offset-2 col-sm-10">
                                         <div class="checkbox">
                                             <label>
-                                                <input type="checkbox" required> Aceito os
+                                                <input type="checkbox" > Aceito os
                                             </label>
                                             <a href="#" data-toggle="modal" data-target="#modal-contrato">Termos e Condições</a> do contrato.
                                         </div>
@@ -218,9 +175,6 @@
                                         <button type="submit" class="btn btn-primary">Cadastrar</button>
                                     </div>
                                 </div>
-
-
-
                                 <input type="hidden" name="data_cadastro" value="<?php echo date('Y/m/d'); ?>"/>
                             </form>
                         </div>
@@ -249,9 +203,13 @@
                 </div>
             </div>
         </div>
-        <script src="assets/js/jquery.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/scripts.js"></script>
+        <script src="<?= base_url('assets/js/jquery.js') ?>"></script>
+        <script src="<?= base_url('assets/js/bootstrap.min.js') ?>"></script>
+        <script src="<?= base_url('assets/js/scripts.js') ?>"></script>
+        <script src="<?= base_url('assets/js/jquery.mask.min.js') ?>"></script>
+        <script type="text/javascript">
+            $('.phone').mask('(00) 0000 - 0000');
+            $('.cnpj').mask('00.000.000/0000-00', {reverse: true});
+        </script>
     </body>
-
 </html>

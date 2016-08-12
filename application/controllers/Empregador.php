@@ -16,6 +16,7 @@ class Empregador extends CI_Controller {
         $email = $this->input->post('email');
         $telefone = $this->input->post('telefone');
         $senha = md5($this->input->post('senha'));
+
         $data_cadastro = $this->input->post('data_cadastro');
 
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
@@ -47,7 +48,4 @@ class Empregador extends CI_Controller {
         ]);
         redirect('Empregador/index/?aviso=1');
     }
-    
-    
-
 }

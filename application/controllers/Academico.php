@@ -1,5 +1,4 @@
-<?php
-defined('BASEPATH') OR exit ('No direct script access allowed');
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Academico extends CI_Controller {
 
@@ -64,11 +63,9 @@ class Academico extends CI_Controller {
     }
 
     public function loginAcademico() {
-
         //pega os dados vindos da view de login
         $academico_email = $this->input->post('email');
         $academico_senha = $this->input->post('senha');
-
         //fazendo a validação do formulario de login
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
         $this->form_validation->set_rules('email', 'email', 'required|max_length[120]');

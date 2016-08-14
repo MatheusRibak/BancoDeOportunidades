@@ -33,7 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">                                
-                                <b>Usuário: <?php echo $dadosEmpregador->email ?></b> <span class="caret"></span>
+                                <b>Usuário: </b><?php echo $dadosEmpregador->email ?> <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
@@ -53,6 +53,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             Vaga Cadastrada com sucesso!
                         </div>
                     <?php } ?>
+                    <?php if ($this->input->get('aviso') == 2) { ?>
+                        <div class="alert alert-success">
+                            Empregador alterado com sucesso!
+                        </div>
+                    <?php } ?>
+                    <?php if ($this->input->get('aviso') == 3) { ?>
+                        <div class="alert alert-success">
+                            Vaga alterada com sucesso!
+                        </div>
+                    <?php } ?>
                     <div class="row">
                         <div class="col-md-3">
                             <div class="panel panel-default">
@@ -62,7 +72,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <strong>Perfil</strong>
                                         </span>
                                         <span class="pull-right">
-                                            <a href="<?= site_url('PainelEmpregador/editarPerfil/'.$dadosEmpregador->id_empregador) ?>" class="btn btn-primary btn-xs">
+                                            <a href="<?= site_url('Empregador/editarPerfil/' . $dadosEmpregador->id_empregador) ?>" class="btn btn-primary btn-xs">
                                                 Editar <i class="fa fa-wrench fa-fw"></i>
                                             </a>
                                         </span>
@@ -70,10 +80,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <div class="row">
                                         <div class="col-xs-6 col-md-12">
                                             <ul class="list-unstyled">
-                                                <li><?php echo $dadosEmpregador->nome_empresa ?></li>
-                                                <li><?php echo $dadosEmpregador->email ?></li>                                                
-                                                <li><?php echo $dadosEmpregador->cidade ?></li>
-                                                <li><?php echo $dadosEmpregador->estado ?></li>
+                                                <li><strong>Empresa: </strong><?php echo $dadosEmpregador->nome_empresa ?></li>
+                                                <li><strong>E-mail: </strong><?php echo $dadosEmpregador->email ?></li>                                                
+                                                <li><strong>Cidade: </strong><?php echo $dadosEmpregador->cidade ?></li>
+                                                <li><strong>Estado: </strong><?php echo $dadosEmpregador->estado ?></li>
                                             </ul>
                                             <hr class="hidden-xs hidden-sm pn-divider">
                                         </div>
@@ -113,7 +123,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                         <td><?php echo $vaga->nivel; ?></td>
                                                         <td><?php echo $vaga->periodo; ?></td>
                                                         <td>
-                                                            <a  href="<?= site_url('PainelEmpregador/editarVaga/'.$vaga->id_dado_vaga) ?>" class="btn btn-primary btn-xs">
+                                                            <a  href="<?= site_url('Vagas/editarVaga/' . $vaga->id_dado_vaga . "/" . $dadosEmpregador->id_empregador) ?>" class="btn btn-primary btn-xs">
                                                                 <i class="fa fa-pencil fa-fw"></i>
                                                             </a>
                                                             <a href="#" 
@@ -125,6 +135,50 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                         </td>
                                                     </tr>
                                                 <?php endforeach; ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="pn-heading">
+                                        <span class="pull-left">
+                                            <strong>Curriculos selecionados</strong>
+                                        </span>
+                                        <span class="pull-right">
+                                            <a  href="<?= site_url('#') ?>" class="btn btn-primary btn-xs">
+                                                Pesquisar curriculos <i class="fa fa-search" aria-hidden="true"></i>
+                                            </a>
+                                        </span>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-hover no-margin">
+                                            <thead>
+                                                <tr>
+                                                    <th>Nome</th>
+                                                    <th>Telefone </th>
+                                                    <th>Email</th>
+                                                    <th>Vaga</th>
+                                                    <th>Opções</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><?php echo "Fulano"; ?></td>
+                                                    <td><?php echo "(00) 0000-0000"; ?></td>
+                                                    <td><?php echo "fulano@hotmail.com"; ?></td>
+                                                    <td><?php echo "Vaga X"; ?></td>
+                                                    <td>
+                                                        <a href="#" 
+                                                           class="btn btn-danger btn-xs"
+                                                           onclick="return confirm('Têm certeza que deseja excluir este registro?')"
+                                                           >
+                                                            <i class="fa fa-trash fa-fw"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
                                             </tbody>
                                         </table>
                                     </div>

@@ -34,7 +34,7 @@
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a href="academico"><i class="fa fa-graduation-cap fa-fw"></i> Acadêmico</a>
+                                    <a href="<?= site_url('Academico') ?>"><i class="fa fa-graduation-cap fa-fw"></i> Acadêmico</a>
                                 </li>
                                 <li class="divider"></li>
                                 <li>
@@ -48,7 +48,7 @@
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a href="academico"><i class="fa fa-graduation-cap fa-fw"></i> Sou acadêmico</a>
+                                    <a href="<?= site_url('Academico/carregaLogin') ?>"><i class="fa fa-graduation-cap fa-fw"></i> Sou acadêmico</a>
                                 </li>
                                 <li class="divider"></li>
                                 <li>
@@ -62,52 +62,106 @@
         </nav>
         <div class="page-content">
             <div class="banner">
-                <div class="container">
+                <div class="container">                    
                     <div class="busca-form row">
                         <div class="col-sm-8 col-sm-offset-2">
-                            <div class="input-group">
-                                <div class="input-group-btn search-panel">
-                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                        <span id="search_concept">Currículos</span> <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li>
-                                            <a href="#contains">Currículos</a>
-                                        </li>
-                                        <li>
-                                            <a href="#its_equal">Vagas</a>
-                                        </li>
-                                        <li>
-                                            <a href="#greather_than">Empresas</a>
-                                        </li>
-                                        <li>
-                                            <a href="#less_than"></a>
-                                        </li>
-                                    </ul>
+                            <?php if ($this->input->get('aviso') == 1) { ?>
+                                <div class="alert alert-success alert-dismissible fade in" role="alert"> 
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button> 
+                                    <strong>Sucesso !</strong>  Empregador Cadastrado com sucesso! Por favor faça login para usar o sistema! 
                                 </div>
-                                <input type="hidden" name="search_param" value="all" id="search_param">
-                                <select class="form-control">
-                                    <option value="Teste">Teste</option>
-                                </select>
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button">
-                                        <i class="fa fa-search fa-fw"></i>
-                                    </button>
-                                </span>
-                            </div>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="container">
-                <div class="intro text-center">
-                    <h2>Lorem ipsum dolor sit amet</h2>
+        </div>
+        <div class="container">
+            <div class="intro text-center">
+                <h2>Lorem ipsum dolor sit amet</h2>
+                <hr>
 
-                    <h3 class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
-                    <hr>
-                </div>
+                <!-- Three columns of text below the carousel -->
+                <div class="row">
+                    <div class="col-lg-4">
+                        <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+                        <h2>Heading</h2>
+                        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus..</p>
+                        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                    </div><!-- /.col-lg-4 -->
+                    <div class="col-lg-4">
+                        <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+                        <h2>Heading</h2>
+                        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                    </div><!-- /.col-lg-4 -->
+                    <div class="col-lg-4">
+                        <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+                        <h2>Heading</h2>
+                        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                    </div><!-- /.col-lg-4 -->
+                </div><!-- /.row -->
+            </div>
+            
+            <div class="intro text-center">
+                <h2>Lorem ipsum dolor sit amet</h2>
+                <hr>
+
+                <!-- Three columns of text below the carousel -->
+                <div class="row">
+                    <div class="col-lg-4">
+                        <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+                        <h2>Heading</h2>
+                        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus..</p>
+                        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                    </div><!-- /.col-lg-4 -->
+                    <div class="col-lg-4">
+                        <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+                        <h2>Heading</h2>
+                        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                    </div><!-- /.col-lg-4 -->
+                    <div class="col-lg-4">
+                        <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+                        <h2>Heading</h2>
+                        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                    </div><!-- /.col-lg-4 -->
+                </div><!-- /.row -->
+            </div>
+            
+            <div class="intro text-center">
+                <h2>Lorem ipsum dolor sit amet</h2>
+                <hr>
+
+                <!-- Three columns of text below the carousel -->
+                <div class="row">
+                    <div class="col-lg-4">
+                        <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+                        <h2>Heading</h2>
+                        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus..</p>
+                        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                    </div><!-- /.col-lg-4 -->
+                    <div class="col-lg-4">
+                        <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+                        <h2>Heading</h2>
+                        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                    </div><!-- /.col-lg-4 -->
+                    <div class="col-lg-4">
+                        <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+                        <h2>Heading</h2>
+                        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                    </div><!-- /.col-lg-4 -->
+                </div><!-- /.row -->
             </div>
         </div>
+
+
         <script src="<?= base_url('assets/js/jquery.js') ?>"></script>
         <script src="<?= base_url('assets/js/bootstrap.min.js') ?>"></script>
         <script src="<?= base_url('assets/js/scripts.js') ?>"></script>

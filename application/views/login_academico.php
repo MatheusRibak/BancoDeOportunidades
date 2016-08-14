@@ -61,10 +61,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <small class="text-right">
                                 <a href="<?= site_url('Login') ?>">Oops! Não sou acadêmico!</a>
                             </small>
-
-                            <hr>
+                            <?php if (isset($login_falhou) && $login_falhou == TRUE) { ?>
+                                <div class="alert alert-danger text-center">
+                                    Usuário e/ou senha não encontrados! 
+                                </div>
+                            <?php } ?>
                             <?php echo validation_errors(); ?>
-                            <form class="form-horizontal"  method="POST" action="<?= base_url('academico/loginAcademico') ?>" >
+                            <form class="form-horizontal"  method="POST" action="<?= site_url('Academico/loginAcademico') ?>" >
 
                                 <div class="form-group">
                                     <label for="nome" class="col-sm-2 control-label">Login</label>
@@ -75,7 +78,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                 <div class="form-group">
                                     <label for="nome" class="col-sm-2 control-label">Senha</label>
-                                    <div class="col-sm-10">
+                                    <div class="col-sm-5">
                                         <input type="password" class="form-control"  name = "senha" placeholder="Digite sua senha" >
                                     </div>
                                 </div>

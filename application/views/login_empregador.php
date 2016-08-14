@@ -37,7 +37,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a href="<?= base_url('academico/carregaLogin') ?>"><i class="fa fa-graduation-cap fa-fw"></i> Sou acadêmico</a>
+                                    <a href="<?= site_url('academico/carregaLogin') ?>"><i class="fa fa-graduation-cap fa-fw"></i> Sou acadêmico</a>
                                 </li>
                                 <li class="divider"></li>
                                 <li>

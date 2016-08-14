@@ -8,10 +8,12 @@ class MY_ControllerLogado extends CI_Controller {
         if (!$this->session->userdata('logadoEmpregador')) {
             redirect('/Login');
         }
-
-        if (!$this->session->userdata('logadoAcademico')) {
-            redirect('Academico/carregaLogin');
-        }
     }
+    
+//    function confereAcademico(){
+//        if (!$this->session->userdata('logadoAcademico')) {
+//            redirect('/Login');
+//        }
+//    }
 
 }

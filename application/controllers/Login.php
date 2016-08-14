@@ -27,7 +27,7 @@ class Login extends CI_Controller {
                 ->select("*")
                 ->from("empregador")
                 ->where("email", $email)
-                ->where("senha", $senha);
+                ->where("senha", md5($senha));
 
         $dadosAdmin = $this->db->get();
         if ($dadosAdmin->num_rows() > 0) {

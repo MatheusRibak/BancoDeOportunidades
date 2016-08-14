@@ -89,13 +89,12 @@ class Academico extends CI_Controller {
         if ($dadosAcademico->num_rows() > 0) {
             $academico = $dadosAcademico->row();
 
-            $this->session->set_userdata('logadoAcademico', TRUE);
+            $this->session->set_userdata('logado', TRUE);
             $this->session->set_userdata('id_academico', $academico->id_academico);
 
             redirect('/Painel_academico');
         } else {
-            //se não tiver login e senha certo vai cair aqui
-            $teste['mensagem'] = 'Login ou senha incorretos';
+            $this->load->view('login_academico', ['login_falhou' => TRUE]);
         }
     }
 

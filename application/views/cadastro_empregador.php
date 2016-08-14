@@ -47,48 +47,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <b>Login</b> <span class="caret"></span>
+                                Login <span class="caret"></span>
                             </a>
-                            <ul id="login-dp" class="dropdown-menu">
-                                <li class="hidden" id="i-forgot-form">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            Sou acadêmico
-                                            Sou empregador
-                                        </div>
-                                    </div>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="<?= site_url('Academico/carregaLogin') ?>"><i class="fa fa-graduation-cap fa-fw"></i> Sou acadêmico</a>
                                 </li>
-                                <li id="login-form">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <form class="form" role="form" method="get" action="usuario_academico.php" id="login-nav">
-                                                <div class="form-group input-group">
-                                                    <label for="email-login" class="input-group-addon">
-                                                        <i class="fa fa-envelope fa-fw"></i>
-                                                    </label>
-                                                    <input type="email" class="form-control" id="email-login" placeholder="E-mail" >
-                                                </div>
-                                                <div class="form-group input-group">
-                                                    <label for="senha-login" class="input-group-addon">
-                                                        <i class="fa fa-lock fa-fw"></i>
-                                                    </label>
-                                                    <input type="password" class="form-control" id="senha-login" placeholder="Senha" >
-                                                </div>
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox" id="remember-me">
-                                                        <label for="remember-me" class="no-padding">Manter-me logado</label>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <button type="submit" class="btn btn-primary btn-block">Entrar</button>
-                                                </div>
-                                                <div class="help-block text-center">
-                                                    <a class="pointer" id="i-forgot">Esqueceu sua senha?</a>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="<?= site_url('Login') ?>"><i class="fa fa-suitcase fa-fw"></i> Sou empregador</a>
                                 </li>
                             </ul>
                         </li>
@@ -108,12 +75,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <a href="<?= site_url('Academico') ?>">Oops! Não sou empregador!</a>
                             </small>
                             <?php echo validation_errors(); ?>
-                            <br><br>
-                            <?php if ($this->input->get('aviso') == 1) { ?>
-                                <div class="alert alert-success">
-                                    Empregador Cadastrado com sucesso! Por favor faça login para usar o sistema!
-                                </div>
-                            <?php } ?>
                             <hr>
                             <form class="form-horizontal"  method="POST" action="<?= site_url('Empregador/cadastraEmpregador') ?>">
                                 <div class="form-group">

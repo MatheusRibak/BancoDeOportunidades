@@ -29,7 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </a>
                     <a class="navbar-brand hidden-xs" href="<?= site_url('Home') ?>">Banco de Oportunidades</a>
                 </div>
-                <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                 <div class="collapse navbar-collapse" id="navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -51,7 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a href="<?= base_url('academico/carregaLogin') ?>"><i class="fa fa-graduation-cap fa-fw"></i> Sou acadêmico</a>
+                                    <a href="<?= site_url('Academico/carregaLogin') ?>"><i class="fa fa-graduation-cap fa-fw"></i> Sou acadêmico</a>
                                 </li>
                                 <li class="divider"></li>
                                 <li>

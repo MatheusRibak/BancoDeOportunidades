@@ -31,7 +31,7 @@ $idEmpregador = $this->session->userdata('idAdministrador');
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <b>Usuário: <?php echo $dadosEmpregador->email ?></b> <span class="caret"></span>
+                                <b>Usuário:</b> <?php echo $dadosEmpregador->email ?> <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
@@ -109,7 +109,7 @@ $idEmpregador = $this->session->userdata('idAdministrador');
                                     <div class="form-group">
                                         <div class="col-sm-2"></div>
                                         <div class="col-sm-10">
-                                            <button type="submit" class="btn btn-primary">Gerar vaga</button>
+                                            <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-check" aria-hidden="true"></i> Cadastrar nova vaga</button>
                                         </div>
                                     </div>
                                 </form>

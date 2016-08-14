@@ -31,7 +31,7 @@ $idEmpregador = $this->session->userdata('idAdministrador');
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <b>Usuário: <?php echo $dadosEmpregador->email ?></b> <span class="caret"></span>
+                                <b>Usuário: </b><?php echo $dadosEmpregador->email ?> <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
@@ -43,71 +43,95 @@ $idEmpregador = $this->session->userdata('idAdministrador');
                 </div>
             </div>
         </nav>
-        <div class="container">
-            <div class="page-header">
-                <h1>Alterar dados desta vaga</h1>
-            </div>            
-            <legend>Dados Gerais</legend>
-            
-            <?php echo validation_errors(); ?>
-            
-            <form class="form-horizontal" method="post" action="<?= site_url('Vagas/cadastrarVaga/' . $idEmpregador) ?>">
-                <div class="form-group">
-                    <label for="cargo" class="col-sm-2 control-label">Cargo:</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" name="cargo" id="cargo" placeholder="Cargo">
+        <div class="usuario-content">
+            <div class="container">
+                <div class="panel panel-default">
+                    <div class="panel-body">                        
+                        <div class="pn-heading">
+                            <span class="pull-left">
+                                <strong>Editar Vaga
+                                    <small class="text-muted">Edite os dados desta vaga</small>
+                                </strong>
+                            </span>
+                            <span class="pull-right">
+                                <a class="btn btn-primary btn-xs" href="<?= site_url('PainelEmpregador/') ?>"><i class="fa fa-chevron-left" aria-hidden="true"></i> Voltar</a>
+                            </span>
+                        </div> 
+                        <br><br>
+
+                        <?php echo validation_errors(); ?>
+
+                        <form class="form-horizontal" method="post" action="<?= site_url('Vagas/execAlterarVaga/' . $dadosVaga->id_dado_vaga) ?>">
+                            <div class="form-group">
+                                <label for="cargo" class="col-sm-2 control-label">Cargo:</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="cargo" id="cargo" value="<?= $dadosVaga->cargo ?>">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="salario" class="col-sm-2 control-label">Faixa Salarial:</label>
+                                <div class="col-sm-3">
+                                    <input type="text" class="form-control" name="salario" id="salario" value="<?= $dadosVaga->salario ?>">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="area" class="col-sm-2 control-label">Area:</label>
+                                <div class="col-sm-7">
+                                    <input type="text" class="form-control" name="area" id="area" value="<?= $dadosVaga->area ?>">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="nivel" class="col-sm-2 control-label">Nível:</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" name="nivel" id="nivel" value="<?= $dadosVaga->nivel ?>">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="periodo" class="col-sm-2 control-label">Período:</label>
+                                <div class="col-sm-7">
+                                    <input type="text" class="form-control" name="periodo" id="periodo" value="<?= $dadosVaga->periodo ?>">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="atividades" class="col-sm-2 control-label">Atividades:</label>
+                                <div class="col-sm-10">
+                                    <textarea name="atividades" class="form-control" cols="70" rows="3">
+                                        <?= $dadosVaga->atividades ?>
+                                    </textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="requisitos" class="col-sm-2 control-label">Requisitos:</label>
+                                <div class="col-sm-10">
+                                    <textarea name="requisitos" class="form-control" cols="70" rows="5">
+                                        <?= $dadosVaga->requisitos ?>
+                                    </textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="beneficios" class="col-sm-2 control-label">Beneficios:</label>
+                                <div class="col-sm-10">
+                                    <textarea name="beneficios" id ="beneficios" class="form-control" cols="70" rows="3">
+                                        <?= $dadosVaga->beneficios ?>
+                                    </textarea>
+                                </div>
+                            </div>  
+                            <div class="form-group">
+                                <label for="status" class="col-sm-2 control-label">Período:</label>
+                                <div class="col-sm-2">
+                                    <input type="text" class="form-control" id="status" value="<?= $dadosVaga->status ?>" disabled="true">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-2"></div>
+                                <div class="col-sm-10">
+                                    <button type="submit" class="btn btn-primary"><i class="fa fa-check" aria-hidden="true"></i> Alterar dados vaga</button>
+                                </div>
+                            </div>                   
+                        </form>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="salario" class="col-sm-2 control-label">Faixa Salarial:</label>
-                    <div class="col-sm-3">
-                        <input type="text" class="form-control" name="salario" id="salario" placeholder="Faixa Salarial">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="area" class="col-sm-2 control-label">Area:</label>
-                    <div class="col-sm-7">
-                        <input type="text" class="form-control" name="area" id="area" placeholder="Area">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="nivel" class="col-sm-2 control-label">Nível:</label>
-                    <div class="col-sm-6">
-                        <input type="text" class="form-control" name="nivel" id="nivel" placeholder="Nível">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="periodo" class="col-sm-2 control-label">Período:</label>
-                    <div class="col-sm-7">
-                        <input type="text" class="form-control" name="periodo" id="periodo" placeholder="Período">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="atividades" class="col-sm-2 control-label">Atividades:</label>
-                    <div class="col-sm-10">
-                        <textarea name="atividades" class="form-control" cols="70" rows="3"></textarea>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="requisitos" class="col-sm-2 control-label">Requisitos:</label>
-                    <div class="col-sm-10">
-                        <textarea name="requisitos" class="form-control" cols="70" rows="5"></textarea>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="beneficios" class="col-sm-2 control-label">Beneficios:</label>
-                    <div class="col-sm-10">
-                        <textarea name="beneficios" id ="beneficios" class="form-control" cols="70" rows="3"></textarea>
-                        <input type="hidden" name="data_cadastro" value="<?php echo date('Y/m/d'); ?>"/>
-                    </div>
-                </div>     
-                <div class="form-group">
-                    <div class="col-sm-2"></div>
-                    <div class="col-sm-10">
-                        <button type="submit" class="btn btn-primary">Gerar vaga</button>
-                    </div>
-                </div>                   
-            </form>
+            </div>
         </div>
         <script src="<?= base_url('assets/js/jquery.js') ?>"></script>
         <script src="<?= base_url('assets/js/bootstrap.min.js') ?>"></script>

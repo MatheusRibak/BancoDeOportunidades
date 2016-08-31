@@ -80,6 +80,16 @@
                             </div>
                         </div>
                         <div class="col-md-9">
+                          <?php if ($this->input->get('aviso') == 5) { ?>
+                              <div class="alert alert-success">
+                                Experiencia Editada com sucesso!
+                              </div>
+                          <?php } ?>
+                          <?php if ($this->input->get('aviso') == 4) { ?>
+                              <div class="alert alert-success">
+                                Formação Editada com sucesso!
+                              </div>
+                          <?php } ?>
 
                             <div class="panel panel-default">
                                 <div class="panel-body">
@@ -163,7 +173,7 @@
                                                         <td><?php echo $formacao->escola; ?></td>
                                                         <td><?php echo $formacao->inicio; ?> - <?php echo $formacao->termino; ?></td>
                                                         <td>
-                                                            <a  href="#" class="btn btn-primary btn-xs">
+                                                            <a  href="<?= site_url('Painel_academico/getFormacao/' . $formacao->id_formacao) ?>" class="btn btn-primary btn-xs">
                                                                 <i class="fa fa-pencil fa-fw"></i>
                                                             </a>
 
@@ -203,7 +213,7 @@
                                                     <td><?php echo $exp->empresa; ?></td>
                                                     <td><?php echo $exp->atividade; ?></td>
                                                     <td>
-                                                        <a  href="#" class="btn btn-primary btn-xs">
+                                                        <a  href="<?= site_url('Painel_academico/getExperiencia/' . $exp->id_experiencia) ?>" class="btn btn-primary btn-xs">
                                                             <i class="fa fa-pencil fa-fw"></i>
                                                         </a>
                                                     </td>

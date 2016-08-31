@@ -70,7 +70,7 @@ if(document.getElementById('avancar').disabled) document.getElementById('avancar
                                     <div class="pn-heading">
                                         <span class="pull-left">
                                             <strong>Experiencia Profissional
-                                                <small class="text-muted">Adicione a sua experiencia</small>
+                                                <small class="text-muted">Edite a sua experiencia</small>
                                             </strong>
                                         </span>
                                         <span class="pull-right">
@@ -78,52 +78,54 @@ if(document.getElementById('avancar').disabled) document.getElementById('avancar
                                         </span>
                                     </div>
 
-                                    <?php if ($this->input->get('aviso') == 1) { ?>
-                                        <div class="alert alert-success">
-                                            Experiencia Cadastrada com sucesso!
-                                        </div>
-                                    <?php } ?>
-                                    <form class="form-horizontal" action="<?= site_url('Painel_academico/salvaExp') ?>" method="post">
+<?php echo validation_errors(); ?>
+
+
+                                    <form class="form-horizontal" action="<?= site_url('Painel_academico/salvaExpEditada') ?>" method="post">
+  <?php foreach ($experiencia as $row): ?>
                                         <div class="form-group">
                                             <label for="nome" class="col-sm-2 control-label">Ocupação</label>
 
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" name="nome" placeholder="Digite a sua função" required>
+                                                <input type="text" class="form-control" name="nome" placeholder="Digite a sua função" required value="<?php echo $row->nome; ?>">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="senha" class="col-sm-2 control-label">Nome da empresa</label>
 
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" name="empresa" placeholder="Digite a empresa" required>
+                                                <input type="text" class="form-control" name="empresa" placeholder="Digite a empresa" required value="<?php echo $row->empresa; ?>">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="senha" class="col-sm-2 control-label">Atividades</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" name="atividade" placeholder="Digite a sua atividade" required>
+                                                <input type="text" class="form-control" name="atividade" placeholder="Digite a sua atividade" required value="<?php echo $row->atividade; ?>">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="email-cad" class="col-sm-2 control-label">Data de inicio do trabalho</label>
                                             <div class="col-sm-2">
-                                                <input type="date" class="form-control data" name="inicio"  required>
-                                            </div>
+
+                                                <input type="date" class="form-control data" name="inicio"  required value="<?php echo $row->inicio; ?>">
+                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="senha" class="col-sm-2 control-label">Ainda trabalha na empresa?</label>
                                             <div class="col-sm-2">
-                                              <select class="form-control" onchange="habilitaBtn()" id="opcao" required>
-          <option name="ativo" value="S"/>Sim</option>
-             <option name="ativo" value="N"/>Não</option>
 
-         </select>
+                                                <select class="form-control" onchange="habilitaBtn()" id="opcao" required>
+           	<option name="ativo" value="S"/>Sim</option>
+               <option name="ativo" value="N"/>Não</option>
+
+           </select>
+
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="email-cad" class="col-sm-2 control-label">data de termino do emprego</label>
                                             <div class="col-sm-2">
-                                        <input type="date" class="form-control data" id="avancar" name="termino"  disabled="" >
+                                                <input type="date" class="form-control data" id="avancar" name="termino"  disabled="" >
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -139,11 +141,14 @@ if(document.getElementById('avancar').disabled) document.getElementById('avancar
                                         <div class="form-group">
                                             <div class="col-sm-offset-2 col-sm-10">
                                                 <button type="submit" class="btn btn-primary">
-                                                    Adicionar <i class="fa fa-plus fa-fw"></i>
+                                                    Salvar Edição <i class="fa fa-plus fa-fw"></i>
                                                 </button>
                                             </div>
                                         </div>
+                                        <input type="hidden" name="id_experiencia" value="<?php echo $row->id_experiencia; ?>">
+<?php endforeach; ?>
                                     </form>
+
                                 </div>
                             </div>
                         </div>

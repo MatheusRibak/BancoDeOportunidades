@@ -219,6 +219,107 @@ class Painel_academico extends CI_Controller {
 
     }
 
+    function getExperiencia($id_experiencia){
+      $id_academico = $this->session->userdata('id_academico');
+      $this->load->model('Academico_model');
+      $this->load->model('Formacao_model');
+      $this->load->model('Experiencia_model');
+      $this->load->model('Vaga_academico_model');
+      $data = array(
+          "dadosAcademico" => $this->Academico_model->getAcademico($id_academico)->row(),
+          "experiencia" => $this->Academico_model->getExperiencia($id_experiencia)
+      );
+
+      $this->load->view('edita_experiencia', $data);
+    }
+
+    public function salvaExpEditada() {
+
+      $this->load->model('Experiencia_model');
+      $data['nome'] = $this->input->post('nome');
+      $data['inicio'] = $this->input->post('inicio');
+      $data['termino'] = $this->input->post('termino');
+      $data['empresa'] = $this->input->post('empresa');
+      $data['atividade'] = $this->input->post('atividade');
+      $id_experiencia = $this->input->post('id_experiencia');
+
+        $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
+        $this->form_validation->set_rules('nome', 'Ocupação', 'required|max_length[5]');
+        $this->form_validation->set_rules('termino', 'termino', 'max_length[120]');
+        $this->form_validation->set_rules('inicio', 'inicio', 'required|max_length[120]');
+        $this->form_validation->set_rules('empresa', 'Empresa', 'required|max_length[120]');
+        $this->form_validation->set_rules('atividade', 'atividade', 'required|max_length[120]');
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->getExperiencia($id_experiencia);
+            return;
+        }
+
+        else {
+          $this->Experiencia_model->editExp($data, $id_experiencia);
+
+          redirect('Painel_academico/index/?aviso=5');
+        }
+
+
+
+
+    }
+
+
+
+
+    function getFormacao($id_formacao){
+      $id_academico = $this->session->userdata('id_academico');
+      $this->load->model('Academico_model');
+      $this->load->model('Formacao_model');
+      $this->load->model('Experiencia_model');
+      $this->load->model('Vaga_academico_model');
+      $data = array(
+          "dadosAcademico" => $this->Academico_model->getAcademico($id_academico)->row(),
+          "formacao" => $this->Academico_model->getFormacao($id_formacao)
+      );
+
+      $this->load->view('edita_formacao', $data);
+    }
+
+    public function salvaFormacaoEditada() {
+
+      $this->load->model('Formacao_model');
+      $data['nome'] = $this->input->post('nome');
+      $data['tipo'] = $this->input->post('tipo');
+      $data['termino'] = $this->input->post('termino');
+      $data['inicio'] = $this->input->post('inicio');
+      $data['escola'] = $this->input->post('escola');
+      $id_formacao = $this->input->post('id_formacao');
+
+
+      $id_academico = $this->session->userdata('id_academico');
+
+      $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
+      $this->form_validation->set_rules('nome', 'Nome', 'required|max_length[120]');
+      $this->form_validation->set_rules('tipo', 'Tipo', 'required|max_length[120]');
+      $this->form_validation->set_rules('termino', 'termino', 'required|max_length[120]');
+      $this->form_validation->set_rules('inicio', 'inicio', 'required|max_length[120]');
+      $this->form_validation->set_rules('escola', 'escola', 'required|max_length[120]');
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->getFormacao($id_formacao);
+            return;
+        }
+
+        else {
+          $this->Formacao_model->editFormacao($data, $id_formacao);
+
+          redirect('Painel_academico/index/?aviso=4');
+        }
+
+
+
+
+    }
+
+
     function deslogar() {
         $this->session->sess_destroy();
         $this->load->view('index');

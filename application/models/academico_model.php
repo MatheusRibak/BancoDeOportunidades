@@ -56,4 +56,30 @@ class Academico_model extends CI_Model {
 
     }
 
+    function getExperiencia($id_experiencia) {
+  $id_academico = $this->session->userdata('id_academico');
+      $this->db
+              ->select("*")
+              ->from("experiencia")
+              ->where('id_experiencia',$id_experiencia)
+              ->where('id_academico', $id_academico);
+
+
+        return  $qr = $this->db->get()->result();
+
+    }
+
+    function getformacao($id_formacao) {
+      $id_academico = $this->session->userdata('id_academico');
+      $this->db
+              ->select("*")
+              ->from("formacao")
+              ->where('id_formacao',$id_formacao)
+              ->where('id_academico', $id_academico);
+
+
+        return  $qr = $this->db->get()->result();
+
+    }
+
 }

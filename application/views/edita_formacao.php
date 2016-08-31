@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,21 +12,6 @@
         <link rel="stylesheet" href="<?= base_url('assets/fonts/font-awesome-4.3.0/css/font-awesome.min.css') ?>" type="text/css">
         <link rel="stylesheet" href="<?= base_url('assets/css/jquery-ui.css') ?>">
         <link rel="stylesheet" href="<?= base_url('assets/css/jquery-ui.theme.css') ?>">
-        <script type="text/javascript">
-function habilitaBtn () {
-var op = document.getElementById("opcao").value;
-
-if(op == "S")
-{
-if(!document.getElementById('avancar').disabled) document.getElementById('avancar').disabled=true;
-}
-
-else if(op == "N")
-{
-if(document.getElementById('avancar').disabled) document.getElementById('avancar').disabled=false;
-}
-}
-</script>
     </head>
 
     <body>
@@ -69,8 +55,8 @@ if(document.getElementById('avancar').disabled) document.getElementById('avancar
                                 <div class="panel-body">
                                     <div class="pn-heading">
                                         <span class="pull-left">
-                                            <strong>Experiencia Profissional
-                                                <small class="text-muted">Adicione a sua experiencia</small>
+                                            <strong>Formacao Profissional
+                                                <small class="text-muted">Edite a sua Formação</small>
                                             </strong>
                                         </span>
                                         <span class="pull-right">
@@ -78,52 +64,59 @@ if(document.getElementById('avancar').disabled) document.getElementById('avancar
                                         </span>
                                     </div>
 
+                                    <?php echo validation_errors(); ?>
                                     <?php if ($this->input->get('aviso') == 1) { ?>
                                         <div class="alert alert-success">
-                                            Experiencia Cadastrada com sucesso!
+                                            Formação Cadastrada com sucesso!
                                         </div>
                                     <?php } ?>
-                                    <form class="form-horizontal" action="<?= site_url('Painel_academico/salvaExp') ?>" method="post">
+                                    <?php if ($this->input->get('aviso') == 2) { ?>
+                                        <?php echo validation_errors(); ?>
+                                    <?php } ?>
+
+                                    <form class="form-horizontal" action="<?= site_url('Painel_academico/salvaFormacaoEditada') ?>" method="post">
+<?php foreach ($formacao as $row): ?>
                                         <div class="form-group">
-                                            <label for="nome" class="col-sm-2 control-label">Ocupação</label>
+                                            <label for="nome" class="col-sm-2 control-label">Nome do curso</label>
 
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" name="nome" placeholder="Digite a sua função" required>
+                                                <input type="text" class="form-control" value="<?php echo $row->nome; ?>" name="nome" placeholder="Digite o nome do seu curso" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="senha" class="col-sm-2 control-label">Nome da empresa</label>
+                                            <label for="nome" class="col-sm-2 control-label">Tipo curso</label>
+
+                                            <div class="col-sm-4">
+                                                <select class="col-sm-12 form-control" name="tipo">
+                                                  <option value="<?php echo $row->tipo; ?>"><?php echo $row->tipo; ?></option>
+                                                    <option value="Graducão">Graduacao</option>
+                                                    <option value="Mestrado">Mestrado</option>
+                                                    <option value="Mestrado">Dotorado</option>
+                                                    <option value="Outros">Outros</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="senha" class="col-sm-2 control-label">Instituição</label>
 
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" name="empresa" placeholder="Digite a empresa" required>
+                                                <input type="text" class="form-control" value="<?php echo $row->escola; ?>" name="escola" placeholder="Digite a escola" required>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="senha" class="col-sm-2 control-label">Atividades</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control" name="atividade" placeholder="Digite a sua atividade" required>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="email-cad" class="col-sm-2 control-label">Data de inicio do trabalho</label>
-                                            <div class="col-sm-2">
-                                                <input type="date" class="form-control data" name="inicio"  required>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="senha" class="col-sm-2 control-label">Ainda trabalha na empresa?</label>
-                                            <div class="col-sm-2">
-                                              <select class="form-control" onchange="habilitaBtn()" id="opcao" required>
-          <option name="ativo" value="S"/>Sim</option>
-             <option name="ativo" value="N"/>Não</option>
 
-         </select>
+                                        <div class="form-group">
+                                            <label for="email-cad" class="col-sm-2 control-label">Data de inicio do curso</label>
+
+                                            <div class="col-sm-2">
+                                                <input type="date" class="form-control data" name="inicio" placeholder="Digite a data" required value="<?php echo $row->inicio; ?>">
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="email-cad" class="col-sm-2 control-label">data de termino do emprego</label>
+                                            <label for="senha" class="col-sm-2 control-label">Data de termino do curso</label>
+
                                             <div class="col-sm-2">
-                                        <input type="date" class="form-control data" id="avancar" name="termino"  disabled="" >
+                                                <input type="date" class="form-control data" name="termino" placeholder="Digite a data" required value="<?php echo $row->termino; ?>">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -143,7 +136,10 @@ if(document.getElementById('avancar').disabled) document.getElementById('avancar
                                                 </button>
                                             </div>
                                         </div>
+                                        <input type="hidden" name="id_formacao" value="<?php echo $row->id_formacao; ?>">
+                                                  <?php endforeach; ?>
                                     </form>
+
                                 </div>
                             </div>
                         </div>

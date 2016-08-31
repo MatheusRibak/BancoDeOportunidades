@@ -25,7 +25,7 @@
                     <a href="#" class="navbar-brand">
                         <img src="<?= base_url('assets/img/favicon.png') ?>" alt="logo">
                     </a>
-                    <a class="navbar-brand hidden-xs" href="index.php">Banco de Oportunidades</a>
+                    <a class="navbar-brand hidden-xs" href="<?= site_url('Painel_academico') ?>">Banco de Oportunidades</a>
                 </div>
                 <div class="collapse navbar-collapse" id="navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
@@ -60,7 +60,7 @@
                                         <span class="pull-right">
                                             <a class="btn btn-primary btn-xs" href="<?= site_url('Painel_academico/voltar') ?>"><i class="fa fa-chevron-left" aria-hidden="true"></i> Voltar</a>
                                         </span>
-                                    </div>   
+                                    </div>
 
                                     <?php echo validation_errors(); ?>
                                     <?php if ($this->input->get('aviso') == 1) { ?>
@@ -95,9 +95,52 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
+                                            <label for="estado" class="col-sm-2 control-label">Estado  *</label>
+                                            <div class="col-sm-3">
+                                                <select name="estado" lang="pt" class="form-control" name = "estado">
+                                                  <option value="<?php echo $dadosAcademico->estado ?>"><?php echo $dadosAcademico->estado ?>
+                                                  </option>
+                                                    <option value="AC">Acre</option>
+                                                    <option value="AL">Alagoas</option>
+                                                    <option value="AM">Amazonas</option>
+                                                    <option value="AP">Amapá</option>
+                                                    <option value="BA">Bahia</option>
+                                                    <option value="CE">Ceará</option>
+                                                    <option value="DF">Distrito Federal</option>
+                                                    <option value="ES">Espírito Santo</option>
+                                                    <option value="GO">Goiás</option>
+                                                    <option value="MA">Maranhão</option>
+                                                    <option value="MT">Mato Grosso</option>
+                                                    <option value="MS">Mato Grosso do Sul</option>
+                                                    <option value="MG">Minas Gerais</option>
+                                                    <option value="PA">Pará</option>
+                                                    <option value="PB">Paraíba</option>
+                                                    <option value="PR">Paraná</option>
+                                                    <option value="PE">Pernambuco</option>
+                                                    <option value="PI">Piauí</option>
+                                                    <option value="RJ">Rio de Janeiro</option>
+                                                    <option value="RN">Rio Grande do Norte</option>
+                                                    <option value="RO">Rondônia</option>
+                                                    <option value="RS">Rio Grande do Sul</option>
+                                                    <option value="RR">Roraima</option>
+                                                    <option value="SC">Santa Catarina</option>
+                                                    <option value="SE">Sergipe</option>
+                                                    <option value="SP">São Paulo</option>
+                                                    <option value="TO">Tocantins</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
                                             <label for="email-cad" class="col-sm-2 control-label">E-mail:</label>
                                             <div class="col-sm-8">
                                                 <input type="email" class="form-control" name = "emailuser" id="email-cad" value="<?php echo $dadosAcademico->email ?>">
+                                            </div>
+                                            <input type="hidden" class="form-control" name = "email" id="email-cad" value="<?php echo $dadosAcademico->email ?>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email-cad" class="col-sm-2 control-label">Senha</label>
+                                            <div class="col-sm-8">
+                                                <input type="password" class="form-control" name = "senha" id="senha" value="">
                                             </div>
                                             <input type="hidden" class="form-control" name = "email" id="email-cad" value="<?php echo $dadosAcademico->email ?>">
                                         </div>
@@ -116,10 +159,10 @@
                                                 <button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Salvar novos dados</button>
                                             </div>
                                         </div>
-                                        <input type="hidden" name="data_cadastro" value="<?php echo date('Y/m/d'); ?>"/>
+
                                     </form>
 
-                                </div>                    
+                                </div>
                             </div>
                         </div>
                     </div>

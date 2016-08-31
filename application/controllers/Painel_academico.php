@@ -8,24 +8,49 @@ class Painel_academico extends CI_Controller {
         $this->load->model('Academico_model');
         $this->load->model('Formacao_model');
         $this->load->model('Experiencia_model');
+        $this->load->model('Vaga_academico_model');
         $id_academico = $this->session->userdata('id_academico');
         $data = array(
             "dadosAcademico" => $this->Academico_model->getAcademico($id_academico)->row(),
             "dadosFormacao" => $this->Formacao_model->getFormacao($id_academico)->result(),
-            "dadosExperiencia" => $this->Experiencia_model->getExp($id_academico)->result()
+            "dadosExperiencia" => $this->Experiencia_model->getExp($id_academico)->result(),
+            "minhasVagas" => $this->Vaga_academico_model->getMinhasVagas($id_academico)
         );
+
+
         $this->load->view('painel_academico', $data);
+    }
+
+    public function carregaBusca(){
+      $this->load->model('Academico_model');
+      $this->load->model('Formacao_model');
+      $this->load->model('Experiencia_model');
+              $this->load->model('Vaga_academico_model');
+      $id_academico = $this->session->userdata('id_academico');
+      $data = array(
+          "dadosAcademico" => $this->Academico_model->getAcademico($id_academico)->row(),
+          "dadosFormacao" => $this->Formacao_model->getFormacao($id_academico)->result(),
+          "dadosExperiencia" => $this->Experiencia_model->getExp($id_academico)->result(),
+            "minhasVagas" => $this->Vaga_academico_model->getMinhasVagas($id_academico)
+      );
+
+      $data3 = 2;
+
+
+      $this->load->view('busca', $data, $data3);
     }
 
     public function carregaFormacao() {
         $this->load->model('Academico_model');
         $this->load->model('Formacao_model');
         $this->load->model('Experiencia_model');
+                $this->load->model('Vaga_academico_model');
         $id_academico = $this->session->userdata('id_academico');
         $data = array(
             "dadosAcademico" => $this->Academico_model->getAcademico($id_academico)->row(),
             "dadosFormacao" => $this->Formacao_model->getFormacao($id_academico)->result(),
-            "dadosExperiencia" => $this->Experiencia_model->getExp($id_academico)->result()
+            "dadosExperiencia" => $this->Experiencia_model->getExp($id_academico)->result(),
+              "minhasVagas" => $this->Vaga_academico_model->getMinhasVagas($id_academico)
         );
         $this->load->view('cadastra_formacao', $data);
     }
@@ -34,24 +59,30 @@ class Painel_academico extends CI_Controller {
         $this->load->model('Academico_model');
         $this->load->model('Formacao_model');
         $this->load->model('Experiencia_model');
+                $this->load->model('Vaga_academico_model');
         $id_academico = $this->session->userdata('id_academico');
         $data = array(
             "dadosAcademico" => $this->Academico_model->getAcademico($id_academico)->row(),
             "dadosFormacao" => $this->Formacao_model->getFormacao($id_academico)->result(),
-            "dadosExperiencia" => $this->Experiencia_model->getExp($id_academico)->result()
+            "dadosExperiencia" => $this->Experiencia_model->getExp($id_academico)->result(),
+              "minhasVagas" => $this->Vaga_academico_model->getMinhasVagas($id_academico)
         );
         $this->load->view('painel_academico', $data);
     }
+
+
 
     public function carregaExp() {
         $this->load->model('Academico_model');
         $this->load->model('Formacao_model');
         $this->load->model('Experiencia_model');
+                $this->load->model('Vaga_academico_model');
         $id_academico = $this->session->userdata('id_academico');
         $data = array(
             "dadosAcademico" => $this->Academico_model->getAcademico($id_academico)->row(),
             "dadosFormacao" => $this->Formacao_model->getFormacao($id_academico)->result(),
-            "dadosExperiencia" => $this->Experiencia_model->getExp($id_academico)->result()
+            "dadosExperiencia" => $this->Experiencia_model->getExp($id_academico)->result(),
+              "minhasVagas" => $this->Vaga_academico_model->getMinhasVagas($id_academico)
         );
 
         $this->load->view('cadastra_experiencia', $data);
@@ -134,8 +165,7 @@ class Painel_academico extends CI_Controller {
         $estado = $this->input->post('estado');
         $email = $this->input->post('email');
         $telefone = $this->input->post('telefone');
-        $senha = md5($this->input->post('senha'));
-        $data_cadastro = $this->input->post('data_cadastro');
+        $senha = $this->input->post('senha');
 
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
         $this->form_validation->set_rules('nome', 'Nome', 'required|max_length[120]');
@@ -144,23 +174,49 @@ class Painel_academico extends CI_Controller {
         $this->form_validation->set_rules('email', 'E-mail', 'required|max_length[120]');
         $this->form_validation->set_rules('telefone', 'Telefone', 'required|max_length[120]');
 
-        if ($this->form_validation->run() == FALSE) {
+
+
+        if($senha == ''){
+            if ($this->form_validation->run() == FALSE) {
             $this->carregaEditPerfil();
             return;
-        }
+            }
 
-        $this->load->model('Academico_model');
-        $this->Academico_model->Editar([
+            $this->Academico_model->Editar([
             "nome" => $nome,
             "endereco" => $endereco,
             "cidade" => $cidade,
             "estado" => $estado,
             "email" => $email,
-            "telefone" => $telefone,
-            "senha" => $senha,
-            "data_cadastro" => $data_cadastro
-        ]);
-        redirect('Painel_academico/carregaEditPerfil/?aviso=1');
+            "telefone" => $telefone
+            ]);
+            $this->carregaEditPerfil();
+            redirect('Painel_academico/carregaEditPerfil/?aviso=1');
+
+            } else {
+
+                  if ($this->form_validation->run() == FALSE) {
+                  $this->carregaEditPerfil();
+                  return;
+            }
+
+                $senha = md5($this->input->post('senha'));
+
+                $this->load->model('Academico_model');
+                $this->Academico_model->Editar([
+                "nome" => $nome,
+                "endereco" => $endereco,
+                "cidade" => $cidade,
+                "estado" => $estado,
+                "email" => $email,
+                "telefone" => $telefone,
+                "senha" => $senha
+                ]);
+                redirect('Painel_academico/carregaEditPerfil/?aviso=1');
+
+                }
+
+
     }
 
     function deslogar() {

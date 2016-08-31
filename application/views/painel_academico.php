@@ -10,6 +10,8 @@
         <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>" type="text/css">
         <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.min.css') ?>" type="text/css">
         <link rel="stylesheet" href="<?= base_url('assets/fonts/font-awesome-4.3.0/css/font-awesome.min.css') ?>" type="text/css">
+
+
     </head>
 
     <body>
@@ -86,27 +88,47 @@
                                             <strong>Vagas que estou candidatado</strong>
                                         </span>
                                         <span class="pull-right">
-                                            <a href="#" class="btn btn-primary btn-xs">
+                                            <a href="<?= site_url('Painel_academico/carregaBusca') ?>" class="btn btn-primary btn-xs">
                                                 Pesquisar vagas <i class="fa fa-search fa-fw"></i>
                                             </a>
                                         </span>
                                     </div>
                                     <div class="table-responsive">
                                         <table class="table table-hover no-margin">
+
                                             <thead>
                                                 <tr>
-                                                    <th>Descrição</th>
-                                                    <th>Empresa</th>
-                                                    <th>Atividades</th>
+                                                    <th>Cargo</th>
+                                                    <th>Status</th>
+                                                    <th>Opçõesc</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
+                                            <tbody id="myTable">
                                                 <tr>
-                                                    <td colspan='3'>Nenhuma vaga candidatada</td>
+                                                  <?php foreach ($minhasVagas as $row): ?>
+                                                      <td>
+                                                        <?php echo $row->cargo;?>
+                                                      </td>
+                                                      <td>
+                                                        <?php echo $row->status_vaga;?>
+                                                      </td>
+                                                      <td>
+                                                        <a  href="<?= site_url('Vaga_academico/excluir/' . $row->id_vaga . '/' . $row->id_academico ) ?>"
+                                                          class="btn btn-danger btn-xs"
+                                                          onclick="return confirm('Têm certeza que deseja excluir esta informação?')"
+                                                          >
+                                                            <i class="fa fa-trash fa-fw"></i>
+                                                        </a>
+                                                      </td>
+
                                                 </tr>
+                                                      <?php endforeach; ?>
                                             </tbody>
                                         </table>
                                     </div>
+                                    <div class="col-md-12 text-center">
+<ul class="pagination pagination-lg pager" id="myPager"></ul>
+</div>
                                 </div>
                             </div>
 
@@ -144,12 +166,7 @@
                                                             <a  href="#" class="btn btn-primary btn-xs">
                                                                 <i class="fa fa-pencil fa-fw"></i>
                                                             </a>
-                                                            <a href="#" 
-                                                               class="btn btn-danger btn-xs"
-                                                               onclick="return confirm('Têm certeza que deseja excluir este registro?')"
-                                                               >
-                                                                <i class="fa fa-trash fa-fw"></i>
-                                                            </a>
+
                                                         </td>
                                                     </tr>
                                                 <?php endforeach; ?>
@@ -189,19 +206,13 @@
                                                         <a  href="#" class="btn btn-primary btn-xs">
                                                             <i class="fa fa-pencil fa-fw"></i>
                                                         </a>
-                                                        <a href="#" 
-                                                           class="btn btn-danger btn-xs"
-                                                           onclick="return confirm('Têm certeza que deseja excluir este registro?')"
-                                                           >
-                                                            <i class="fa fa-trash fa-fw"></i>
-                                                        </a>
                                                     </td>
                                                 </tr>
                                             <?php endforeach; ?>
                                         </table>
                                     </div>
                                 </div>
-                            </div>                            
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -210,5 +221,6 @@
         <script src="<?= base_url('assets/js/jquery.js') ?>"></script>
         <script src="<?= base_url('assets/js/bootstrap.min.js') ?>"></script>
         <script src="<?= base_url('assets/js/scripts.js') ?>"></script>
+                <script src="<?= base_url('assets/js/paginacao.js') ?>"></script>
     </body>
 </html>

@@ -5,19 +5,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Vagas extends CI_Controller {
 
     public function index() {  
-        $this->load->model('Empregador_model');
-        $idEmpregador = $this->session->userdata('idAdministrador');        
-        $idEmpregador = (int) $idEmpregador;
+        $this->load->model('Usuario_model');
+        $id_usuario = $this->session->userdata('id_usuario');        
+        $id_usuario = (int) $id_usuario;
 
         //ARRAY COM TODAS AS VAGAS
         $data = array(
-            "dadosEmpregador" => $this->Empregador_model->getEmpregador($idEmpregador)->row()
+            "dadosEmpregador" => $this->Usuario_model->getUsuario($id_usuario)->row()
         );
         $this->load->view('vaga_emprego_form', $data);
     }
 
-    public function cadastrarVaga($idEmpregador) {
-        $idEmpregador = (int) $idEmpregador;
+    public function cadastrarVaga($id_usuario) {
+        $id_usuario = (int) $id_usuario;
         $cargo = $this->input->post('cargo');
         $salario = $this->input->post('salario');
         $area = $this->input->post('area');
@@ -45,7 +45,7 @@ class Vagas extends CI_Controller {
 
         $this->load->model('Vaga_empregador');
         $this->Vaga_empregador->cadastrarVaga([
-            "id_empregador" => $idEmpregador,
+            "id_usuario" => $id_usuario,
             "cargo" => $cargo,
             "salario" => $salario,
             "area" => $area,
@@ -59,14 +59,14 @@ class Vagas extends CI_Controller {
         redirect('PainelEmpregador/index/?aviso=1');
     }
 
-    public function editarVaga($id_dado_vaga, $id_empregador) {
+    public function editarVaga($id_dado_vaga, $id_usuario) {
         $this->load->model('Vaga_empregador');   
-        $this->load->model('Empregador_model');
+        $this->load->model('Usuario_model');
         $id_dado_vaga = (int) $id_dado_vaga;
 
         //ARRAY COM TODAS AS VAGAS E DADOS DO EMPREGADOR
         $data = array(
-            "dadosEmpregador" => $this->Empregador_model->getEmpregador($id_empregador)->row(),
+            "dadosEmpregador" => $this->Usuario_model->getUsuario($id_usuario)->row(),
             "dadosVaga" => $this->Vaga_empregador->getVaga($id_dado_vaga)->row()
         ); 
         $this->load->view('alterar_vaga_emprego_form', $data);        

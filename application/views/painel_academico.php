@@ -63,10 +63,10 @@
                                     <div class="row">
                                         <div class="col-xs-6 col-md-12">
                                             <ul class="list-unstyled">
-                                                <li><b>Nome: </b><?php echo $dadosAcademico->nome ?></li>
-                                                <li><b>E-mail: </b><?php echo $dadosAcademico->email ?></li>
-                                                <li><b>Cidade: </b><?php echo $dadosAcademico->cidade ?></li>
-                                                <li><b>Estado: </b><?php echo $dadosAcademico->estado ?></li>
+                                                <li><b>Nome: </b><br><?php echo $dadosAcademico->nome_usuario ?></li>
+                                                <li><b>E-mail: </b><br><?php echo $dadosAcademico->email ?></li>
+                                                <li><b>Cidade: </b><br><?php echo $dadosAcademico->cidade ?></li>
+                                                <li><b>Estado: </b><br><?php echo $dadosAcademico->estado ?></li>
                                             </ul>
                                             <hr class="hidden-xs hidden-sm pn-divider">
                                         </div>
@@ -86,7 +86,7 @@
                                             <strong>Vagas que estou candidatado</strong>
                                         </span>
                                         <span class="pull-right">
-                                            <a href="#" class="btn btn-primary btn-xs">
+                                            <a href="<?= site_url('Painel_academico/carregaBusca') ?>" class="btn btn-primary btn-xs">
                                                 Pesquisar vagas <i class="fa fa-search fa-fw"></i>
                                             </a>
                                         </span>
@@ -94,16 +94,37 @@
                                     <div class="table-responsive">
                                         <table class="table table-hover no-margin">
                                             <thead>
-                                                <tr>
-                                                    <th>Descrição</th>
+                                                <tr>                                                    
                                                     <th>Empresa</th>
                                                     <th>Atividades</th>
+                                                    <th>Status</th>
+                                                    <th width='80'>Opções</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td colspan='3'>Nenhuma vaga candidatada</td>
-                                                </tr>
+                                                <?php
+                                                if (!empty($vagas_candidatadas)):
+                                                    foreach ($vagas_candidatadas as $vaga):
+                                                        ?>
+                                                        <tr>
+                                                            <td><?= $vaga->nome_usuario; ?></td>
+                                                            <td><?= $vaga->area; ?></td>
+                                                            <td><?= $vaga->status; ?></td>
+                                                            <td>
+                                                                <a href="#" 
+                                                                   class="btn btn-danger btn-xs"
+                                                                   onclick="return confirm('Têm certeza que deseja excluir este registro?')"
+                                                                   >
+                                                                    <i class="fa fa-trash fa-fw"></i>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                        <?php
+                                                    endforeach;
+                                                else:
+                                                    echo "<td colspan='5' align='center'>Nenhum curriculo selecionado</td>";
+                                                endif;
+                                                ?>
                                             </tbody>
                                         </table>
                                     </div>
@@ -129,17 +150,15 @@
                                                     <th>Curso</th>
                                                     <th>Tipo</th>
                                                     <th>Instituição</th>
-                                                    <th>Tempo cursado</th>
-                                                    <th>Opções</th>
+                                                    <th width='80'>Opções</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php foreach ($dadosFormacao as $formacao): ?>
                                                     <tr>
-                                                        <td><?php echo $formacao->nome; ?></td>
+                                                        <td><?php echo $formacao->nome_curso; ?></td>
                                                         <td><?php echo $formacao->tipo; ?></td>
                                                         <td><?php echo $formacao->escola; ?></td>
-                                                        <td><?php echo $formacao->inicio; ?> - <?php echo $formacao->termino; ?></td>
                                                         <td>
                                                             <a  href="#" class="btn btn-primary btn-xs">
                                                                 <i class="fa fa-pencil fa-fw"></i>
@@ -177,12 +196,12 @@
                                                     <th>Ocupação</th>
                                                     <th>Empresa</th>
                                                     <th>Atividades</th>
-                                                    <th width='100'>Opções</th>
+                                                    <th width='80'>Opções</th>
                                                 </tr>
                                             </thead>
                                             <?php foreach ($dadosExperiencia as $exp): ?>
                                                 <tr>
-                                                    <td><?php echo $exp->nome; ?></td>
+                                                    <td><?php echo $exp->nome_experiencia; ?></td>
                                                     <td><?php echo $exp->empresa; ?></td>
                                                     <td><?php echo $exp->atividade; ?></td>
                                                     <td>

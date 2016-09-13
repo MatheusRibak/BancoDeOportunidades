@@ -8,9 +8,9 @@ class Vaga_empregador extends CI_Model {
     }
 
     //CONSULTANDO VAGAS POR IDEMPREGADOR
-    function getVagas($idEmpregador) {
-        $idEmpregador = (int) $idEmpregador;
-        $this->db->where('id_empregador', $idEmpregador);
+    function getVagas($idUsuario) {
+        $idUsuario = (int) $idUsuario;
+        $this->db->where('id_usuario', $idUsuario);
         return $this->db->get('dados_vaga');
     }
     

@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Login extends CI_Controller {
 
     public function index() {
-        $this->load->view('login_empregador');
+        $this->load->view('index');
     }
 
     public function doLogin() {
@@ -21,11 +21,11 @@ class Login extends CI_Controller {
         if ($this->form_validation->run() == FALSE) {
             $this->index();
             return;
-        }        
+        }
 
         $this->db
                 ->select("*")
-                ->from("empregador")
+                ->from("usuario")
                 ->where("email", $email)
                 ->where("senha", md5($senha));
 
@@ -33,13 +33,20 @@ class Login extends CI_Controller {
         if ($dadosAdmin->num_rows() > 0) {
             $admin = $dadosAdmin->row();
 
-            $this->session->set_userdata('logadoEmpregador', TRUE);
-            $this->session->set_userdata('idAdministrador', $admin->id_empregador);
-            //echo "login ok: " . $this->session->userdata('idAdministrador');
+            $this->session->set_userdata('logadoUsuario', TRUE);
+            $this->session->set_userdata('id_usuario', $admin->id_usuario);
+            $this->session->set_userdata('nivel', $admin->nivel);
+            //echo "login ok: " . $this->session->userdata('id_usuario');
+            $nivel = $this->session->userdata('nivel');
+            //echo "login ok: " . $nivel;
             //Redirecionando para apagina de painel de administração
-            redirect('/PainelEmpregador');
+            if ($nivel == "ACADEMICO"):
+                redirect('/Painel_academico');
+            else:
+                redirect('/PainelEmpregador');
+            endif;
         } else {
-            $this->load->view('login_empregador', ['login_falhou' => TRUE]);
+            $this->load->view('index', ['login_falhou' => TRUE]);
         }
     }
 

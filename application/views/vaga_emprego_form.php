@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-$idEmpregador = $this->session->userdata('idAdministrador');
+$id_usuario = $this->session->userdata('id_usuario');
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -15,7 +15,7 @@ $idEmpregador = $this->session->userdata('idAdministrador');
         <link rel="stylesheet" href="<?= base_url('assets/fonts/font-awesome-4.3.0/css/font-awesome.min.css') ?>" type="text/css">
     </head>
     <body>
-        <nav class="navbar navbar-default navbar-default" role="navigation">
+        <nav class="navbar navbar-default navbar-fixed-top no-radius no-margin" role="navigation">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -43,82 +43,98 @@ $idEmpregador = $this->session->userdata('idAdministrador');
                 </div>
             </div>
         </nav> 
-        <div class="usuario-content">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <div class="page-header">
-                                    <h1>Nova vaga de Emprego</h1>
-                                </div>            
-                                <legend>Dados Gerais</legend>
+        
+        <div class="page-content">
+            <div class="usuario-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="pn-heading">
+                                        <span class="pull-left">
+                                            <strong>Cadastrar nova vaga</strong>
+                                        </span>
+                                        <span class="pull-right">
+                                            <a class="btn btn-default btn-xs" href="<?= site_url('PainelEmpregador/') ?>"><i class="fa fa-chevron-left" aria-hidden="true"></i> Voltar</a>
+                                        </span>
+                                    </div>           
 
-                                <?php echo validation_errors(); ?>
+                                    <?php echo validation_errors(); ?>
 
-                                <form class="form-horizontal" method="post" action="<?= site_url('Vagas/cadastrarVaga/' . $idEmpregador) ?>">
-                                    <div class="form-group">
-                                        <label for="cargo" class="col-sm-2 control-label">Cargo:</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control" name="cargo" id="cargo" placeholder="Cargo">
+                                    <form class="form-horizontal" method="post" action="<?= site_url('Vagas/cadastrarVaga/' . $id_usuario) ?>">
+                                        <br>
+                                        <br>
+                                        <div class="form-group">
+                                            <label for="cargo" class="col-sm-2 control-label">Cargo *</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" name="cargo" id="cargo" placeholder="Cargo">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="salario" class="col-sm-2 control-label">Faixa Salarial:</label>
-                                        <div class="col-sm-3">
-                                            <input type="text" class="form-control" name="salario" id="salario" placeholder="Faixa Salarial">
+                                        <div class="form-group">
+                                            <label for="salario" class="col-sm-2 control-label">Faixa Salarial  *</label>
+                                            <div class="col-sm-3">
+                                                <input type="text" class="form-control" name="salario" id="salario" placeholder="Faixa Salarial">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="area" class="col-sm-2 control-label">Area:</label>
-                                        <div class="col-sm-7">
-                                            <input type="text" class="form-control" name="area" id="area" placeholder="Area">
+                                        <div class="form-group">
+                                            <label for="area" class="col-sm-2 control-label">Area  *</label>
+                                            <div class="col-sm-7">
+                                                <input type="text" class="form-control" name="area" id="area" placeholder="Area">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="nivel" class="col-sm-2 control-label">Nível:</label>
-                                        <div class="col-sm-6">
-                                            <input type="text" class="form-control" name="nivel" id="nivel" placeholder="Nível">
+                                        <div class="form-group">
+                                            <label for="nivel" class="col-sm-2 control-label">Nível  *</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" name="nivel" id="nivel" placeholder="Nível">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="periodo" class="col-sm-2 control-label">Período:</label>
-                                        <div class="col-sm-7">
-                                            <input type="text" class="form-control" name="periodo" id="periodo" placeholder="Período">
+                                        <div class="form-group">
+                                            <label for="periodo" class="col-sm-2 control-label">Período  *</label>
+                                            <div class="col-sm-7">
+                                                <input type="text" class="form-control" name="periodo" id="periodo" placeholder="Período">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="atividades" class="col-sm-2 control-label">Atividades:</label>
-                                        <div class="col-sm-10">
-                                            <textarea name="atividades" class="form-control" cols="70" rows="3"></textarea>
+                                        <div class="form-group">
+                                            <label for="atividades" class="col-sm-2 control-label">Atividades  *</label>
+                                            <div class="col-sm-8">
+                                                <textarea name="atividades" class="form-control" cols="70" rows="3"></textarea>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="requisitos" class="col-sm-2 control-label">Requisitos:</label>
-                                        <div class="col-sm-10">
-                                            <textarea name="requisitos" class="form-control" cols="70" rows="5"></textarea>
+                                        <div class="form-group">
+                                            <label for="requisitos" class="col-sm-2 control-label">Requisitos  *</label>
+                                            <div class="col-sm-8">
+                                                <textarea name="requisitos" class="form-control" cols="70" rows="5"></textarea>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="beneficios" class="col-sm-2 control-label">Beneficios:</label>
-                                        <div class="col-sm-10">
-                                            <textarea name="beneficios" id ="beneficios" class="form-control" cols="70" rows="3"></textarea>
-                                            <input type="hidden" name="data_cadastro" value="<?php echo date('Y/m/d'); ?>"/>
+                                        <div class="form-group">
+                                            <label for="beneficios" class="col-sm-2 control-label">Beneficios  *</label>
+                                            <div class="col-sm-8">
+                                                <textarea name="beneficios" id ="beneficios" class="form-control" cols="70" rows="3"></textarea>
+                                                <input type="hidden" name="data_cadastro" value="<?php echo date('Y/m/d'); ?>"/>
+                                            </div>
+                                        </div>   
+                                        <div class="form-group">
+                                            <div  class="col-sm-2 control-label"></div>
+                                            <div class="col-sm-8">
+                                                * Dados obrigatorios
+                                            </div>
                                         </div>
-                                    </div>     
-                                    <div class="form-group">
-                                        <div class="col-sm-2"></div>
-                                        <div class="col-sm-10">
-                                            <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-check" aria-hidden="true"></i> Cadastrar nova vaga</button>
+                                        <div class="form-group">
+                                            <div class="col-sm-2"></div>
+                                            <div class="col-sm-8">
+                                                <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-check" aria-hidden="true"></i> Cadastrar nova vaga</button>
+                                            </div>
                                         </div>
-                                    </div>
-                                </form>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>                
+                </div>                
+            </div>
         </div>
+
         <script src="<?= base_url('assets/js/jquery.js') ?>"></script>
         <script src="<?= base_url('assets/js/bootstrap.min.js') ?>"></script>
         <script src="<?= base_url('assets/js/scripts.js') ?>"></script>

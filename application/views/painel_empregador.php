@@ -72,7 +72,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <strong>Perfil</strong>
                                         </span>
                                         <span class="pull-right">
-                                            <a href="<?= site_url('Empregador/editarPerfil/' . $dadosEmpregador->id_empregador) ?>" class="btn btn-primary btn-xs">
+                                            <a href="<?= site_url('Empregador/editarPerfil/' . $dadosEmpregador->id_usuario) ?>" class="btn btn-primary btn-xs">
                                                 Editar <i class="fa fa-wrench fa-fw"></i>
                                             </a>
                                         </span>
@@ -80,10 +80,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <div class="row">
                                         <div class="col-xs-6 col-md-12">
                                             <ul class="list-unstyled">
-                                                <li><strong>Empresa: </strong><?php echo $dadosEmpregador->nome_empresa ?></li>
-                                                <li><strong>E-mail: </strong><?php echo $dadosEmpregador->email ?></li>                                                
-                                                <li><strong>Cidade: </strong><?php echo $dadosEmpregador->cidade ?></li>
-                                                <li><strong>Estado: </strong><?php echo $dadosEmpregador->estado ?></li>
+                                                <li><strong>Empresa: </strong><br><?php echo $dadosEmpregador->nome_usuario ?></li>
+                                                <li><strong>E-mail: </strong><br><?php echo $dadosEmpregador->email ?></li>                                                
+                                                <li><strong>Cidade: </strong><br><?php echo $dadosEmpregador->cidade ?></li>
+                                                <li><strong>Estado: </strong><br><?php echo $dadosEmpregador->estado ?></li>
                                             </ul>
                                             <hr class="hidden-xs hidden-sm pn-divider">
                                         </div>
@@ -109,21 +109,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <thead>
                                                 <tr>
                                                     <th>Cargo</th>
-                                                    <th>Área </th>
-                                                    <th>Nível</th>
-                                                    <th>Periodo</th>
-                                                    <th>Opções</th>
+                                                    <th width="100">Status</th>
+                                                    <th width="80">Opções</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php foreach ($vagas->result() as $vaga): ?>
                                                     <tr>
                                                         <td><?php echo $vaga->cargo; ?></td>
-                                                        <td><?php echo $vaga->area; ?></td>
-                                                        <td><?php echo $vaga->nivel; ?></td>
-                                                        <td><?php echo $vaga->periodo; ?></td>
+                                                        <td><?php echo $vaga->status; ?></td>
                                                         <td>
-                                                            <a  href="<?= site_url('Vagas/editarVaga/' . $vaga->id_dado_vaga . "/" . $dadosEmpregador->id_empregador) ?>" class="btn btn-primary btn-xs">
+                                                            <a  href="<?= site_url('Vagas/editarVaga/' . $vaga->id_dado_vaga . "/" . $dadosEmpregador->id_usuario) ?>" class="btn btn-primary btn-xs">
                                                                 <i class="fa fa-pencil fa-fw"></i>
                                                             </a>
                                                             <a href="#" 
@@ -148,7 +144,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <strong>Curriculos selecionados</strong>
                                         </span>
                                         <span class="pull-right">
-                                            <a  href="<?= site_url('#') ?>" class="btn btn-primary btn-xs">
+                                            <a  href="<?= site_url('PainelEmpregador/listaCurriculos') ?>" class="btn btn-primary btn-xs">
                                                 Pesquisar curriculos <i class="fa fa-search" aria-hidden="true"></i>
                                             </a>
                                         </span>
@@ -161,24 +157,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                     <th>Telefone </th>
                                                     <th>Email</th>
                                                     <th>Vaga</th>
-                                                    <th>Opções</th>
+                                                    <th width="40">Opções</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td><?php echo "Fulano"; ?></td>
-                                                    <td><?php echo "(00) 0000-0000"; ?></td>
-                                                    <td><?php echo "fulano@hotmail.com"; ?></td>
-                                                    <td><?php echo "Vaga X"; ?></td>
-                                                    <td>
-                                                        <a href="#" 
-                                                           class="btn btn-danger btn-xs"
-                                                           onclick="return confirm('Têm certeza que deseja excluir este registro?')"
-                                                           >
-                                                            <i class="fa fa-trash fa-fw"></i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
+                                                <?php 
+                                                if(!empty($dadosVagaSelecionado)):
+                                                foreach ($dadosVagaSelecionado as $dvs): ?>
+                                                    <tr>
+                                                        <td><?php echo $dvs->nome_usuario; ?></td>
+                                                        <td><?php echo $dvs->telefone; ?></td>
+                                                        <td><?php echo $dvs->email; ?></td>
+                                                        <td><?php echo $dvs->cargo; ?></td>
+                                                        <td>
+                                                            <a href="<?= site_url('Vagas/excluir/' . $dvs->id_vaga_selecionada) ?>" 
+                                                               class="btn btn-danger btn-xs"
+                                                               onclick="return confirm('Têm certeza que deseja excluir este registro?')"
+                                                               >
+                                                                <i class="fa fa-trash fa-fw"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                <?php endforeach; 
+                                                else: 
+                                                    echo "<td colspan='5' align='center'>Nenhum curriculo selecionado</td>";
+                                                    
+                                                endif;
+                                                ?>
+                                                    
                                             </tbody>
                                         </table>
                                     </div>

@@ -56,46 +56,7 @@ class Academico extends CI_Controller {
             ]);
             redirect('Academico/index/?aviso=1');
         }
-    }
-
-    public function perfilEditado() {
-        echo "aaa";
-    }
-
-    public function loginAcademico() {
-        //pega os dados vindos da view de login
-        $academico_email = $this->input->post('email');
-        $academico_senha = $this->input->post('senha');
-        //fazendo a validação do formulario de login
-        $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
-        $this->form_validation->set_rules('email', 'email', 'required|max_length[120]');
-        $this->form_validation->set_rules('senha', 'Senha', 'required|max_length[120]');
-
-        if ($this->form_validation->run() == FALSE) {
-            $this->carregaLogin();
-            return;
-        }
-
-        //seleciona os dados na tabela de entidade
-        $this->db
-                ->select("*")
-                ->from("academico")
-                ->where("email", $academico_email)
-                ->where("senha", md5($academico_senha));
-
-        $dadosAcademico = $this->db->get();
-
-        //se tiver um igual vai fazer o login e passar o id
-        if ($dadosAcademico->num_rows() > 0) {
-            $academico = $dadosAcademico->row();
-
-            $this->session->set_userdata('logado', TRUE);
-            $this->session->set_userdata('id_academico', $academico->id_academico);
-
-            redirect('/Painel_academico');
-        } else {
-            $this->load->view('login_academico', ['login_falhou' => TRUE]);
-        }
-    }
+    }   
+    
 
 }

@@ -58,7 +58,7 @@
                                             </strong>
                                         </span>
                                         <span class="pull-right">
-                                            <a class="btn btn-primary btn-xs" href="<?= site_url('Painel_academico/voltar') ?>"><i class="fa fa-chevron-left" aria-hidden="true"></i> Voltar</a>
+                                            <a class="btn btn-primary btn-xs" href="<?= site_url('Painel_academico/') ?>"><i class="fa fa-chevron-left" aria-hidden="true"></i> Voltar</a>
                                         </span>
                                     </div>   
 
@@ -72,7 +72,7 @@
                                         <div class="form-group">
                                             <label for="nome" class="col-sm-2 control-label">Nome:</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="nome" name = "nome" value="<?php echo $dadosAcademico->nome ?>">
+                                                <input type="text" class="form-control" id="nome" name = "nome" value="<?php echo $dadosAcademico->nome_usuario ?>">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -84,7 +84,7 @@
                                         <div class="form-group">
                                             <label for="nome" class="col-sm-2 control-label">Telefone:</label>
                                             <div class="col-sm-4">
-                                                <input type="text" class="form-control" id="nome" name = "telefone" value="<?php echo $dadosAcademico->telefone ?>">
+                                                <input type="text" class="form-control phone" id="nome" name = "telefone" value="<?php echo $dadosAcademico->telefone ?>">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -130,5 +130,10 @@
         <script src="<?= base_url('assets/js/jquery.js') ?>"></script>
         <script src="<?= base_url('assets/js/bootstrap.min.js') ?>"></script>
         <script src="<?= base_url('assets/js/scripts.js') ?>"></script>
+        <script src="<?= base_url('assets/js/jquery.mask.min.js') ?>"></script>
+        <script type="text/javascript">
+            $('.phone').mask('(00) 0000 - 0000');
+            $('.cpf').mask('000.000.000-00', {reverse: true});
+        </script>
     </body>
 </html>

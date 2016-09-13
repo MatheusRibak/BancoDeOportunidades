@@ -22,21 +22,12 @@
     padding: 30px 0;
 }
 
-.navbar{
-    margin-bottom: 0 !important;
-    border-radius: 0px !important;
-}
-
-.margim-nav {
-    margin-top: 40px;
-}
-
 .form-add-content {
     padding: 90px 0;
 }
 
 .usuario-content .table-responsive {
-    height: 170px;
+    height: auto;
     overflow-y: auto;
 }
 

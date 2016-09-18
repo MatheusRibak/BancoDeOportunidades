@@ -61,6 +61,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <span class="pull-left">
                                             <strong>Pesquisar curriculos</strong>
                                         </span>
+                                        <span class="pull-right">
+                                            <a class="btn btn-default btn-xs" href="<?= site_url('PainelEmpregador/') ?>"><i class="fa fa-chevron-left" aria-hidden="true"></i> Voltar</a>
+                                        </span>
                                     </div>
                                     <form class="form-inline" method="post" action="<?= site_url('PainelEmpregador/consulta/') ?>">
                                         <div class="form-group">

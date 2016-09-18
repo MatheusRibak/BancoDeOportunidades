@@ -49,17 +49,10 @@ class Vaga_academico extends CI_Controller {
         $this->Vaga_academico_model->cadastrarCandidato($dados);
         redirect('Painel_academico/carregaBusca/?aviso=4');
     }
-//
-//    public function excluir($id_vaga, $id_academico){
-//      $this->load->model('Academico_model');
-//      $this->load->model('Formacao_model');
-//      $this->load->model('Experiencia_model');
-//      $this->load->model('Vaga_academico_model');
-//      $id_academico = $this->session->userdata('id_academico');
-//      $data = array(
-//          "excluir" => $this->Vaga_academico_model->excluir($id_academico, $id_vaga)
-//      );
-//
-//      redirect('Painel_academico/index/?aviso=3');
-//    }
+
+    public function excluir($id_vaga){
+      $this->load->model('Vaga_academico_model');
+      $this->Vaga_academico_model->excluir($id_vaga);
+      redirect('Painel_academico/index/?aviso=1');
+    }
 }

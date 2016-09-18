@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.min.css') ?>" type="text/css">
         <link rel="stylesheet" href="<?= base_url('assets/fonts/font-awesome-4.3.0/css/font-awesome.min.css') ?>" type="text/css">
         <link rel="stylesheet" href="<?= base_url('assets/css/jquery-ui.css') ?>">
-        <link rel="stylesheet" href="<?= base_url('assets/css/jquery-ui.theme.css') ?>"> 
+        <link rel="stylesheet" href="<?= base_url('assets/css/jquery-ui.theme.css') ?>">
     </head>
 
     <body>
@@ -56,13 +56,13 @@
                                     <div class="pn-heading">
                                         <span class="pull-left">
                                             <strong>Formacao Profissional
-                                                <small class="text-muted">Adicione a sua formacao</small>
+                                                <small class="text-muted">Edite a sua Formação</small>
                                             </strong>
                                         </span>
                                         <span class="pull-right">
                                             <a class="btn btn-default btn-xs" href="<?= site_url('Painel_academico/') ?>"><i class="fa fa-chevron-left" aria-hidden="true"></i> Voltar</a>
                                         </span>
-                                    </div>   
+                                    </div>
 
                                     <?php echo validation_errors(); ?>
                                     <?php if ($this->input->get('aviso') == 1) { ?>
@@ -73,17 +73,22 @@
                                     <?php if ($this->input->get('aviso') == 2) { ?>
                                         <?php echo validation_errors(); ?>
                                     <?php } ?>
-                                    <form class="form-horizontal" action="<?= site_url('Painel_academico/salvaFormacao') ?>" method="post">
+
+                                    <form class="form-horizontal" action="<?= site_url('Formacao/salvaFormacaoEditada') ?>" method="post">
                                         <div class="form-group">
                                             <label for="nome" class="col-sm-2 control-label">Nome do curso</label>
-
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control" name="nome" placeholder="Digite o nome do seu curso" required>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" value="<?php echo $formacao->nome_curso; ?>" name="nome" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="nome" class="col-sm-2 control-label">Tipo Curso atual</label>
+                                            <div class="col-sm-2">
+                                                <input type="text" class="form-control" value="<?php echo $formacao->tipo; ?>" name="nome" disabled="true">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="nome" class="col-sm-2 control-label">Tipo curso</label>
-
                                             <div class="col-sm-4">
                                                 <select class="col-sm-12 form-control" name="tipo">
                                                     <option value="Graducão">Graduacao</option>
@@ -96,44 +101,34 @@
 
                                         <div class="form-group">
                                             <label for="senha" class="col-sm-2 control-label">Instituição</label>
-
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control" name="escola" placeholder="Digite a escola" required>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" value="<?php echo $formacao->escola; ?>" name="escola" required>  
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <label for="email-cad" class="col-sm-2 control-label">Início do curso</label>
                                             <div class="col-sm-2">
-                                                <input type="date" class="form-control data" name="inicio" placeholder="Digite a data" required>
+                                                <input type="date" class="form-control data" name="inicio" required value="<?php echo implode("/", array_reverse(explode("-", $formacao->inicio))); ?>">
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="senha" class="col-sm-2 control-label">Termino do curso</label>
+                                            <label for="senha" class="col-sm-2 control-label">Término do curso</label>
                                             <div class="col-sm-2">
-                                                <input type="date" class="form-control data" name="termino" placeholder="Digite a data" required>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-sm-offset-2 col-sm-10">
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox" required> Aceito os
-                                                    </label>
-                                                    <a href="#" data-toggle="modal" data-target="#modal-contrato">Termos e Condições</a> do contrato.
-                                                </div>
+                                                <input type="date" class="form-control data" name="termino" required value="<?php echo implode("/", array_reverse(explode("-", $formacao->termino))); ?>">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="col-sm-offset-2 col-sm-10">
                                                 <button type="submit" class="btn btn-primary">
-                                                    Adicionar <i class="fa fa-plus fa-fw"></i>
+                                                    Alterar dados <i class="fa fa-plus fa-fw"></i>
                                                 </button>
                                             </div>
                                         </div>
+                                        <input type="hidden" name="id_formacao" value="<?php echo $formacao->id_formacao; ?>">
                                     </form>
 
-                                </div>                    
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -143,10 +138,10 @@
         <script src="<?= base_url('assets/js/jquery.js') ?>"></script>
         <script src="<?= base_url('assets/js/bootstrap.min.js') ?>"></script>
         <script src="<?= base_url('assets/js/scripts.js') ?>"></script>
+        <script src="<?= base_url('assets/js/jquery-ui.min.js') ?>"></script>
         <script src="<?= base_url('assets/js/jquery.mask.min.js') ?>"></script>
         <script type="text/javascript">
-                                                    $('.data').mask('00/00/0000');
-
+            $('.data').mask('00/00/0000');
         </script>
     </body>
 </html>

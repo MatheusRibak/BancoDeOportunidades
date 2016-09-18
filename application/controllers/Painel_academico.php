@@ -14,7 +14,7 @@ class Painel_academico extends MY_ControllerLogado {
             "vagas_candidatadas" => $this->Vaga_academico_model->getMinhasVagas($id_usuario)->result(),
             "dadosAcademico" => $this->Usuario_model->getUsuario($id_usuario)->row(),
             "dadosFormacao" => $this->Formacao_model->getFormacao($id_usuario)->result(),
-            "dadosExperiencia" => $this->Experiencia_model->getExp($id_usuario)->result()
+            "dadosExperiencia" => $this->Experiencia_model->getExpUsuario($id_usuario)->result()
         );
         $this->load->view('painel_academico', $data);
     }
@@ -73,19 +73,6 @@ class Painel_academico extends MY_ControllerLogado {
         $this->load->view('cadastra_formacao', $data);
     }
 
-    public function voltar() {
-        $this->load->model('Usuario_model');
-        $this->load->model('Formacao_model');
-        $this->load->model('Experiencia_model');
-        $id_usuario = $this->session->userdata('id_usuario');
-        $data = array(
-            "dadosAcademico" => $this->Usuario_model->getUsuario($id_usuario)->row(),
-            "dadosFormacao" => $this->Formacao_model->getFormacao($id_usuario)->result(),
-            "dadosExperiencia" => $this->Experiencia_model->getExp($id_usuario)->result()
-        );
-        $this->load->view('painel_academico', $data);
-    }
-
     public function carregaExp() {
         $this->load->model('Usuario_model');
         $this->load->model('Formacao_model');
@@ -101,15 +88,22 @@ class Painel_academico extends MY_ControllerLogado {
     }
 
     public function salvaExp() {
+        
+        $inicioD = $this->input->post('inicio');
+        $terminoD = $this->input->post('termino');
+        $salvaInicio = implode("-", array_reverse(explode("/", $inicioD)));
+        $salvaTermino = implode("-", array_reverse(explode("/", $terminoD)));
+        
         $nome = $this->input->post('nome');
         $empresa = $this->input->post('empresa');
-        $inicio = $this->input->post('inicio');
-        $termino = $this->input->post('termino');
+        $inicio = $salvaInicio;
+        $termino = $salvaTermino;
         $id_usuario = $this->session->userdata('id_usuario');
         $atividade = $this->input->post('atividade');
 
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
-        $this->form_validation->set_rules('nome', 'Nome', 'required|max_length[120]');
+        $this->form_validation->set_rules('nome', 'Ocupação', 'required|max_length[120]');
+        $this->form_validation->set_rules('nome', 'Nome empresa', 'required|max_length[120]');
         $this->form_validation->set_rules('termino', 'termino', 'max_length[120]');
         $this->form_validation->set_rules('inicio', 'inicio', 'required|max_length[120]');
         $this->form_validation->set_rules('empresa', 'Empresa', 'required|max_length[120]');
@@ -133,10 +127,16 @@ class Painel_academico extends MY_ControllerLogado {
     }
 
     public function salvaFormacao() {
+        
+        $inicioD = $this->input->post('inicio');
+        $terminoD = $this->input->post('termino');
+        $salvaInicio = implode("-", array_reverse(explode("/", $inicioD)));
+        $salvaTermino = implode("-", array_reverse(explode("/", $terminoD)));
+        
         $nome = $this->input->post('nome');
         $tipo = $this->input->post('tipo');
-        $inicio = $this->input->post('inicio');
-        $termino = $this->input->post('termino');
+        $inicio = $salvaInicio;
+        $termino = $salvaTermino;
         $escola = $this->input->post('escola');
         $id_usuario = $this->session->userdata('id_usuario');
 
@@ -169,6 +169,27 @@ class Painel_academico extends MY_ControllerLogado {
             "dadosAcademico" => $this->Usuario_model->getUsuario($id_usuario)->row(),
         );
         $this->load->view('resultado_busca', $data);
+    }
+
+    function getFormacao($id_formacao) {
+        $id_usuario = $this->session->userdata('id_usuario');
+        $this->load->model('Formacao_model');
+        $data = array(
+            "dadosAcademico" => $this->Usuario_model->getUsuario($id_usuario)->row(),
+            "formacao" => $this->Formacao_model->buscaFormacao($id_formacao)->row()
+        );
+
+        $this->load->view('edita_formacao', $data);
+    }
+
+    function getExperiencia($id_experiencia) {
+        $id_usuario = $this->session->userdata('id_usuario');
+        $this->load->model('Experiencia_model');
+        $data = array(
+            "dadosAcademico" => $this->Usuario_model->getUsuario($id_usuario)->row(),
+            "experiencia" => $this->Experiencia_model->getExp($id_experiencia)->row()
+        );
+        $this->load->view('edita_experiencia', $data);
     }
 
     public function deslogar() {

@@ -117,7 +117,7 @@ class Empregador extends CI_Controller {
             "dadosAcademico" => $this->Usuario_model->getUsuario($idAcademico)->row(),
             "dadosFormacao" => $this->Formacao_model->todos($idAcademico)->result(),
             "dadosExperiencia" => $this->Experiencia_model->getExp($idAcademico)->result(),
-            "vagas" => $this->Vaga_empregador->getVagas($id_usuario)->result()
+            "vagas" => $this->Vaga_empregador->getVagasAtivas($id_usuario)->result()
         );
         $this->load->view('curriculo', $data);
     }

@@ -65,6 +65,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <span class="pull-left">
                                                 <strong>Pesquisar Vagas</strong>
                                             </span>
+                                            <span class="pull-right">
+                                                <a class="btn btn-default btn-xs" href="<?= site_url('Painel_academico/index') ?>"><i class="fa fa-chevron-left" aria-hidden="true"></i> Voltar</a>
+                                            </span>
                                         </div>
                                         <form class="form-inline" method="post" action="<?= site_url('Vaga_academico/getVagas') ?>">
                                             <div class="form-group">
@@ -91,7 +94,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                     <span class="pull-right">
                                                         <a href="<?= site_url('Vaga_academico/vagaCompleta/' . $row->id_dado_vaga) ?>" 
                                                            class="btn btn-info btn-xs" title="Visualizar o curriculo completo">
-                                                            <i class="fa fa-eye" aria-hidden="true"></i> ver curriculo
+                                                            <i class="fa fa-eye" aria-hidden="true"></i> ver vaga
                                                         </a>
                                                     </span>
                                                     <footer>Area : <?php echo $row->area; ?></footer> 

@@ -11,6 +11,21 @@
         <link rel="stylesheet" href="<?= base_url('assets/fonts/font-awesome-4.3.0/css/font-awesome.min.css') ?>" type="text/css">
         <link rel="stylesheet" href="<?= base_url('assets/css/jquery-ui.css') ?>">
         <link rel="stylesheet" href="<?= base_url('assets/css/jquery-ui.theme.css') ?>"> 
+        <script type="text/javascript">
+            function habilitaBtn() {
+                var op = document.getElementById("opcao").value;
+
+                if (op == "S")
+                {
+                    if (!document.getElementById('avancar').disabled)
+                        document.getElementById('avancar').disabled = true;
+                } else if (op == "N")
+                {
+                    if (document.getElementById('avancar').disabled)
+                        document.getElementById('avancar').disabled = false;
+                }
+            }
+        </script>
     </head>
 
     <body>
@@ -59,7 +74,7 @@
                                             </strong>
                                         </span>
                                         <span class="pull-right">
-                                            <a class="btn btn-primary btn-xs" href="<?= site_url('Painel_academico/voltar') ?>"><i class="fa fa-chevron-left" aria-hidden="true"></i> Voltar</a>
+                                            <a class="btn btn-default btn-xs" href="<?= site_url('Painel_academico/') ?>"><i class="fa fa-chevron-left" aria-hidden="true"></i> Voltar</a>
                                         </span>
                                     </div>   
 
@@ -72,40 +87,43 @@
                                         <div class="form-group">
                                             <label for="nome" class="col-sm-2 control-label">Ocupação</label>
 
-                                            <div class="col-sm-10">
+                                            <div class="col-sm-9">
                                                 <input type="text" class="form-control" name="nome" placeholder="Digite a sua função" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="senha" class="col-sm-2 control-label">Nome da empresa</label>
 
-                                            <div class="col-sm-10">
+                                            <div class="col-sm-8">
                                                 <input type="text" class="form-control" name="empresa" placeholder="Digite a empresa" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="senha" class="col-sm-2 control-label">Atividades</label>
-                                            <div class="col-sm-10">
+                                            <div class="col-sm-7">
                                                 <input type="text" class="form-control" name="atividade" placeholder="Digite a sua atividade" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="email-cad" class="col-sm-2 control-label">Data de inicio do trabalho</label>
+                                            <label for="email-cad" class="col-sm-2 control-label">Início</label>
                                             <div class="col-sm-2">
                                                 <input type="date" class="form-control data" name="inicio"  required>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="senha" class="col-sm-2 control-label">Ainda trabalha na empresa?</label>
-                                            <div class="col-sm-10">
-                                                <input type="checkbox"> Sim
-                                                <input type="checkbox" id="" value="" onclick="Habilitar(this, 'termino')"> Não
+                                            <label for="senha" class="col-sm-2 control-label">Trabalha na empresa?</label>
+                                            <div class="col-sm-2">
+                                                <select class="form-control" onchange="habilitaBtn()" id="opcao" required>
+                                                    <option name="ativo" value="S"/>Sim</option>
+                                                    <option name="ativo" value="N"/>Não</option>
+
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="email-cad" class="col-sm-2 control-label">data de termino do emprego</label>
+                                            <label for="email-cad" class="col-sm-2 control-label">Término</label>
                                             <div class="col-sm-2">
-                                                <input type="date" class="form-control data" id="termino" name="termino"  disabled="">
+                                                <input type="date" class="form-control data" id="avancar" name="termino"  disabled="">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -136,20 +154,10 @@
         <script src="<?= base_url('assets/js/jquery.js') ?>"></script>
         <script src="<?= base_url('assets/js/bootstrap.min.js') ?>"></script>
         <script src="<?= base_url('assets/js/scripts.js') ?>"></script>
-        <script src="<?= base_url('assets/js/jquery-ui.min.js') ?>"></script>
-        <script>
-            $(function () {
-                $(".data").datepicker({
-                    dateFormat: 'dd/mm/yy',
-                    dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
-                    dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S', 'D'],
-                    dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
-                    monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-                    monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
-                    nextText: 'Próximo',
-                    prevText: 'Anterior'
-                });
-            });
+        <script src="<?= base_url('assets/js/jquery.mask.min.js') ?>"></script>
+        <script type="text/javascript">
+                                                    $('.data').mask('00/00/0000');
+
         </script>
     </body>
 </html>

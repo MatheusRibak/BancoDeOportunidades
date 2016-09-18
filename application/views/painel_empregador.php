@@ -37,6 +37,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
+                                    <a href="<?= site_url('#') ?>"><i class="fa fa-wrench fa-fw"></i> Trocar de senha</a>
+                                </li>
+                                <li>
                                     <a href="<?= site_url('PainelEmpregador/fechaSessao') ?>"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
                                 </li>
                             </ul>
@@ -61,6 +64,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <?php if ($this->input->get('aviso') == 3) { ?>
                         <div class="alert alert-success">
                             Vaga alterada com sucesso!
+                        </div>
+                    <?php } ?>
+                    <?php if ($this->input->get('aviso') == 4) { ?>
+                        <div class="alert alert-success">
+                            Curriculo excluido com sucesso!
                         </div>
                     <?php } ?>
                     <div class="row">
@@ -118,15 +126,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                     <tr>
                                                         <td><?php echo $vaga->cargo; ?></td>
                                                         <td><?php echo $vaga->status; ?></td>
-                                                        <td>
+                                                        <td align="center">
                                                             <a  href="<?= site_url('Vagas/editarVaga/' . $vaga->id_dado_vaga . "/" . $dadosEmpregador->id_usuario) ?>" class="btn btn-primary btn-xs">
                                                                 <i class="fa fa-pencil fa-fw"></i>
-                                                            </a>
-                                                            <a href="#" 
-                                                               class="btn btn-danger btn-xs"
-                                                               onclick="return confirm('Têm certeza que deseja excluir este registro?')"
-                                                               >
-                                                                <i class="fa fa-trash fa-fw"></i>
                                                             </a>
                                                         </td>
                                                     </tr>
@@ -169,8 +171,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                         <td><?php echo $dvs->telefone; ?></td>
                                                         <td><?php echo $dvs->email; ?></td>
                                                         <td><?php echo $dvs->cargo; ?></td>
-                                                        <td>
-                                                            <a href="<?= site_url('Vagas/excluir/' . $dvs->id_vaga_selecionada) ?>" 
+                                                        <td align='center'>
+                                                            <a href="<?= site_url('Vagas/excluirCandidato/' . $dvs->id_vaga_selecionada) ?>" 
                                                                class="btn btn-danger btn-xs"
                                                                onclick="return confirm('Têm certeza que deseja excluir este registro?')"
                                                                >

@@ -72,6 +72,13 @@ class Vagas extends CI_Controller {
         $this->load->view('alterar_vaga_emprego_form', $data);        
     }
     
+    public function excluirCandidato($id_vaga_selecionada){
+        $this->load->model('Curriculo_selecionado');        
+        $this->Curriculo_selecionado->deletarCurriculo($id_vaga_selecionada);
+        redirect('/PainelEmpregador/?aviso=4');
+        
+    }
+    
     public function execAlterarVaga($id_dado_vaga) {
         $this->load->model('Vaga_empregador');
 
@@ -84,6 +91,7 @@ class Vagas extends CI_Controller {
         $atividades = $this->input->post('atividades');
         $requisitos = $this->input->post('requisitos');
         $beneficios = $this->input->post('beneficios');
+        $status = $this->input->post('status');
 
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
         $this->form_validation->set_rules('cargo', 'Cargo', 'required|max_length[120]');
@@ -108,7 +116,8 @@ class Vagas extends CI_Controller {
             "periodo" => $periodo,
             "atividades" => $atividades,
             "requisitos" => $requisitos,
-            "beneficios" => $beneficios
+            "beneficios" => $beneficios,
+            "status" => $status
         );
         $this->Vaga_empregador->atualizaVaga($id_dado_vaga, $dados);
         redirect('/PainelEmpregador/?aviso=3');

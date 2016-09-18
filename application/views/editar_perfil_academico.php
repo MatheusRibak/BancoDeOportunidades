@@ -103,16 +103,6 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="col-sm-offset-2 col-sm-10">
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox" required> Aceito os
-                                                    </label>
-                                                    <a href="#" data-toggle="modal" data-target="#modal-contrato">Termos e Condições</a> do contrato.
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-sm-offset-2 col-sm-10">
                                                 <button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Salvar novos dados</button>
                                             </div>
                                         </div>

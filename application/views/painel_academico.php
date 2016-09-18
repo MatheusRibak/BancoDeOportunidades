@@ -35,6 +35,9 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
+                                    <a href="<?= site_url('#') ?>"><i class="fa fa-wrench fa-fw"></i> Trocar de senha</a>
+                                </li>
+                                <li>
                                     <a href="<?= site_url('Painel_academico/deslogar') ?>"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
                                 </li>
                             </ul>
@@ -46,6 +49,21 @@
         <div class="page-content">
             <div class="usuario-content">
                 <div class="container">
+                    <?php if ($this->input->get('aviso') == 1) { ?>
+                        <div class="alert alert-success">
+                            Excluido com sucesso!
+                        </div>
+                    <?php } ?>
+                    <?php if ($this->input->get('aviso') == 2) { ?>
+                        <div class="alert alert-success">
+                            Dados da formação alterado com sucesso!
+                        </div>
+                    <?php } ?>
+                    <?php if ($this->input->get('aviso') == 3) { ?>
+                        <div class="alert alert-success">
+                            Dados da experiência alterado com sucesso!
+                        </div>
+                    <?php } ?>
                     <div class="row">
                         <div class="col-md-3">
                             <div class="panel panel-default">
@@ -109,9 +127,9 @@
                                                         <tr>
                                                             <td><?= $vaga->nome_usuario; ?></td>
                                                             <td><?= $vaga->area; ?></td>
-                                                            <td><?= $vaga->status; ?></td>
-                                                            <td>
-                                                                <a href="#" 
+                                                            <td><?= $vaga->status; ?></td>                                                            
+                                                            <td align='center'>
+                                                                <a href="<?= site_url('Vaga_academico/excluir/' . $vaga->id_vaga) ?>" 
                                                                    class="btn btn-danger btn-xs"
                                                                    onclick="return confirm('Têm certeza que deseja excluir este registro?')"
                                                                    >
@@ -122,7 +140,7 @@
                                                         <?php
                                                     endforeach;
                                                 else:
-                                                    echo "<td colspan='5' align='center'>Nenhum curriculo selecionado</td>";
+                                                    echo "<td colspan='5' align='center'>Nenhuma vaga candidatada</td>";
                                                 endif;
                                                 ?>
                                             </tbody>
@@ -159,15 +177,9 @@
                                                         <td><?php echo $formacao->nome_curso; ?></td>
                                                         <td><?php echo $formacao->tipo; ?></td>
                                                         <td><?php echo $formacao->escola; ?></td>
-                                                        <td>
-                                                            <a  href="#" class="btn btn-primary btn-xs">
+                                                        <td align='center'>
+                                                            <a  href="<?= site_url('Painel_academico/getFormacao/' . $formacao->id_formacao) ?>" class="btn btn-primary btn-xs">
                                                                 <i class="fa fa-pencil fa-fw"></i>
-                                                            </a>
-                                                            <a href="#" 
-                                                               class="btn btn-danger btn-xs"
-                                                               onclick="return confirm('Têm certeza que deseja excluir este registro?')"
-                                                               >
-                                                                <i class="fa fa-trash fa-fw"></i>
                                                             </a>
                                                         </td>
                                                     </tr>
@@ -204,15 +216,9 @@
                                                     <td><?php echo $exp->nome_experiencia; ?></td>
                                                     <td><?php echo $exp->empresa; ?></td>
                                                     <td><?php echo $exp->atividade; ?></td>
-                                                    <td>
-                                                        <a  href="#" class="btn btn-primary btn-xs">
+                                                    <td align='center'>
+                                                        <a  href="<?= site_url('Painel_academico/getExperiencia/' . $exp->id_experiencia) ?>" class="btn btn-primary btn-xs">
                                                             <i class="fa fa-pencil fa-fw"></i>
-                                                        </a>
-                                                        <a href="#" 
-                                                           class="btn btn-danger btn-xs"
-                                                           onclick="return confirm('Têm certeza que deseja excluir este registro?')"
-                                                           >
-                                                            <i class="fa fa-trash fa-fw"></i>
                                                         </a>
                                                     </td>
                                                 </tr>

@@ -64,7 +64,7 @@ $idEmpregador = $this->session->userdata('idAdministrador');
                         <form class="form-horizontal" method="post" action="<?= site_url('Vagas/execAlterarVaga/' . $dadosVaga->id_dado_vaga) ?>">
                             <div class="form-group">
                                 <label for="cargo" class="col-sm-2 control-label">Cargo:</label>
-                                <div class="col-sm-10">
+                                <div class="col-sm-9">
                                     <input type="text" class="form-control" name="cargo" id="cargo" value="<?= $dadosVaga->cargo ?>">
                                 </div>
                             </div>
@@ -94,7 +94,7 @@ $idEmpregador = $this->session->userdata('idAdministrador');
                             </div>
                             <div class="form-group">
                                 <label for="atividades" class="col-sm-2 control-label">Atividades:</label>
-                                <div class="col-sm-10">
+                                <div class="col-sm-9">
                                     <textarea name="atividades" class="form-control" cols="70" rows="3">
                                         <?= $dadosVaga->atividades ?>
                                     </textarea>
@@ -102,7 +102,7 @@ $idEmpregador = $this->session->userdata('idAdministrador');
                             </div>
                             <div class="form-group">
                                 <label for="requisitos" class="col-sm-2 control-label">Requisitos:</label>
-                                <div class="col-sm-10">
+                                <div class="col-sm-9">
                                     <textarea name="requisitos" class="form-control" cols="70" rows="5">
                                         <?= $dadosVaga->requisitos ?>
                                     </textarea>
@@ -110,16 +110,25 @@ $idEmpregador = $this->session->userdata('idAdministrador');
                             </div>
                             <div class="form-group">
                                 <label for="beneficios" class="col-sm-2 control-label">Beneficios:</label>
-                                <div class="col-sm-10">
+                                <div class="col-sm-9">
                                     <textarea name="beneficios" id ="beneficios" class="form-control" cols="70" rows="3">
                                         <?= $dadosVaga->beneficios ?>
                                     </textarea>
                                 </div>
                             </div>  
                             <div class="form-group">
-                                <label for="status" class="col-sm-2 control-label">Período:</label>
+                                <label for="status" class="col-sm-2 control-label">Status atual:</label>
                                 <div class="col-sm-2">
-                                    <input type="text" class="form-control" id="status" value="<?= $dadosVaga->status ?>" disabled="true">
+                                    <input  class="form-control" id="status" value="<?= $dadosVaga->status ?>" disabled="true">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="status" class="col-sm-2 control-label">Status:</label>
+                                <div class="col-sm-3">
+                                    <select name="status" class="form-control">
+                                        <option name="ATIVO">ATIVO</option>
+                                        <option name="INATIVO">INATIVO</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group">

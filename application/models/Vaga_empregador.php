@@ -14,6 +14,14 @@ class Vaga_empregador extends CI_Model {
         return $this->db->get('dados_vaga');
     }
     
+    //CONSULTANDO VAGAS ATIVAS POR IDEMPREGADOR
+    function getVagasAtivas($idUsuario) {
+        $idUsuario = (int) $idUsuario;
+        $this->db->where('id_usuario', $idUsuario);
+        $this->db->where('status', 'ATIVO');
+        return $this->db->get('dados_vaga');
+    }
+    
     //BUSCAR VAGA
     function getVaga($id_dado_vaga) {
         $id_dado_vaga = (int) $id_dado_vaga;

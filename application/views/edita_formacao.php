@@ -114,6 +114,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="senha" class="col-sm-2 control-label">Término do curso</label>
+
                                             <div class="col-sm-2">
                                                 <input type="date" class="form-control data" name="termino" required value="<?php echo implode("/", array_reverse(explode("-", $formacao->termino))); ?>">
                                             </div>

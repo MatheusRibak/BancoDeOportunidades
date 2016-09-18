@@ -16,8 +16,8 @@ class Formacao_model extends CI_Model {
         return $this->db->get('formacao');
     }
     
-    function buscaFormacao($id_formacao) {
-        $this->db->where('id_formacao', $id_formacao);
+    function buscaFormacao($id_usuario) {
+        $this->db->where('id_usuario', $id_usuario);
         return $this->db->get('formacao');
     }
 

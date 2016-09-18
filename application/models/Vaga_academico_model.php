@@ -19,7 +19,9 @@ class Vaga_academico_model extends CI_Model {
         return $this->db->get("dados_candidato");
     }
 
-    public function excluir($id_vaga) {
+    public function excluir($id_usuario, $id_vaga) {
+        $id_usuario = $this->session->userdata('id_usuario');
+        $this->db->where('id_usuario', $id_usuario);
         $this->db->where('id_vaga', $id_vaga);
         $this->db->delete('dados_candidato');
     }

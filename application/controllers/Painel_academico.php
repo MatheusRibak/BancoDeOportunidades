@@ -94,7 +94,7 @@ class Painel_academico extends MY_ControllerLogado {
         $salvaInicio = implode("-", array_reverse(explode("/", $inicioD)));
         $salvaTermino = implode("-", array_reverse(explode("/", $terminoD)));
         
-        $nome = $this->input->post('nome');
+        $nome = $this->input->post('nome_experiencia');
         $empresa = $this->input->post('empresa');
         $inicio = $salvaInicio;
         $termino = $salvaTermino;

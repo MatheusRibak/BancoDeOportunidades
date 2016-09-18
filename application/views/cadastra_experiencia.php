@@ -105,13 +105,13 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="email-cad" class="col-sm-2 control-label">Início</label>
+                                            <label for="email-cad" class="col-sm-2 control-label">Início do trabalho</label>
                                             <div class="col-sm-2">
                                                 <input type="date" class="form-control data" name="inicio"  required>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="senha" class="col-sm-2 control-label">Trabalha na empresa?</label>
+                                            <label for="senha" class="col-sm-2 control-label">Ainda trabalha na empresa?</label>
                                             <div class="col-sm-2">
                                                 <select class="form-control" onchange="habilitaBtn()" id="opcao" required>
                                                     <option name="ativo" value="S"/>Sim</option>
@@ -121,7 +121,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="email-cad" class="col-sm-2 control-label">Término</label>
+                                            <label for="email-cad" class="col-sm-2 control-label">Término do emprego</label>
                                             <div class="col-sm-2">
                                                 <input type="date" class="form-control data" id="avancar" name="termino"  disabled="">
                                             </div>

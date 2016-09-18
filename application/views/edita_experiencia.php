@@ -93,7 +93,7 @@
                                         <div class="form-group">
                                             <label for="email-cad" class="col-sm-2 control-label">Término do emprego</label>
                                             <div class="col-sm-2">
-                                                <input type="date" class="form-control data" id="avancar" name="termino"  value="<?php echo implode("/", array_reverse(explode("-", $experiencia->termino))); ?>" >
+                                                <input type="date" class="form-control data" id="avancar" name="termino"  disabled="" value="<?php echo implode("/", array_reverse(explode("-", $experiencia->termino))); ?>" >
                                             </div>
                                         </div>
                                         <div class="form-group">

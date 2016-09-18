@@ -140,7 +140,7 @@
                                                         <?php
                                                     endforeach;
                                                 else:
-                                                    echo "<td colspan='5' align='center'>Nenhuma vaga candidatada</td>";
+                                                    echo "<td colspan='5' align='center'>Nenhum curriculo selecionado</td>";
                                                 endif;
                                                 ?>
                                             </tbody>

@@ -102,21 +102,21 @@
                                         <div class="form-group">
                                             <label for="senha" class="col-sm-2 control-label">Instituição</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" value="<?php echo $formacao->escola; ?>" name="escola" required>  
+                                                <input type="text" class="form-control" value="<?php echo $formacao->escola; ?>" name="escola" required>
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <label for="email-cad" class="col-sm-2 control-label">Início do curso</label>
                                             <div class="col-sm-2">
-                                                <input type="date" class="form-control data" name="inicio" required value="<?php echo implode("/", array_reverse(explode("-", $formacao->inicio))); ?>">
+                                                <input type="text" class="form-control data" name="inicio" required value="<?php echo implode("/", array_reverse(explode("-", $formacao->inicio))); ?>">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="senha" class="col-sm-2 control-label">Término do curso</label>
 
                                             <div class="col-sm-2">
-                                                <input type="date" class="form-control data" name="termino" required value="<?php echo implode("/", array_reverse(explode("-", $formacao->termino))); ?>">
+                                                <input type="text" class="form-control data" name="termino" required value="<?php echo implode("/", array_reverse(explode("-", $formacao->termino))); ?>">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -142,7 +142,7 @@
         <script src="<?= base_url('assets/js/jquery-ui.min.js') ?>"></script>
         <script src="<?= base_url('assets/js/jquery.mask.min.js') ?>"></script>
         <script type="text/javascript">
-            $('.data').mask('00/00/0000');
+            $('.data').mask('0000');
         </script>
     </body>
 </html>

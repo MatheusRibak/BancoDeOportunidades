@@ -88,12 +88,12 @@ class Painel_academico extends MY_ControllerLogado {
     }
 
     public function salvaExp() {
-        
+
         $inicioD = $this->input->post('inicio');
         $terminoD = $this->input->post('termino');
         $salvaInicio = implode("-", array_reverse(explode("/", $inicioD)));
         $salvaTermino = implode("-", array_reverse(explode("/", $terminoD)));
-        
+
         $nome = $this->input->post('nome_experiencia');
         $empresa = $this->input->post('empresa');
         $inicio = $salvaInicio;
@@ -127,12 +127,12 @@ class Painel_academico extends MY_ControllerLogado {
     }
 
     public function salvaFormacao() {
-        
+
         $inicioD = $this->input->post('inicio');
         $terminoD = $this->input->post('termino');
         $salvaInicio = implode("-", array_reverse(explode("/", $inicioD)));
         $salvaTermino = implode("-", array_reverse(explode("/", $terminoD)));
-        
+
         $nome = $this->input->post('nome');
         $tipo = $this->input->post('tipo');
         $inicio = $salvaInicio;
@@ -195,6 +195,71 @@ class Painel_academico extends MY_ControllerLogado {
     public function deslogar() {
         $this->session->sess_destroy();
         redirect('Home');
+    }
+
+    public function carregaEditarSenha(){
+      $id_usuario = $this->session->userdata('id_usuario');
+      $data = array(
+          "dadosAcademico" => $this->Usuario_model->getUsuario($id_usuario)->row()
+      );
+      $this->load->view('editar_senha', $data);
+    }
+
+    public function novaSenha(){
+      $senha_atual =  md5($this->input->post('senha_atual'));
+      $nova_senha =  md5($this->input->post('nova_senha'));
+      $id_usuario = $this->session->userdata('id_usuario');
+      $this->db->select('*')
+      ->where('id_usuario', $id_usuario);
+      $retorno =   $this->db->get('usuario')->result();
+
+      $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
+      $this->form_validation->set_rules('senha_atual', 'Senha Atual', 'required|max_length[120]');
+      $this->form_validation->set_rules('nova_senha', 'Nova Senha', 'required|max_length[120]');
+
+      if ($this->form_validation->run() == FALSE) {
+          $this->carregaEditarSenha();
+          return;
+      }
+      else {
+        foreach ($retorno as $row) {
+
+            if ($row->senha == $senha_atual) {
+
+              $this->Usuario_model->editarSenha([
+                  "senha" => $nova_senha
+              ]);
+              redirect('Painel_academico/carregaEditarSenha/?aviso=1');
+            }
+            else {
+              redirect('Painel_academico/carregaEditarSenha/?aviso=2');
+            }
+        }
+      }
+    }
+
+    public function carregaIdiomas(){
+      $id_usuario = $this->session->userdata('id_usuario');
+      $data = array(
+          "dadosAcademico" => $this->Usuario_model->getUsuario($id_usuario)->row()
+      );
+      $this->load->view('cadastra_idiomas', $data);
+    }
+
+    public function salvaIdioma(){
+      $id_usuario = $this->session->userdata('id_usuario');
+      $idioma = $this->input->post('idioma');
+      $nivel = $this->input->post('nivel');
+
+        $this->Academico_model->salvaIdioma([
+            "id_usuario" => $id_usuario,
+            "idioma" => $idioma,
+            "nivel" => $nivel
+        ]);
+
+          redirect('Painel_academico/carregaIdiomas/?aviso=2');
+
+
     }
 
 }

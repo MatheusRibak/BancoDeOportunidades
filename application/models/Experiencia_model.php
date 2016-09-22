@@ -11,10 +11,10 @@ class Experiencia_model extends CI_Model {
         $this->db->where('id_experiencia', $id_experiencia);
         return $this->db->get('experiencia');
     }
-    
+
     function getExpUsuario($id_usuario) {
-        $id_experiencia = (int) $id_experiencia;
-        $this->db->where('id_experiencia', $id_experiencia);
+    //    $id_experiencia = (int) $id_experiencia;
+      //  $this->db->where('id_experiencia', $id_experiencia);
         return $this->db->get('experiencia');
     }
 

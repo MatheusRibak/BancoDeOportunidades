@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -54,8 +55,8 @@
                                 <div class="panel-body">
                                     <div class="pn-heading">
                                         <span class="pull-left">
-                                            <strong>Experiencia Profissional
-                                                <small class="text-muted">Edite a sua experiencia</small>
+                                            <strong>Editar Senha
+                                                <small class="text-muted"></small>
                                             </strong>
                                         </span>
                                         <span class="pull-right">
@@ -64,46 +65,39 @@
                                     </div>
 
                                     <?php echo validation_errors(); ?>
+                                    <?php if ($this->input->get('aviso') == 1) { ?>
+                                        <div class="alert alert-success">
+                                            Senha alterada com sucesso!
+                                        </div>
+                                    <?php } ?>
+                                    <?php if ($this->input->get('aviso') == 2) { ?>
+                                        <div class="alert alert-danger">
+                                            Senha atual não está correta!!!
+                                        </div>
+                                    <?php } ?>
 
-                                    <form class="form-horizontal" action="<?= site_url('Experiencia/salvaExpEditada') ?>" method="post">
-                                        <div class="form-group">
-                                            <label for="nome" class="col-sm-2 control-label">Ocupação</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" name="nome" required value="<?php echo $experiencia->nome_experiencia; ?>">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="senha" class="col-sm-2 control-label">Nome da empresa</label>
-                                            <div class="col-sm-8">
-                                                <input type="text" class="form-control" name="empresa" required value="<?php echo $experiencia->empresa; ?>">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="senha" class="col-sm-2 control-label">Atividades</label>
-                                            <div class="col-sm-7">
-                                                <input type="text" class="form-control" name="atividade" required value="<?php echo $experiencia->atividade; ?>">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="email-cad" class="col-sm-2 control-label">Início</label>
-                                            <div class="col-sm-2">
-                                                <input type="text" class="form-control data" name="inicio"  required value="<?php echo implode("/", array_reverse(explode("-", $experiencia->inicio))); ?>">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="email-cad" class="col-sm-2 control-label">Término do emprego</label>
-                                            <div class="col-sm-2">
-                                                <input type="text" class="form-control data" id="avancar" name="termino"  disabled="" value="<?php echo implode("/", array_reverse(explode("-", $experiencia->termino))); ?>" >
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-sm-offset-2 col-sm-10">
-                                                <button type="submit" class="btn btn-primary">
-                                                    Salvar Edição <i class="fa fa-plus fa-fw"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <input type="hidden" name="id_experiencia" value="<?php echo $experiencia->id_experiencia; ?>">
+
+                                    <form class="form-horizontal" action="<?= site_url('Painel_academico/novaSenha') ?>" method="post">
+                                      <div class="form-group">
+                                          <label for="nome" class="col-sm-2 control-label">Senha Atual</label>
+                                          <div class="col-sm-3">
+                                              <input type="password" class="form-control" value="" name="senha_atual" required>
+                                          </div>
+                                      </div>
+                                      <div class="form-group">
+                                          <label for="nome" class="col-sm-2 control-label">Nova Senha</label>
+                                          <div class="col-sm-3">
+                                              <input type="password" class="form-control" value="" name="nova_senha" >
+                                          </div>
+                                      </div>
+                                      
+                                      <div class="form-group">
+                                          <div class="col-sm-offset-2 col-sm-10">
+                                              <button type="submit" class="btn btn-primary">
+                                                  Alterar Senha <i class="fa fa-plus fa-fw"></i>
+                                              </button>
+                                          </div>
+                                      </div>
                                     </form>
 
                                 </div>
@@ -119,8 +113,7 @@
         <script src="<?= base_url('assets/js/jquery-ui.min.js') ?>"></script>
         <script src="<?= base_url('assets/js/jquery.mask.min.js') ?>"></script>
         <script type="text/javascript">
-                                                    $('.data').mask('0000');
-
+            $('.data').mask('0000');
         </script>
     </body>
 </html>

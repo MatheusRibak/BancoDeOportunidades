@@ -1,17 +1,17 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="pt-br">
     <head>
         <title>Banco de Oportunidades</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" href="<?= base_url('assets/img/favicon.png') ?>">
         <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>" type="text/css">
         <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.min.css') ?>" type="text/css">
         <link rel="stylesheet" href="<?= base_url('assets/fonts/font-awesome-4.3.0/css/font-awesome.min.css') ?>" type="text/css">
     </head>
 
-    <body> 
+    <body>
         <nav class="navbar navbar-default navbar-fixed-top no-radius no-margin" role="navigation">
             <div class="container">
                 <div class="navbar-header">
@@ -28,11 +28,17 @@
                 </div>
                 <div class="collapse navbar-collapse" id="navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
+                      <li class="dropdown">
+                          <a href="<?= site_url('Sugestao') ?>" >
+                              Contato
+                          </a></li>
                         <li class="dropdown">
+
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 Cadastre-se <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu">
+
                                 <li>
                                     <a href="<?= site_url('Academico') ?>"><i class="fa fa-graduation-cap fa-fw"></i> Acadêmico</a>
                                 </li>
@@ -75,7 +81,7 @@
                                         <div class="col-md-12">
                                             <form class="form" role="form" method="post" action="<?= site_url('Login/doLogin') ?>" id="login-nav">
                                                 <?php if (isset($login_falhou) && $login_falhou == TRUE) { ?>
-                                                    Usuário e/ou senha não encontrados! 
+                                                    Usuário e/ou senha não encontrados!
                                                 <?php } ?>
                                                 <?php echo validation_errors(); ?>
                                                 <div class="form-group input-group">
@@ -110,15 +116,23 @@
 
         <div class="page-content">
             <div class="banner">
-                <div class="container">                    
+                <div class="container">
                     <div class="busca-form row">
                         <div class="col-sm-8 col-sm-offset-2">
                             <?php if ($this->input->get('aviso') == 1) { ?>
-                                <div class="alert alert-success alert-dismissible fade in" role="alert"> 
+                                <div class="alert alert-success alert-dismissible fade in" role="alert">
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                         <span aria-hidden="true">×</span>
-                                    </button> 
-                                    <strong>Sucesso !</strong>  Cadastrado com sucesso! Por favor faça login para usar o sistema! 
+                                    </button>
+                                    <strong>Sucesso !</strong>  Cadastrado com sucesso! Por favor faça login para usar o sistema!
+                                </div>
+                            <?php } ?>
+                            <?php if ($this->input->get('aviso') == 5) { ?>
+                                <div class="alert alert-success alert-dismissible fade in" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                    <strong>Sucesso !</strong>  Mensagem enviada com sucesso!!!
                                 </div>
                             <?php } ?>
                         </div>
@@ -203,8 +217,8 @@
                         <h2>Heading</h2>
                         <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
                         <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-                    </div> 
-                </div> 
+                    </div>
+                </div>
             </div>
         </div>
 

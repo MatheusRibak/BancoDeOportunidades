@@ -78,7 +78,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <div class="col-md-12">
                                             <form class="form" role="form" method="post" action="<?= site_url('Login/doLogin') ?>" id="login-nav">
                                                 <?php if (isset($login_falhou) && $login_falhou == TRUE) { ?>
-                                                    Usuário e/ou senha não encontrados! 
+                                                    Usuário e/ou senha não encontrados!
                                                 <?php } ?>
                                                 <?php echo validation_errors(); ?>
                                                 <div class="form-group input-group">
@@ -109,7 +109,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
             </div>
         </nav>
-        
+
         <div class="page-content">
             <div class="cadastro-content">
                 <div class="container">
@@ -198,6 +198,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <option value="SP">São Paulo</option>
                                             <option value="TO">Tocantins</option>
                                         </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="" class="col-sm-2 control-label">Perfil do Linkedin
+                                  </label>
+                                    <div class="col-sm-7">
+                                        <input type="email" class="form-control" name = "linkedin"  placeholder="Perfil do Linkedin - Não Obrigatorio" >
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="" class="col-sm-2 control-label">Perfil do Lattes
+                                  </label>
+                                    <div class="col-sm-7">
+                                        <input type="email" class="form-control" name = "lattes"  placeholder="Perfil do Lattes - Não Obrigatorio" >
                                     </div>
                                 </div>
                                 <div class="form-group">

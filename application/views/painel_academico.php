@@ -90,6 +90,11 @@
                                         </div>
                                         <div class="col-xs-6 col-md-12">
                                             <a href="#">Exportar para .PDF</a>
+                                            <hr class="hidden-xs hidden-sm pn-divider">
+                                        </div>
+
+                                        <div class="col-xs-6 col-md-12">
+                                            <a href="<?= site_url('Painel_academico/carregaEditarSenha') ?>">Alterar Senha</a>
                                         </div>
                                     </div>
                                 </div>
@@ -112,7 +117,7 @@
                                     <div class="table-responsive">
                                         <table class="table table-hover no-margin">
                                             <thead>
-                                                <tr>                                                    
+                                                <tr>
                                                     <th>Empresa</th>
                                                     <th>Atividades</th>
                                                     <th>Status</th>
@@ -127,9 +132,9 @@
                                                         <tr>
                                                             <td><?= $vaga->nome_usuario; ?></td>
                                                             <td><?= $vaga->area; ?></td>
-                                                            <td><?= $vaga->status; ?></td>                                                            
+                                                            <td><?= $vaga->status; ?></td>
                                                             <td align='center'>
-                                                                <a href="<?= site_url('Vaga_academico/excluir/' . $vaga->id_vaga) ?>" 
+                                                                <a href="<?= site_url('Vaga_academico/excluir/' . $vaga->id_vaga) ?>"
                                                                    class="btn btn-danger btn-xs"
                                                                    onclick="return confirm('Têm certeza que deseja excluir este registro?')"
                                                                    >
@@ -155,9 +160,15 @@
                                         <span class="pull-left">
                                             <strong>Formação</strong>
                                         </span>
+
                                         <span class="pull-right">
                                             <a href="<?= site_url('Painel_academico/carregaFormacao') ?>" class="btn btn-primary btn-xs">
                                                 Adicionar nova formação <i class="fa fa-plus fa-fw"></i>
+                                            </a>
+                                        </span>
+                                        <span class="pull-right">
+                                            <a href="<?= site_url('Painel_academico/carregaIdiomas') ?>" class="btn btn-primary btn-xs">
+                                                Adicionar Idiomas <i class="fa fa-plus fa-fw"></i>
                                             </a>
                                         </span>
                                     </div>
@@ -226,7 +237,46 @@
                                         </table>
                                     </div>
                                 </div>
-                            </div>                            
+                            </div>
+
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="pn-heading">
+                                        <span class="pull-left">
+                                            <strong>Idiomas</strong>
+                                        </span>
+                                        <span class="pull-right">
+                                            <a href="<?= site_url('Painel_academico/carregaIdiomas') ?>" class="btn btn-primary btn-xs">
+                                                Adicionar novos Idiomas <i class="fa fa-plus fa-fw"></i>
+                                            </a>
+                                        </span>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-hover no-margin">
+                                            <thead>
+                                                <tr>
+                                                    <th>Idioma</th>
+                                                    <th>Nivel</th>
+
+                                                    <th width='80'>Opções</th>
+                                                </tr>
+                                            </thead>
+                                            <?php foreach ($dadosExperiencia as $exp): ?>
+                                                <tr>
+                                                    <td><?php echo $exp->nome_experiencia; ?></td>
+                                                    <td><?php echo $exp->empresa; ?></td>
+
+                                                    <td align='center'>
+                                                        <a  href="<?= site_url('Painel_academico/getExperiencia/' . $exp->id_experiencia) ?>" class="btn btn-primary btn-xs">
+                                                            <i class="fa fa-pencil fa-fw"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            <?php endforeach; ?>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

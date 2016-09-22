@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.min.css') ?>" type="text/css">
         <link rel="stylesheet" href="<?= base_url('assets/fonts/font-awesome-4.3.0/css/font-awesome.min.css') ?>" type="text/css">
         <link rel="stylesheet" href="<?= base_url('assets/css/jquery-ui.css') ?>">
-        <link rel="stylesheet" href="<?= base_url('assets/css/jquery-ui.theme.css') ?>"> 
+        <link rel="stylesheet" href="<?= base_url('assets/css/jquery-ui.theme.css') ?>">
     </head>
 
     <body>
@@ -62,7 +62,7 @@
                                         <span class="pull-right">
                                             <a class="btn btn-default btn-xs" href="<?= site_url('Painel_academico/') ?>"><i class="fa fa-chevron-left" aria-hidden="true"></i> Voltar</a>
                                         </span>
-                                    </div>   
+                                    </div>
 
                                     <?php echo validation_errors(); ?>
                                     <?php if ($this->input->get('aviso') == 1) { ?>
@@ -98,20 +98,20 @@
                                             <label for="senha" class="col-sm-2 control-label">Instituição</label>
 
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" name="escola" placeholder="Digite a escola" required>
+                                                <input type="text" class="form-control" name="escola" placeholder="Digite a instituição" required>
                                             </div>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="email-cad" class="col-sm-2 control-label">Início do curso</label>
+                                            <label for="email-cad" class="col-sm-2 control-label">Ano de início do curso</label>
                                             <div class="col-sm-2">
-                                                <input type="date" class="form-control data" name="inicio" placeholder="Digite a data" required>
+                                                <input type="text" class="form-control data" name="inicio" placeholder="" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="senha" class="col-sm-2 control-label">Termino do curso</label>
+                                            <label for="senha" class="col-sm-2 control-label">Ano de termino do curso</label>
                                             <div class="col-sm-2">
-                                                <input type="date" class="form-control data" name="termino" placeholder="Digite a data" required>
+                                                <input type="text" class="form-control data" name="termino" placeholder="" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -133,7 +133,7 @@
                                         </div>
                                     </form>
 
-                                </div>                    
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -145,7 +145,7 @@
         <script src="<?= base_url('assets/js/scripts.js') ?>"></script>
         <script src="<?= base_url('assets/js/jquery.mask.min.js') ?>"></script>
         <script type="text/javascript">
-                                                    $('.data').mask('00/00/0000');
+                                                    $('.data').mask('0000');
 
         </script>
     </body>

@@ -9,6 +9,13 @@ class Academico extends CI_Controller {
     public function carregaLogin() {
         $this->load->view('login_academico');
     }
+    public function carregaSugestao(){
+      $this->load->view('sugestao_nao_logado');
+    }
+
+    public function salvaMensagem(){
+
+    }
 
     public function cadastrarAcademico() {
         $nome = $this->input->post('nome');
@@ -19,6 +26,8 @@ class Academico extends CI_Controller {
         $telefone = $this->input->post('telefone');
         $senha = md5($this->input->post('senha'));
         $data_cadastro = $this->input->post('data_cadastro');
+        $linkedin = $this->input->post('linkedin');
+        $lattes = $this->input->post('lattes');
 
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
         $this->form_validation->set_rules('nome', 'Nome', 'required|max_length[120]');
@@ -53,10 +62,12 @@ class Academico extends CI_Controller {
                 "telefone" => $telefone,
                 "senha" => $senha,
                 "data_cadastro" => $data_cadastro
+              //  "linkedin" => $linkedin,
+              //  "lattes" => $lattess
             ]);
             redirect('Academico/index/?aviso=1');
         }
-    }   
-    
+    }
+
 
 }

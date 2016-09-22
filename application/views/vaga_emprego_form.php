@@ -8,7 +8,7 @@ $id_usuario = $this->session->userdata('id_usuario');
         <title>Banco de Oportunidades</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">      
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" href="<?= base_url('assets/img/favicon.png') ?>">
         <link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>" type="text/css">
         <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.min.css') ?>" type="text/css">
@@ -42,8 +42,8 @@ $id_usuario = $this->session->userdata('id_usuario');
                     </ul>
                 </div>
             </div>
-        </nav> 
-        
+        </nav>
+
         <div class="page-content">
             <div class="usuario-content">
                 <div class="container">
@@ -58,7 +58,7 @@ $id_usuario = $this->session->userdata('id_usuario');
                                         <span class="pull-right">
                                             <a class="btn btn-default btn-xs" href="<?= site_url('PainelEmpregador/') ?>"><i class="fa fa-chevron-left" aria-hidden="true"></i> Voltar</a>
                                         </span>
-                                    </div>           
+                                    </div>
 
                                     <?php echo validation_errors(); ?>
 
@@ -73,8 +73,23 @@ $id_usuario = $this->session->userdata('id_usuario');
                                         </div>
                                         <div class="form-group">
                                             <label for="salario" class="col-sm-2 control-label">Faixa Salarial  *</label>
-                                            <div class="col-sm-3">
-                                                <input type="text" class="form-control" name="salario" id="salario" placeholder="Faixa Salarial">
+                                            <div class="col-sm-6">
+                                              <select name="salario" class="form-control">
+                                                <option value="Não Informado">Não Desejo Informar</option>
+                                                       <option value="Até R$ 1.000,00">Até R$ 1.000,00</option>
+                                                       <option value="A partir de R$ 1.000,00">A partir de R$ 1.000,00</option>
+                                                       <option value="A partir de R$ 2.000,0">A partir de R$ 2.000,00</option>
+                                                       <option value="A partir de R$ 3.000,00">A partir de R$ 3.000,00</option>
+                                                       <option value="A partir de R$ 4.000,00">A partir de R$ 4.000,00</option>
+                                                       <option value="A partir de R$ 5.000,00">A partir de R$ 5.000,00</option>
+                                                       <option value="A partir de R$ 6.000,00">A partir de R$ 6.000,00</option>
+                                                       <option value="A partir de R$ 7.000,00">A partir de R$ 7.000,00</option>
+                                                       <option value="A partir de R$ 8.000,00">A partir de R$ 8.000,00</option>
+                                                       <option value="A partir de R$ 9.000,00">A partir de R$ 9.000,00</option>
+                                                       <option value="A partir de R$ 10.000,00">A partir de R$ 10.000,00</option>
+                                                       <option value="A partir de R$ 15.000,00">A partir de R$ 15.000,00</option>
+                                                       <option value="Acima de R$ 20.000,00">Acima de R$ 20.000,00</option>
+         </select>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -113,7 +128,7 @@ $id_usuario = $this->session->userdata('id_usuario');
                                                 <textarea name="beneficios" id ="beneficios" class="form-control" cols="70" rows="3"></textarea>
                                                 <input type="hidden" name="data_cadastro" value="<?php echo date('Y/m/d'); ?>"/>
                                             </div>
-                                        </div>   
+                                        </div>
                                         <div class="form-group">
                                             <div  class="col-sm-2 control-label"></div>
                                             <div class="col-sm-8">
@@ -131,7 +146,7 @@ $id_usuario = $this->session->userdata('id_usuario');
                             </div>
                         </div>
                     </div>
-                </div>                
+                </div>
             </div>
         </div>
 

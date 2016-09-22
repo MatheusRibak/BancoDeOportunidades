@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.min.css') ?>" type="text/css">
         <link rel="stylesheet" href="<?= base_url('assets/fonts/font-awesome-4.3.0/css/font-awesome.min.css') ?>" type="text/css">
         <link rel="stylesheet" href="<?= base_url('assets/css/jquery-ui.css') ?>">
-        <link rel="stylesheet" href="<?= base_url('assets/css/jquery-ui.theme.css') ?>"> 
+        <link rel="stylesheet" href="<?= base_url('assets/css/jquery-ui.theme.css') ?>">
         <script type="text/javascript">
             function habilitaBtn() {
                 var op = document.getElementById("opcao").value;
@@ -76,7 +76,7 @@
                                         <span class="pull-right">
                                             <a class="btn btn-default btn-xs" href="<?= site_url('Painel_academico/') ?>"><i class="fa fa-chevron-left" aria-hidden="true"></i> Voltar</a>
                                         </span>
-                                    </div>   
+                                    </div>
 
                                     <?php if ($this->input->get('aviso') == 1) { ?>
                                         <div class="alert alert-success">
@@ -107,7 +107,7 @@
                                         <div class="form-group">
                                             <label for="email-cad" class="col-sm-2 control-label">Início do trabalho</label>
                                             <div class="col-sm-2">
-                                                <input type="date" class="form-control data" name="inicio"  required>
+                                                <input type="text" class="form-control data" name="inicio"  required placeholder="Inicio">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -123,7 +123,7 @@
                                         <div class="form-group">
                                             <label for="email-cad" class="col-sm-2 control-label">Término do emprego</label>
                                             <div class="col-sm-2">
-                                                <input type="date" class="form-control data" id="avancar" name="termino"  disabled="">
+                                                <input type="text" class="form-control data" id="avancar" name="termino"  disabled="" placeholder="Termino">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -144,7 +144,7 @@
                                             </div>
                                         </div>
                                     </form>
-                                </div>                    
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -156,7 +156,7 @@
         <script src="<?= base_url('assets/js/scripts.js') ?>"></script>
         <script src="<?= base_url('assets/js/jquery.mask.min.js') ?>"></script>
         <script type="text/javascript">
-                                                    $('.data').mask('00/00/0000');
+                                                    $('.data').mask('0000');
 
         </script>
     </body>

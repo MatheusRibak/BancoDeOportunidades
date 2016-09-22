@@ -18,11 +18,7 @@ class Academico_model extends CI_Model {
         $this->db->set($data);
         return $this->db->update('academico');
     }
-
-    public function salvaIdioma($data){
-      $this->db->insert('idioma', $data);
-    }
-
+    
 
 
 }

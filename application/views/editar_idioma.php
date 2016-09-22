@@ -56,7 +56,7 @@
                                     <div class="pn-heading">
                                         <span class="pull-left">
                                             <strong>Idioma
-                                                <small class="text-muted">Cadastre seus idiomas</small>
+                                                <small class="text-muted">Edite o seu Idioma</small>
                                             </strong>
                                         </span>
                                         <span class="pull-right">
@@ -68,31 +68,25 @@
 
                                     <?php if ($this->input->get('aviso') == 2) { ?>
                                         <div class="alert alert-success">
-                                            Idioma Cadastrado com sucesso!!!
+                                            Idioma editado com sucesso!!!
                                         </div>
                                     <?php } ?>
 
 
-                                    <form class="form-horizontal" action="<?= site_url('Idioma/salvaIdioma') ?>" method="post">
+                                    <form class="form-horizontal" action="<?= site_url('Idioma/editaIdioma') ?>" method="post">
+                                      <?php foreach ($dadosEditarIdioma as $row): ?>
+
+
                                       <div class="form-group">
                                           <label for="nome" class="col-sm-2 control-label">Idioma</label>
 
                                           <div class="col-sm-3">
-                                              <select class="form-control" name="idioma" required>
-                                                  <option>Selecione um idioma</option>
-                                                  <option value="Alemão">Alemão</option>
-                                                  <option value="Chinês">Chinês</option>
-                                                  <option value="Espanhol">Espanhol</option>
-                                                  <option value="Francês">Francês</option>
-                                                  <option value="Inglês">Inglês</option>
-                                                  <option value="Italiano">Italiano</option>
-                                                  <option value="Japonês">Japonês</option>
-                                                  <option value="Russo">Russo</option>
-                                              </select>
+                                              <input type="text" name="nome_idioma" value="<?php echo $row->idioma; ?>" class="form-control" disabled>
+                                              <input type="hidden" name="idioma" value="<?php echo $row->idioma; ?>">
                                           </div>
                                           <div class="col-sm-4">
                                             <select class="form-control" name="nivel"  required >
-                                              <option>Nivel</option>
+                                              <option value="Nivel não informado">Edite o Nivel</option>
                                               <option value="Fluente">Fluente</option>
                                               <option value="Intermediario">Intermediario</option>
                                               <option value="Básico">Básico</option>
@@ -100,14 +94,17 @@
                                           </div>
                                       </div>
 
+                                        <input type="hidden" name="id_idioma" value="<?php echo $row->id_idioma; ?>">
+
 
                                       <div class="form-group">
                                           <div class="col-sm-offset-2 col-sm-10">
                                               <button type="submit" class="btn btn-primary">
-                                                  Cadastrar Novo Idioma <i class="fa fa-plus fa-fw"></i>
+                                                  Editar Idioma <i class="fa fa-plus fa-fw"></i>
                                               </button>
                                           </div>
                                       </div>
+                                      <?php endforeach; ?>
                                     </form>
 
                                 </div>

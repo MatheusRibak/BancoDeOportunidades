@@ -64,6 +64,11 @@
                             Dados da experiência alterado com sucesso!
                         </div>
                     <?php } ?>
+                    <?php if ($this->input->get('aviso') == 4) { ?>
+                        <div class="alert alert-success">
+                            Dados referente ao idioma alterados com sucesso!
+                        </div>
+                    <?php } ?>
                     <div class="row">
                         <div class="col-md-3">
                             <div class="panel panel-default">
@@ -166,11 +171,7 @@
                                                 Adicionar nova formação <i class="fa fa-plus fa-fw"></i>
                                             </a>
                                         </span>
-                                        <span class="pull-right">
-                                            <a href="<?= site_url('Painel_academico/carregaIdiomas') ?>" class="btn btn-primary btn-xs">
-                                                Adicionar Idiomas <i class="fa fa-plus fa-fw"></i>
-                                            </a>
-                                        </span>
+
                                     </div>
                                     <div class="table-responsive">
                                         <table class="table table-hover no-margin">
@@ -246,7 +247,7 @@
                                             <strong>Idiomas</strong>
                                         </span>
                                         <span class="pull-right">
-                                            <a href="<?= site_url('Painel_academico/carregaIdiomas') ?>" class="btn btn-primary btn-xs">
+                                            <a href="<?= site_url('Idioma') ?>" class="btn btn-primary btn-xs">
                                                 Adicionar novos Idiomas <i class="fa fa-plus fa-fw"></i>
                                             </a>
                                         </span>
@@ -261,13 +262,13 @@
                                                     <th width='80'>Opções</th>
                                                 </tr>
                                             </thead>
-                                            <?php foreach ($dadosExperiencia as $exp): ?>
+                                            <?php foreach ($dadosIdioma as $idioma): ?>
                                                 <tr>
-                                                    <td><?php echo $exp->nome_experiencia; ?></td>
-                                                    <td><?php echo $exp->empresa; ?></td>
+                                                    <td><?php echo $idioma->idioma; ?></td>
+                                                    <td><?php echo $idioma->nivel; ?></td>
 
                                                     <td align='center'>
-                                                        <a  href="<?= site_url('Painel_academico/getExperiencia/' . $exp->id_experiencia) ?>" class="btn btn-primary btn-xs">
+                                                        <a  href="<?= site_url('Idioma/carregaEditarIdioma/' . $idioma->id_idioma) ?>" class="btn btn-primary btn-xs">
                                                             <i class="fa fa-pencil fa-fw"></i>
                                                         </a>
                                                     </td>

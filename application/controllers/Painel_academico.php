@@ -9,12 +9,14 @@ class Painel_academico extends MY_ControllerLogado {
         $this->load->model('Formacao_model');
         $this->load->model('Experiencia_model');
         $this->load->model('Vaga_academico_model');
+        $this->load->model('Idioma_model');
         $id_usuario = $this->session->userdata('id_usuario');
         $data = array(
             "vagas_candidatadas" => $this->Vaga_academico_model->getMinhasVagas($id_usuario)->result(),
             "dadosAcademico" => $this->Usuario_model->getUsuario($id_usuario)->row(),
             "dadosFormacao" => $this->Formacao_model->getFormacao($id_usuario)->result(),
-            "dadosExperiencia" => $this->Experiencia_model->getExpUsuario($id_usuario)->result()
+            "dadosExperiencia" => $this->Experiencia_model->getExpUsuario($id_usuario)->result(),
+            "dadosIdioma" => $this->Idioma_model->getIdiomas()->result()
         );
         $this->load->view('painel_academico', $data);
     }
@@ -238,28 +240,5 @@ class Painel_academico extends MY_ControllerLogado {
       }
     }
 
-    public function carregaIdiomas(){
-      $id_usuario = $this->session->userdata('id_usuario');
-      $data = array(
-          "dadosAcademico" => $this->Usuario_model->getUsuario($id_usuario)->row()
-      );
-      $this->load->view('cadastra_idiomas', $data);
-    }
-
-    public function salvaIdioma(){
-      $id_usuario = $this->session->userdata('id_usuario');
-      $idioma = $this->input->post('idioma');
-      $nivel = $this->input->post('nivel');
-
-        $this->Academico_model->salvaIdioma([
-            "id_usuario" => $id_usuario,
-            "idioma" => $idioma,
-            "nivel" => $nivel
-        ]);
-
-          redirect('Painel_academico/carregaIdiomas/?aviso=2');
-
-
-    }
 
 }

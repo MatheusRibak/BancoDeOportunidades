@@ -71,6 +71,7 @@ class Empregador extends CI_Controller {
         $nome_empresa = $this->input->post('nome');
         $telefone = $this->input->post('telefone');
         $endereco = $this->input->post('endereco');
+        $estado = $this->input->post('estado');
         $cidade = $this->input->post('cidade');
         $email = $this->input->post('email');
 
@@ -93,6 +94,7 @@ class Empregador extends CI_Controller {
             "telefone" => $telefone,
             "endereco" => $endereco,
             "cidade" => $cidade,
+            "estado"=>$estado,
             "email" => $email
         );
         $this->Empregador_model->atualizaEmpregador($id_usuario, $dados);

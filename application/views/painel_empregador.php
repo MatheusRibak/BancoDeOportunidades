@@ -37,7 +37,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="<?= site_url('#') ?>"><i class="fa fa-wrench fa-fw"></i> Trocar de senha</a>
+                                    <a href="<?= site_url('PainelEmpregador/carregaEditarSenha') ?>"><i class="fa fa-wrench fa-fw"></i> Trocar de senha</a>
                                 </li>
                                 <li>
                                     <a href="<?= site_url('PainelEmpregador/fechaSessao') ?>"><i class="fa fa-sign-out fa-fw"></i> Sair</a>

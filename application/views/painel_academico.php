@@ -35,7 +35,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="<?= site_url('#') ?>"><i class="fa fa-wrench fa-fw"></i> Trocar de senha</a>
+                                    <a href="<?= site_url('Painel_academico/carregaEditarSenha') ?>"><i class="fa fa-wrench fa-fw"></i> Trocar de senha</a>
                                 </li>
                                 <li>
                                     <a href="<?= site_url('Painel_academico/deslogar') ?>"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
@@ -96,10 +96,6 @@
                                         <div class="col-xs-6 col-md-12">
                                             <a href="#">Exportar para .PDF</a>
                                             <hr class="hidden-xs hidden-sm pn-divider">
-                                        </div>
-
-                                        <div class="col-xs-6 col-md-12">
-                                            <a href="<?= site_url('Painel_academico/carregaEditarSenha') ?>">Alterar Senha</a>
                                         </div>
                                     </div>
                                 </div>

@@ -16,7 +16,7 @@ class Painel_academico extends MY_ControllerLogado {
             "dadosAcademico" => $this->Usuario_model->getUsuario($id_usuario)->row(),
             "dadosFormacao" => $this->Formacao_model->getFormacao($id_usuario)->result(),
             "dadosExperiencia" => $this->Experiencia_model->getExpUsuario($id_usuario)->result(),
-            "dadosIdioma" => $this->Idioma_model->getIdiomas()->result()
+            "dadosIdioma" => $this->Idioma_model->getIdiomas($id_usuario)->result()
         );
         $this->load->view('painel_academico', $data);
     }
@@ -96,7 +96,7 @@ class Painel_academico extends MY_ControllerLogado {
         $salvaInicio = implode("-", array_reverse(explode("/", $inicioD)));
         $salvaTermino = implode("-", array_reverse(explode("/", $terminoD)));
 
-        $nome = $this->input->post('nome_experiencia');
+        $nome = $this->input->post('nome');
         $empresa = $this->input->post('empresa');
         $inicio = $salvaInicio;
         $termino = $salvaTermino;
@@ -198,47 +198,7 @@ class Painel_academico extends MY_ControllerLogado {
         $this->session->sess_destroy();
         redirect('Home');
     }
-
-    public function carregaEditarSenha(){
-      $id_usuario = $this->session->userdata('id_usuario');
-      $data = array(
-          "dadosAcademico" => $this->Usuario_model->getUsuario($id_usuario)->row()
-      );
-      $this->load->view('editar_senha', $data);
-    }
-
-    public function novaSenha(){
-      $senha_atual =  md5($this->input->post('senha_atual'));
-      $nova_senha =  md5($this->input->post('nova_senha'));
-      $id_usuario = $this->session->userdata('id_usuario');
-      $this->db->select('*')
-      ->where('id_usuario', $id_usuario);
-      $retorno =   $this->db->get('usuario')->result();
-
-      $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
-      $this->form_validation->set_rules('senha_atual', 'Senha Atual', 'required|max_length[120]');
-      $this->form_validation->set_rules('nova_senha', 'Nova Senha', 'required|max_length[120]');
-
-      if ($this->form_validation->run() == FALSE) {
-          $this->carregaEditarSenha();
-          return;
-      }
-      else {
-        foreach ($retorno as $row) {
-
-            if ($row->senha == $senha_atual) {
-
-              $this->Usuario_model->editarSenha([
-                  "senha" => $nova_senha
-              ]);
-              redirect('Painel_academico/carregaEditarSenha/?aviso=1');
-            }
-            else {
-              redirect('Painel_academico/carregaEditarSenha/?aviso=2');
-            }
-        }
-      }
-    }
+    
 
 
 }

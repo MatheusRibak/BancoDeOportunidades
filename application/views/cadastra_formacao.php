@@ -37,6 +37,9 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
+                                    <a href="<?= site_url('Painel_academico/carregaEditarSenha') ?>"><i class="fa fa-wrench fa-fw"></i> Trocar de senha</a>
+                                </li>
+                                <li>
                                     <a href="<?= site_url('Painel_academico/deslogar') ?>"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
                                 </li>
                             </ul>
@@ -74,6 +77,15 @@
                                         <?php echo validation_errors(); ?>
                                     <?php } ?>
                                     <form class="form-horizontal" action="<?= site_url('Painel_academico/salvaFormacao') ?>" method="post">
+                                        <div class="form-group">
+                                            <label for="salario" class="col-sm-2 control-label">Instituição  *</label>
+                                            <div class="col-sm-6">
+                                                <select name="escola" class="form-control">
+                                                    <option value="UNOESC">UNOESC</option>
+                                                    <option value="Outras Instituições">Outras Instituições</option>
+                                                </select>
+                                            </div>
+                                        </div>
                                         <div class="form-group">
                                             <label for="nome" class="col-sm-2 control-label">Nome do curso</label>
 
@@ -145,7 +157,7 @@
         <script src="<?= base_url('assets/js/scripts.js') ?>"></script>
         <script src="<?= base_url('assets/js/jquery.mask.min.js') ?>"></script>
         <script type="text/javascript">
-                                                    $('.data').mask('0000');
+            $('.data').mask('0000');
 
         </script>
     </body>

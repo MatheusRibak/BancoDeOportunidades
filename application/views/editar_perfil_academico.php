@@ -35,6 +35,9 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
+                                    <a href="<?= site_url('Painel_academico/carregaEditarSenha') ?>"><i class="fa fa-wrench fa-fw"></i> Trocar de senha</a>
+                                </li>
+                                <li>
                                     <a href="<?= site_url('Painel_academico/deslogar') ?>"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
                                 </li>
                             </ul>
@@ -58,7 +61,7 @@
                                             </strong>
                                         </span>
                                         <span class="pull-right">
-                                            <a class="btn btn-primary btn-xs" href="<?= site_url('Painel_academico/') ?>"><i class="fa fa-chevron-left" aria-hidden="true"></i> Voltar</a>
+                                            <a class="btn btn-default btn-xs" href="<?= site_url('Painel_academico/') ?>"><i class="fa fa-chevron-left" aria-hidden="true"></i> Voltar</a>
                                         </span>
                                     </div>
 
@@ -93,13 +96,11 @@
                                             <div class="col-sm-4">
                                                 <input type="text" class="form-control" id="nome" name = "cidade" value="<?php echo $dadosAcademico->cidade ?>">
                                             </div>
-                                        </div>
-                                        <div class="form-group">
+                                        </div>                                        
+                                         <div class="form-group">
                                             <label for="estado" class="col-sm-2 control-label">Estado  *</label>
                                             <div class="col-sm-3">
-                                                <select name="estado" lang="pt" class="form-control" name = "estado">
-                                                  <option value="<?php echo $dadosAcademico->estado ?>"><?php echo $dadosAcademico->estado ?>
-                                                  </option>
+                                                <select id="estado" class="form-control" name="estado">
                                                     <option value="AC">Acre</option>
                                                     <option value="AL">Alagoas</option>
                                                     <option value="AM">Amazonas</option>
@@ -129,18 +130,11 @@
                                                     <option value="TO">Tocantins</option>
                                                 </select>
                                             </div>
-                                        </div>
+                                         </div>
                                         <div class="form-group">
                                             <label for="email-cad" class="col-sm-2 control-label">E-mail:</label>
                                             <div class="col-sm-8">
                                                 <input type="email" class="form-control" name = "emailuser" id="email-cad" value="<?php echo $dadosAcademico->email ?>">
-                                            </div>
-                                            <input type="hidden" class="form-control" name = "email" id="email-cad" value="<?php echo $dadosAcademico->email ?>">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="email-cad" class="col-sm-2 control-label">Senha</label>
-                                            <div class="col-sm-8">
-                                                <input type="password" class="form-control" name = "senha" id="senha" value="">
                                             </div>
                                             <input type="hidden" class="form-control" name = "email" id="email-cad" value="<?php echo $dadosAcademico->email ?>">
                                         </div>
@@ -167,6 +161,8 @@
         <script type="text/javascript">
             $('.phone').mask('(00) 0000 - 0000');
             $('.cpf').mask('000.000.000-00', {reverse: true});
+            
+            $('#estado').val('<?php echo $dadosAcademico->estado ?>');
         </script>
     </body>
 </html>

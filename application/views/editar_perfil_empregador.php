@@ -37,6 +37,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
+                                    <a href="<?= site_url('PainelEmpregador/carregaEditarSenha') ?>"><i class="fa fa-wrench fa-fw"></i> Trocar de senha</a>
+                                </li>
+                                <li>
                                     <a href="<?= site_url('PainelEmpregador/fechaSessao') ?>"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
                                 </li>
                             </ul>
@@ -102,6 +105,40 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             </div>
                                         </div>
                                         <div class="form-group">
+                                            <label for="estado" class="col-sm-2 control-label">Estado  *</label>
+                                            <div class="col-sm-3">
+                                                <select id="estado" class="form-control" name="estado">
+                                                    <option value="AC">Acre</option>
+                                                    <option value="AL">Alagoas</option>
+                                                    <option value="AM">Amazonas</option>
+                                                    <option value="AP">Amapá</option>
+                                                    <option value="BA">Bahia</option>
+                                                    <option value="CE">Ceará</option>
+                                                    <option value="DF">Distrito Federal</option>
+                                                    <option value="ES">Espírito Santo</option>
+                                                    <option value="GO">Goiás</option>
+                                                    <option value="MA">Maranhão</option>
+                                                    <option value="MT">Mato Grosso</option>
+                                                    <option value="MS">Mato Grosso do Sul</option>
+                                                    <option value="MG">Minas Gerais</option>
+                                                    <option value="PA">Pará</option>
+                                                    <option value="PB">Paraíba</option>
+                                                    <option value="PR">Paraná</option>
+                                                    <option value="PE">Pernambuco</option>
+                                                    <option value="PI">Piauí</option>
+                                                    <option value="RJ">Rio de Janeiro</option>
+                                                    <option value="RN">Rio Grande do Norte</option>
+                                                    <option value="RO">Rondônia</option>
+                                                    <option value="RS">Rio Grande do Sul</option>
+                                                    <option value="RR">Roraima</option>
+                                                    <option value="SC">Santa Catarina</option>
+                                                    <option value="SE">Sergipe</option>
+                                                    <option value="SP">São Paulo</option>
+                                                    <option value="TO">Tocantins</option>
+                                                </select>
+                                            </div>
+                                         </div>
+                                        <div class="form-group">
                                             <label for="email-cad" class="col-sm-2 control-label">E-mail:</label>
                                             <div class="col-sm-7">
                                                 <input type="email" class="form-control" id="email-cad" value="<?= $dadosEmpregador->email ?>"  name="email">
@@ -128,6 +165,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <script type="text/javascript">
                 $('.phone').mask('(00) 0000 - 0000');
                 $('.cnpj').mask('00.000.000/0000-00', {reverse: true});
+                $('#estado').val('<?php echo $dadosEmpregador->estado ?>');
             </script>
     </body>
 </html>

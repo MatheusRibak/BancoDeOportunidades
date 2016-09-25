@@ -64,6 +64,47 @@ class PainelEmpregador extends MY_ControllerLogado {
         endif;
     }
     
+    public function carregaEditarSenha(){
+      $id_usuario = $this->session->userdata('id_usuario');
+      $data = array(
+          "dadosUsuario" => $this->Usuario_model->getUsuario($id_usuario)->row()
+      );
+      $this->load->view('editar_senha_empregador', $data);
+    }
+
+    public function novaSenha(){
+      $senha_atual =  md5($this->input->post('senha_atual'));
+      $nova_senha =  md5($this->input->post('nova_senha'));
+      $id_usuario = $this->session->userdata('id_usuario');
+      $this->db->select('*')
+      ->where('id_usuario', $id_usuario);
+      $retorno =   $this->db->get('usuario')->result();
+
+      $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
+      $this->form_validation->set_rules('senha_atual', 'Senha Atual', 'required|max_length[120]');
+      $this->form_validation->set_rules('nova_senha', 'Nova Senha', 'required|max_length[120]');
+
+      if ($this->form_validation->run() == FALSE) {
+          $this->carregaEditarSenha();
+          return;
+      }
+      else {
+        foreach ($retorno as $row) {
+
+            if ($row->senha == $senha_atual) {
+
+              $this->Usuario_model->editarSenha([
+                  "senha" => $nova_senha
+              ]);
+              redirect('PainelEmpregador/carregaEditarSenha/?aviso=1');
+            }
+            else {
+              redirect('PainelEmpregador/carregaEditarSenha/?aviso=2');
+            }
+        }
+      }
+    }
+    
     
     public function fechaSessao() {
         $this->session->sess_destroy();

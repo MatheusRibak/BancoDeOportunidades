@@ -6,8 +6,7 @@ class Idioma_model extends CI_Model {
       $this->db->insert('idioma', $data);
     }
 
-    public function getIdiomas(){
-      $id_usuario = $this->session->userdata('id_usuario');
+    public function getIdiomas($id_usuario){
       $this->db->where('id_usuario', $id_usuario);
       return $this->db->get('idioma');
     }

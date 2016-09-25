@@ -35,6 +35,9 @@ $id_usuario = $this->session->userdata('id_usuario');
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
+                                    <a href="<?= site_url('PainelEmpregador/carregaEditarSenha') ?>"><i class="fa fa-wrench fa-fw"></i> Trocar de senha</a>
+                                </li>
+                                <li>
                                     <a href="<?= site_url('PainelEmpregador/fechaSessao') ?>"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
                                 </li>
                             </ul>
@@ -74,22 +77,22 @@ $id_usuario = $this->session->userdata('id_usuario');
                                         <div class="form-group">
                                             <label for="salario" class="col-sm-2 control-label">Faixa Salarial  *</label>
                                             <div class="col-sm-6">
-                                              <select name="salario" class="form-control">
-                                                <option value="Não Informado">Não Desejo Informar</option>
-                                                       <option value="Até R$ 1.000,00">Até R$ 1.000,00</option>
-                                                       <option value="A partir de R$ 1.000,00">A partir de R$ 1.000,00</option>
-                                                       <option value="A partir de R$ 2.000,0">A partir de R$ 2.000,00</option>
-                                                       <option value="A partir de R$ 3.000,00">A partir de R$ 3.000,00</option>
-                                                       <option value="A partir de R$ 4.000,00">A partir de R$ 4.000,00</option>
-                                                       <option value="A partir de R$ 5.000,00">A partir de R$ 5.000,00</option>
-                                                       <option value="A partir de R$ 6.000,00">A partir de R$ 6.000,00</option>
-                                                       <option value="A partir de R$ 7.000,00">A partir de R$ 7.000,00</option>
-                                                       <option value="A partir de R$ 8.000,00">A partir de R$ 8.000,00</option>
-                                                       <option value="A partir de R$ 9.000,00">A partir de R$ 9.000,00</option>
-                                                       <option value="A partir de R$ 10.000,00">A partir de R$ 10.000,00</option>
-                                                       <option value="A partir de R$ 15.000,00">A partir de R$ 15.000,00</option>
-                                                       <option value="Acima de R$ 20.000,00">Acima de R$ 20.000,00</option>
-         </select>
+                                                <select name="salario" class="form-control">
+                                                    <option value="Não Informado">Não Desejo Informar</option>
+                                                    <option value="Até R$ 1.000,00">Até R$ 1.000,00</option>
+                                                    <option value="A partir de R$ 1.000,00">A partir de R$ 1.000,00</option>
+                                                    <option value="A partir de R$ 2.000,0">A partir de R$ 2.000,00</option>
+                                                    <option value="A partir de R$ 3.000,00">A partir de R$ 3.000,00</option>
+                                                    <option value="A partir de R$ 4.000,00">A partir de R$ 4.000,00</option>
+                                                    <option value="A partir de R$ 5.000,00">A partir de R$ 5.000,00</option>
+                                                    <option value="A partir de R$ 6.000,00">A partir de R$ 6.000,00</option>
+                                                    <option value="A partir de R$ 7.000,00">A partir de R$ 7.000,00</option>
+                                                    <option value="A partir de R$ 8.000,00">A partir de R$ 8.000,00</option>
+                                                    <option value="A partir de R$ 9.000,00">A partir de R$ 9.000,00</option>
+                                                    <option value="A partir de R$ 10.000,00">A partir de R$ 10.000,00</option>
+                                                    <option value="A partir de R$ 15.000,00">A partir de R$ 15.000,00</option>
+                                                    <option value="Acima de R$ 20.000,00">Acima de R$ 20.000,00</option>
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="form-group">

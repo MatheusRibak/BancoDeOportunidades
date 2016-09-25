@@ -16,8 +16,8 @@ class Formacao_model extends CI_Model {
         return $this->db->get('formacao');
     }
     
-    function buscaFormacao($id_usuario) {
-        $this->db->where('id_usuario', $id_usuario);
+    function buscaFormacao($id_formacao) {
+        $this->db->where('id_formacao', $id_formacao);
         return $this->db->get('formacao');
     }
 
@@ -27,6 +27,7 @@ class Formacao_model extends CI_Model {
         $this->db->join('usuario', 'formacao.id_usuario = usuario.id_usuario');
         $this->db->join('experiencia', 'experiencia.id_usuario = usuario.id_usuario');
         $this->db->like('formacao.nome_curso', $search);
+        $this->db->group_by('nome_usuario');
         return $query = $this->db->get()->result();
     }
 

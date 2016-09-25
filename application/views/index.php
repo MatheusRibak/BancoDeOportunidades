@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
     <head>
         <title>Banco de Oportunidades</title>
@@ -28,15 +28,11 @@
                 </div>
                 <div class="collapse navbar-collapse" id="navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                      <li class="dropdown">
-                          <a href="<?= site_url('Sugestao') ?>" >
-                              Contato
-                          </a></li>
                         <li class="dropdown">
-
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                Cadastre-se <span class="caret"></span>
-                            </a>
+                            <a href="<?= site_url('Sugestao') ?>" >
+                                Contato
+                            </a></li>
+                        <li class="dropdown">
                             <ul class="dropdown-menu" role="menu">
 
                                 <li>
@@ -80,10 +76,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <form class="form" role="form" method="post" action="<?= site_url('Login/doLogin') ?>" id="login-nav">
-                                                <?php if (isset($login_falhou) && $login_falhou == TRUE) { ?>
-                                                    Usuário e/ou senha não encontrados!
-                                                <?php } ?>
-                                                <?php echo validation_errors(); ?>
+
                                                 <div class="form-group input-group">
                                                     <label for="email-login" class="input-group-addon">
                                                         <i class="fa fa-envelope fa-fw"></i>
@@ -135,6 +128,15 @@
                                     <strong>Sucesso !</strong>  Mensagem enviada com sucesso!!!
                                 </div>
                             <?php } ?>
+                            <?php if (isset($login_falhou) && $login_falhou == TRUE) { ?>
+                                <div class="alert alert-danger alert-dismissible fade in" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                    <strong>Erro !</strong> Erro ao logar, usuário ou senha invalidos!!!
+                                </div>
+                            <?php } ?>
+                            <?php echo validation_errors(); ?>
                         </div>
                     </div>
                 </div>
@@ -221,6 +223,21 @@
                 </div>
             </div>
         </div>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="col-md-12">
+                    <span class="pull-right">
+                        <strong><i class="fa fa-commenting-o" aria-hidden="true"></i>
+                            <a href="<?= site_url('Sugestao') ?>" >Dicas e sugestões</a>
+                        </strong>
+                    </span>
+                    <span class="pull-left">
+                        <strong>Banco de Oportunidades 2016</strong>
+                    </span>
+                </div>
+            </div>
+        </footer>
 
 
         <script src="<?= base_url('assets/js/jquery.js') ?>"></script>

@@ -32,6 +32,9 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
+                                    <a href="<?= site_url('Painel_academico/carregaEditarSenha') ?>"><i class="fa fa-wrench fa-fw"></i> Trocar de senha</a>
+                                </li>
+                                <li>
                                     <a href="<?= site_url('Painel_academico/deslogar') ?>"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
                                 </li>
                             </ul>
@@ -49,17 +52,12 @@
                         <div class="col-md-3">
                             <div class="panel panel-default">
                                 <div class="panel-body">
-                                    <div class="pn-heading">
-                                        <span class="pull-left">
-                                            <strong><li class="fa fa-user"></li> Usuário</strong>
-                                        </span>
-                                    </div>
-
                                     <div class="row">
                                         <div class="col-xs-6 col-md-12">
                                             <ul class="list-unstyled">
-                                                <li><b>Nome: </b><br><?php echo $dadosAcademico->nome_usuario ?></li>
-                                                <li><b>E-mail: </b><br><?php echo $dadosAcademico->email ?></li>
+                                                <li><strong> <i class="fa fa-suitcase"></i> Empregador:</strong><br> <?php echo $dadosVaga->nome_usuario; ?><br></li>
+                                                <li><strong> <i class="fa fa-envelope" aria-hidden="true"></i> E-mail:</strong><br> <?php echo $dadosVaga->email; ?><br></li>
+                                                <li><strong> <i class="fa fa-phone" aria-hidden="true"></i> Telefone:</strong><br> <?php echo $dadosVaga->telefone; ?><br></li>
                                             </ul>
                                             <hr class="hidden-xs hidden-sm pn-divider">
                                             <form action="<?= site_url('Vaga_academico/cadastraCandidato/') ?>" method="post">
@@ -88,26 +86,21 @@
                                             </a>
                                         </span>
                                     </div>
+                                    
+                                    <strong> <i class="fa fa-star"></i> Faixa Salarial:</strong> <?php echo $dadosVaga->salario; ?><br>
+                                    <br>
 
-                                        <strong> <i class="fa fa-suitcase"></i> Empregador:</strong> <?php echo $dadosVaga->nome_usuario; ?><br>
-                                        <strong> <i class="fa fa-envelope" aria-hidden="true"></i> E-mail:</strong> <?php echo $dadosVaga->email; ?><br>
-                                        <strong> <i class="fa fa-phone" aria-hidden="true"></i> Telefone:</strong> <?php echo $dadosVaga->telefone; ?><br>
-                                        <br>
+                                    <strong><i class="fa fa-th-list"></i> Requisitos:</strong><br><?php echo $dadosVaga->requisitos; ?><br>
+                                    <strong><i class="fa fa-user"></i> Atividades Profissionais:</strong><br><?php echo $dadosVaga->atividades; ?><br>
+                                    <strong><i class="fa fa-suitcase"></i> Área:</strong><br><?php echo $dadosVaga->area; ?> </br>
+                                    <br>
 
-                                        <strong> <i class="fa fa-star"></i> Faixa Salarial:</strong> <?php echo $dadosVaga->salario; ?><br>
-                                        <br>
+                                    <strong><i class="fa fa-street-view"></i> Local da Vaga:</strong><br><?php echo $dadosVaga->cidade; ?> </br>
+                                    <strong><i class="fa fa-adjust"></i> Horário de Trabalho:</strong><br><?php echo $dadosVaga->horario_inicio; ?> - <?php echo $dadosVaga->horario_termino; ?><br>
+                                    <strong><i class="fa fa-calendar"></i> Período:</strong><br><?php echo $dadosVaga->periodo; ?><br>
+                                    <br>
 
-                                        <strong><i class="fa fa-th-list"></i> Requisitos:</strong><?php echo $dadosVaga->requisitos; ?><br>
-                                        <strong><i class="fa fa-user"></i> Atividades Profissionais:</strong></span><?php echo $dadosVaga->atividades; ?><br>
-                                        <strong><i class="fa fa-suitcase"></i> Área:</strong> <?php echo $dadosVaga->area; ?> </br>
-                                        <br>
-
-                                        <strong><i class="fa fa-street-view"></i> Local da Vaga:</strong> <?php echo $dadosVaga->cidade; ?> </br>
-                                        <strong><i class="fa fa-adjust"></i> Horário de Trabalho:</strong> <?php echo $dadosVaga->horario_inicio; ?> - <?php echo $dadosVaga->horario_termino; ?><br>
-                                        <strong><i class="fa fa-calendar"></i> Período:</strong> <?php echo $dadosVaga->periodo; ?><br>
-                                        <br>
-
-                                        <strong><i class="fa fa-check"></i> Benefícios da vaga de emprego:</strong><?php echo $dadosVaga->beneficios; ?><br>
+                                    <strong><i class="fa fa-check"></i> Benefícios da vaga de emprego:</strong><br><?php echo $dadosVaga->beneficios; ?><br>
 
                                 </div>
                             </div>

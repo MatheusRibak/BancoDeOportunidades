@@ -36,6 +36,9 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
+                                    <a href="<?= site_url('Painel_academico/carregaEditarSenha') ?>"><i class="fa fa-wrench fa-fw"></i> Trocar de senha</a>
+                                </li>
+                                <li>
                                     <a href="<?= site_url('Painel_academico/deslogar') ?>"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
                                 </li>
                             </ul>
@@ -87,13 +90,13 @@
                                         <div class="form-group">
                                             <label for="email-cad" class="col-sm-2 control-label">Início</label>
                                             <div class="col-sm-2">
-                                                <input type="text" class="form-control data" name="inicio"  required value="<?php echo implode("/", array_reverse(explode("-", $experiencia->inicio))); ?>">
+                                                <input type="text" class="form-control data" name="inicio"  required value="<?php echo $experiencia->inicio; ?>">
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="email-cad" class="col-sm-2 control-label">Término do emprego</label>
+                                            <label for="email-cad" class="col-sm-2 control-label">Término</label>
                                             <div class="col-sm-2">
-                                                <input type="text" class="form-control data" id="avancar" name="termino"  disabled="" value="<?php echo implode("/", array_reverse(explode("-", $experiencia->termino))); ?>" >
+                                                <input type="text" class="form-control data" id="avancar" name="termino"  value="<?php echo $experiencia->termino; ?>" >
                                             </div>
                                         </div>
                                         <div class="form-group">

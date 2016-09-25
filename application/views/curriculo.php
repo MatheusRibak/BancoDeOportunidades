@@ -115,7 +115,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <strong><i class="fa fa-graduation-cap" aria-hidden="true"></i> Formações</strong>
                                         </span>
                                         <span class="pull-right">
-                                            <a class="btn btn-primary btn-xs" href="#"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Gerar pdf</a>
+                                            <a class="btn btn-primary btn-xs" href="<?= site_url('GeraPdf/criaPdfEmpregador/' . $dadosAcademico->id_usuario) ?>"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Gerar pdf</a>
                                             <a class="btn btn-default btn-xs" href="<?= site_url('PainelEmpregador/listaCurriculos/') ?>"><i class="fa fa-chevron-left" aria-hidden="true"></i> Voltar</a>
                                         </span>
                                     </div>

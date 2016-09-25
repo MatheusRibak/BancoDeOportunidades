@@ -125,3 +125,5 @@ $autoload['language'] = array();
 |	$autoload['model'] = array('first_model' => 'first');
 */
 $autoload['model'] = array('Academico_model', 'Usuario_model', 'Sugestao_model');
+
+$autoload['plugin'] = array("mpdf");

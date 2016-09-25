@@ -94,7 +94,7 @@
                                             <hr class="hidden-xs hidden-sm pn-divider">
                                         </div>
                                         <div class="col-xs-6 col-md-12">
-                                            <a href="#">Exportar para .PDF</a>
+                                            <a href="<?= site_url('GeraPdf/criaPdf') ?>">Exportar para .PDF</a>
                                             <hr class="hidden-xs hidden-sm pn-divider">
                                         </div>
                                     </div>

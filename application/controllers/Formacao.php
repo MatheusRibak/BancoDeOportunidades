@@ -13,6 +13,7 @@ class Formacao extends CI_Controller {
         $salvaInicio = implode("-", array_reverse(explode("/", $inicio)));
         $salvaTermino = implode("-", array_reverse(explode("/", $termino)));
 
+        $data['instituicao'] = $this->input->post('instituicao');
         $data['nome_curso'] = $this->input->post('nome');
         $data['tipo'] = $this->input->post('tipo');
         $data['termino'] = $salvaTermino;

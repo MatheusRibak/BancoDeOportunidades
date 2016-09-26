@@ -180,18 +180,26 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php foreach ($dadosFormacao as $formacao): ?>
-                                                    <tr>
-                                                        <td><?php echo $formacao->nome_curso; ?></td>
-                                                        <td><?php echo $formacao->tipo; ?></td>
-                                                        <td><?php echo $formacao->escola; ?></td>
-                                                        <td align='center'>
-                                                            <a  href="<?= site_url('Painel_academico/getFormacao/' . $formacao->id_formacao) ?>" class="btn btn-primary btn-xs">
-                                                                <i class="fa fa-pencil fa-fw"></i>
-                                                            </a>
-                                                        </td>
-                                                    </tr>
-                                                <?php endforeach; ?>
+                                                <?php
+                                                if (!empty($dadosFormacao)):
+                                                    foreach ($dadosFormacao as $formacao):
+                                                        ?>
+                                                        <tr>
+                                                            <td><?php echo $formacao->nome_curso; ?></td>
+                                                            <td><?php echo $formacao->tipo; ?></td>
+                                                            <td><?php echo $formacao->escola; ?></td>
+                                                            <td align='center'>
+                                                                <a  href="<?= site_url('Painel_academico/getFormacao/' . $formacao->id_formacao) ?>" class="btn btn-primary btn-xs">
+                                                                    <i class="fa fa-pencil fa-fw"></i>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                        <?php
+                                                    endforeach;
+                                                else:
+                                                    echo "<td colspan='5' align='center'>Nenhum formação cadastrada!</td>";
+                                                endif;
+                                                ?>
                                             </tbody>
                                         </table>
                                     </div>
@@ -219,18 +227,26 @@
                                                     <th width='80'>Opções</th>
                                                 </tr>
                                             </thead>
-                                            <?php foreach ($dadosExperiencia as $exp): ?>
-                                                <tr>
-                                                    <td><?php echo $exp->nome_experiencia; ?></td>
-                                                    <td><?php echo $exp->empresa; ?></td>
-                                                    <td><?php echo $exp->atividade; ?></td>
-                                                    <td align='center'>
-                                                        <a  href="<?= site_url('Painel_academico/getExperiencia/' . $exp->id_experiencia) ?>" class="btn btn-primary btn-xs">
-                                                            <i class="fa fa-pencil fa-fw"></i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                            <?php endforeach; ?>
+                                            <?php
+                                            if (!empty($dadosExperiencia)):
+                                                foreach ($dadosExperiencia as $exp):
+                                                    ?>
+                                                    <tr>
+                                                        <td><?php echo $exp->nome_experiencia; ?></td>
+                                                        <td><?php echo $exp->empresa; ?></td>
+                                                        <td><?php echo $exp->atividade; ?></td>
+                                                        <td align='center'>
+                                                            <a  href="<?= site_url('Painel_academico/getExperiencia/' . $exp->id_experiencia) ?>" class="btn btn-primary btn-xs">
+                                                                <i class="fa fa-pencil fa-fw"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <?php
+                                                endforeach;
+                                            else:
+                                                echo "<td colspan='5' align='center'>Nenhum experiência cadastrada!</td>";
+                                            endif;
+                                            ?>
                                         </table>
                                     </div>
                                 </div>
@@ -258,18 +274,26 @@
                                                     <th width='80'>Opções</th>
                                                 </tr>
                                             </thead>
-                                            <?php foreach ($dadosIdioma as $idioma): ?>
-                                                <tr>
-                                                    <td><?php echo $idioma->idioma; ?></td>
-                                                    <td><?php echo $idioma->nivel; ?></td>
+                                            <?php
+                                            if (!empty($dadosIdioma)):
+                                                foreach ($dadosIdioma as $idioma):
+                                                    ?>
+                                                    <tr>
+                                                        <td><?php echo $idioma->idioma; ?></td>
+                                                        <td><?php echo $idioma->nivel; ?></td>
 
-                                                    <td align='center'>
-                                                        <a  href="<?= site_url('Idioma/carregaEditarIdioma/' . $idioma->id_idioma) ?>" class="btn btn-primary btn-xs">
-                                                            <i class="fa fa-pencil fa-fw"></i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                            <?php endforeach; ?>
+                                                        <td align='center'>
+                                                            <a  href="<?= site_url('Idioma/carregaEditarIdioma/' . $idioma->id_idioma) ?>" class="btn btn-primary btn-xs">
+                                                                <i class="fa fa-pencil fa-fw"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <?php
+                                                endforeach;
+                                            else:
+                                                echo "<td colspan='5' align='center'>Nenhum idioma cadastrado!</td>";
+                                            endif;
+                                            ?>
                                         </table>
                                     </div>
                                 </div>
@@ -279,7 +303,7 @@
                 </div>
             </div>
         </div>
-        <script src="<?= base_url('assets/js/jquery.js') ?>"></script>
+        <script src = "<?= base_url('assets/js/jquery.js') ?>"></script>
         <script src="<?= base_url('assets/js/bootstrap.min.js') ?>"></script>
         <script src="<?= base_url('assets/js/scripts.js') ?>"></script>
     </body>

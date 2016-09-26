@@ -9,7 +9,7 @@ class Usuario extends CI_Controller {
     }
 
     public function cadastraUsuario() {
-        $cnpj_cpf = $this->input->post('cnpj_cpf');
+        $cnpj_cpf = md5($this->input->post('cnpj_cpf'));
         $nome_empresa = $this->input->post('nome');
         $endereco = $this->input->post('endereco');
         $cidade = $this->input->post('cidade');

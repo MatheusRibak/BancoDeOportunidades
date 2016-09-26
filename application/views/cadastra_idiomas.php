@@ -82,7 +82,6 @@
 
                                           <div class="col-sm-3">
                                               <select class="form-control" name="idioma" required>
-                                                  <option>Selecione um idioma</option>
                                                   <option value="Alemão">Alemão</option>
                                                   <option value="Chinês">Chinês</option>
                                                   <option value="Espanhol">Espanhol</option>
@@ -95,7 +94,6 @@
                                           </div>
                                           <div class="col-sm-4">
                                             <select class="form-control" name="nivel"  required >
-                                              <option>Nivel</option>
                                               <option value="Fluente">Fluente</option>
                                               <option value="Intermediario">Intermediario</option>
                                               <option value="Básico">Básico</option>

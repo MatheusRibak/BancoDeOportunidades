@@ -157,9 +157,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <tr>
                                                     <th>Nome</th>
                                                     <th>Telefone </th>
-                                                    <th>Email</th>
                                                     <th>Vaga</th>
-                                                    <th width="40">Opções</th>
+                                                    <th width="80">Opções</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -169,7 +168,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                     <tr>
                                                         <td><?php echo $dvs->nome_usuario; ?></td>
                                                         <td><?php echo $dvs->telefone; ?></td>
-                                                        <td><?php echo $dvs->email; ?></td>
                                                         <td><?php echo $dvs->cargo; ?></td>
                                                         <td align='center'>
                                                             <a href="<?= site_url('Vagas/excluirCandidato/' . $dvs->id_vaga_selecionada) ?>" 
@@ -177,6 +175,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                                onclick="return confirm('Têm certeza que deseja excluir este registro?')"
                                                                >
                                                                 <i class="fa fa-trash fa-fw"></i>
+                                                            </a>
+                                                            <a href="<?= site_url('GeraPdf/criaPdfEmpregador/' . $dvs->id_academico) ?>" 
+                                                               title="Imprimir curriculo"
+                                                               class="btn btn-primary btn-xs">
+                                                                <i class="fa fa-file-pdf-o fa-fw" aria-hidden="true"></i>
                                                             </a>
                                                         </td>
                                                     </tr>

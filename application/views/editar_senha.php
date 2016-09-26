@@ -33,7 +33,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <b>Usuário: </b><?php echo $dadosAcademico->email ?> <span class="caret"></span>
+                                <b>Usuário: </b><?php echo $dadosUsuario->email ?> <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <li>

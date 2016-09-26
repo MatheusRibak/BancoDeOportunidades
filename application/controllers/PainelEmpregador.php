@@ -15,7 +15,7 @@ class PainelEmpregador extends MY_ControllerLogado {
         $data = array(
             "vagas" => $this->Vaga_empregador->getVagas($id_usuario),
             "dadosEmpregador" => $this->Usuario_model->getUsuario($id_usuario)->row(),
-            "dadosVagaSelecionado" => $this->Curriculo_selecionado->todos()
+            "dadosVagaSelecionado" => $this->Curriculo_selecionado->todos($id_usuario)->result()
         );
 
         $this->load->view('painel_empregador', $data);

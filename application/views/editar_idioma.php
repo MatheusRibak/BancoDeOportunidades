@@ -88,8 +88,7 @@
                                               <input type="hidden" name="idioma" value="<?php echo $row->idioma; ?>">
                                           </div>
                                           <div class="col-sm-4">
-                                            <select class="form-control" name="nivel"  required >
-                                              <option value="Nivel não informado">Edite o Nivel</option>
+                                            <select class="form-control" name="nivel" id="nivel" required >
                                               <option value="Fluente">Fluente</option>
                                               <option value="Intermediario">Intermediario</option>
                                               <option value="Básico">Básico</option>
@@ -124,6 +123,7 @@
         <script src="<?= base_url('assets/js/jquery.mask.min.js') ?>"></script>
         <script type="text/javascript">
             $('.data').mask('0000');
+            $('#nivel').val('<?php echo $row->nivel; ?>');
         </script>
     </body>
 </html>

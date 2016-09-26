@@ -9,7 +9,7 @@ class Empregador extends CI_Controller {
     }
 
     public function cadastraEmpregador() {
-        $cnpj = $this->input->post('cnpj');
+        $cnpj = md5($this->input->post('cnpj'));
         $nome_empresa = $this->input->post('nome');
         $endereco = $this->input->post('endereco');
         $cidade = $this->input->post('cidade');
@@ -38,7 +38,7 @@ class Empregador extends CI_Controller {
         $this->load->model('Empregador_model');
         $this->Empregador_model->cadastrarEmpregador([
             "nome_empresa" => $nome_empresa,
-            "cnpj" => $cnpj,
+            "cnpj_cpf" => $cnpj,
             "endereco" => $endereco,
             "cidade" => $cidade,
             "estado" => $estado,

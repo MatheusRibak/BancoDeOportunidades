@@ -69,7 +69,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <strong>Pesquisar Vagas</strong>
                                             </span>
                                             <span class="pull-right">
-                                                <a class="btn btn-default btn-xs" href="<?= site_url('Painel_Academico/index') ?>"><i class="fa fa-chevron-left" aria-hidden="true"></i> Voltar</a>
+                                                <a class="btn btn-default btn-xs" href="<?= site_url('Painel_academico/') ?>"><i class="fa fa-chevron-left" aria-hidden="true"></i> Voltar</a>
                                             </span>
                                         </div>
                                         <form class="form-inline" method="post" action="<?= site_url('Vaga_academico/getVagas') ?>">

@@ -8,13 +8,14 @@ class Curriculo_selecionado extends CI_Model {
     }
 
     //LISTAR CADIDATADOS 
-    function todos() {
+    function todos($id_usuario) {
         $this->db->select('*');
         $this->db->from('curriculos_selecionados');
         $this->db->join('usuario', 'curriculos_selecionados.id_academico = usuario.id_usuario');
         $this->db->join('dados_vaga', 'curriculos_selecionados.id_dado_vaga = dados_vaga.id_dado_vaga');
+        $this->db->where("id_empregador", $id_usuario);
         $this->db->where("dados_vaga.status = 'ATIVO' ");
-        return $query = $this->db->get()->result();
+        return $query = $this->db->get();
     }
 
     //DELETAR VAGA

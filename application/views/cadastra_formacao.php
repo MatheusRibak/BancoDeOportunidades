@@ -80,7 +80,7 @@
                                         <div class="form-group">
                                             <label for="salario" class="col-sm-2 control-label">Instituição  *</label>
                                             <div class="col-sm-6">
-                                                <select name="escola" class="form-control">
+                                                <select name="instituicao" class="form-control">
                                                     <option value="UNOESC">UNOESC</option>
                                                     <option value="Outras Instituições">Outras Instituições</option>
                                                 </select>
@@ -124,16 +124,6 @@
                                             <label for="senha" class="col-sm-2 control-label">Ano de termino do curso</label>
                                             <div class="col-sm-2">
                                                 <input type="text" class="form-control data" name="termino" placeholder="" required>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-sm-offset-2 col-sm-10">
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox" required> Aceito os
-                                                    </label>
-                                                    <a href="#" data-toggle="modal" data-target="#modal-contrato">Termos e Condições</a> do contrato.
-                                                </div>
                                             </div>
                                         </div>
                                         <div class="form-group">

@@ -57,7 +57,7 @@ $idEmpregador = $this->session->userdata('idAdministrador');
                                 </strong>
                             </span>
                             <span class="pull-right">
-                                <a class="btn btn-primary btn-xs" href="<?= site_url('PainelEmpregador/') ?>"><i class="fa fa-chevron-left" aria-hidden="true"></i> Voltar</a>
+                                <a class="btn btn-default btn-xs" href="<?= site_url('PainelEmpregador/') ?>"><i class="fa fa-chevron-left" aria-hidden="true"></i> Voltar</a>
                             </span>
                         </div> 
                         <br><br>
@@ -118,17 +118,11 @@ $idEmpregador = $this->session->userdata('idAdministrador');
                                         <?= $dadosVaga->beneficios ?>
                                     </textarea>
                                 </div>
-                            </div>  
-                            <div class="form-group">
-                                <label for="status" class="col-sm-2 control-label">Status atual:</label>
-                                <div class="col-sm-2">
-                                    <input  class="form-control" id="status" value="<?= $dadosVaga->status ?>" disabled="true">
-                                </div>
-                            </div>
+                            </div> 
                             <div class="form-group">
                                 <label for="status" class="col-sm-2 control-label">Status:</label>
                                 <div class="col-sm-3">
-                                    <select name="status" class="form-control">
+                                    <select name="status" id='status' class="form-control">
                                         <option name="ATIVO">ATIVO</option>
                                         <option name="INATIVO">INATIVO</option>
                                     </select>
@@ -148,5 +142,8 @@ $idEmpregador = $this->session->userdata('idAdministrador');
         <script src="<?= base_url('assets/js/jquery.js') ?>"></script>
         <script src="<?= base_url('assets/js/bootstrap.min.js') ?>"></script>
         <script src="<?= base_url('assets/js/scripts.js') ?>"></script>
+        <script type="text/javascript">
+            $('#status').val('<?= $dadosVaga->status ?>');
+        </script>
     </body>
 </html>

@@ -81,7 +81,7 @@
                                         <div class="form-group">
                                             <label for="salario" class="col-sm-2 control-label">Instituição  *</label>
                                             <div class="col-sm-6">
-                                                <select name="escola" class="form-control">
+                                                <select name="instituicao" id="instituicao" class="form-control">
                                                     <option value="UNOESC">UNOESC</option>
                                                     <option value="Outras Instituições">Outras Instituições</option>
                                                 </select>
@@ -155,6 +155,7 @@
         <script src="<?= base_url('assets/js/jquery.mask.min.js') ?>"></script>
         <script type="text/javascript">
             $('.data').mask('0000');
+             $('#instituicao').val('<?php echo $formacao->instituicao ?>');
         </script>
     </body>
 </html>

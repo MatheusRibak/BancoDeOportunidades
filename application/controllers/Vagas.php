@@ -34,9 +34,9 @@ class Vagas extends CI_Controller {
         $this->form_validation->set_rules('area', 'Área', 'required|max_length[120]');
         $this->form_validation->set_rules('nivel', 'Nível', 'required|max_length[120]');
         $this->form_validation->set_rules('periodo', 'Período', 'required|max_length[120]');
-        $this->form_validation->set_rules('atividades', 'Atividades', 'required|max_length[320]');
-        $this->form_validation->set_rules('requisitos', 'Requisitos', 'required|max_length[320]');
-        $this->form_validation->set_rules('beneficios', 'Beneficios', 'required|max_length[320]');
+        $this->form_validation->set_rules('atividades', 'Atividades', 'required|max_length[1000]');
+        $this->form_validation->set_rules('requisitos', 'Requisitos', 'required|max_length[1000]');
+        $this->form_validation->set_rules('beneficios', 'Beneficios', 'required|max_length[1000]');
 
         if ($this->form_validation->run() == FALSE) {
             $this->index();
@@ -59,9 +59,10 @@ class Vagas extends CI_Controller {
         redirect('PainelEmpregador/index/?aviso=1');
     }
 
-    public function editarVaga($id_dado_vaga, $id_usuario) {
+    public function editarVaga($id_dado_vaga) {
         $this->load->model('Vaga_empregador');   
         $this->load->model('Usuario_model');
+        $id_usuario = $this->session->userdata('id_usuario');  
         $id_dado_vaga = (int) $id_dado_vaga;
 
         //ARRAY COM TODAS AS VAGAS E DADOS DO EMPREGADOR
@@ -99,9 +100,9 @@ class Vagas extends CI_Controller {
         $this->form_validation->set_rules('area', 'Área', 'required|max_length[120]');
         $this->form_validation->set_rules('nivel', 'Nível', 'required|max_length[120]');
         $this->form_validation->set_rules('periodo', 'Período', 'required|max_length[120]');
-        $this->form_validation->set_rules('atividades', 'Atividades', 'required|max_length[320]');
-        $this->form_validation->set_rules('requisitos', 'Requisitos', 'required|max_length[320]');
-        $this->form_validation->set_rules('beneficios', 'Beneficios', 'required|max_length[320]');
+        $this->form_validation->set_rules('atividades', 'Atividades', 'required|max_length[1000]');
+        $this->form_validation->set_rules('requisitos', 'Requisitos', 'required|max_length[1000]');
+        $this->form_validation->set_rules('beneficios', 'Beneficios', 'required|max_length[1000]');
 
         if ($this->form_validation->run() == FALSE) {
             $this->editarVaga($id_dado_vaga);

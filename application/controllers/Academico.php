@@ -20,14 +20,13 @@ class Academico extends CI_Controller {
     public function cadastrarAcademico() {
         $nome = $this->input->post('nome');
         $endereco = $this->input->post('endereco');
+        $cpf = md5($this->input->post('cpf'));
         $cidade = $this->input->post('cidade');
         $estado = $this->input->post('estado');
         $email = $this->input->post('email');
         $telefone = $this->input->post('telefone');
         $senha = md5($this->input->post('senha'));
         $data_cadastro = $this->input->post('data_cadastro');
-        $linkedin = $this->input->post('linkedin');
-        $lattes = $this->input->post('lattes');
 
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
         $this->form_validation->set_rules('nome', 'Nome', 'required|max_length[120]');
@@ -54,6 +53,7 @@ class Academico extends CI_Controller {
             # code...
             $this->load->model('Academico_model');
             $this->Academico_model->cadastrarAcademico([
+                "cnpj_cpf" =>$cpf,
                 "nome" => $nome,
                 "endereco" => $endereco,
                 "cidade" => $cidade,

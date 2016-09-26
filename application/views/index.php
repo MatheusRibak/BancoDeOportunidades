@@ -29,12 +29,12 @@
                 <div class="collapse navbar-collapse" id="navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
-                            <a href="<?= site_url('Sugestao') ?>" >
-                                Contato
-                            </a></li>
+                            <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                Cadastre-se <span class="caret"></span>
+                            </a>
                             <ul class="dropdown-menu" role="menu">
-
                                 <li>
                                     <a href="<?= site_url('Academico') ?>"><i class="fa fa-graduation-cap fa-fw"></i> Acadêmico</a>
                                 </li>

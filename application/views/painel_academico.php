@@ -68,7 +68,7 @@
                         <div class="alert alert-success">
                             Dados referente ao idioma alterados com sucesso!
                         </div>
-                    <?php } ?>
+                    <?php } ?>                    
                     <div class="row">
                         <div class="col-md-3">
                             <div class="panel panel-default">
@@ -298,6 +298,45 @@
                                     </div>
                                 </div>
                             </div>
+                            
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="pn-heading">
+                                        <span class="pull-left">
+                                            <strong> LinkedIn | Lattes</strong>
+                                        </span>
+                                        <span class="pull-right">
+                                            <a href="<?= site_url('Idioma/carregaLinkedIdLattes/') ?>" class="btn btn-primary btn-xs">
+                                                LinkedIn | Lattes <i class="fa fa-plus fa-fw"></i>
+                                            </a>
+                                        </span>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-hover no-margin">
+                                            <thead>
+                                                <tr>
+                                                    <th>Endereço</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <?php
+                                            if (!empty($dadosLattesLonkedId)):
+                                                foreach ($dadosLattesLonkedId as $dl):
+                                                    ?>
+                                                    <tr>
+                                                        <td><?php echo $dl->endereco; ?></td>
+                                                    </tr>
+                                                    <?php
+                                                endforeach;
+                                            else:
+                                                echo "<td colspan='5' align='center'>Nenhuma informação cadastrada!</td>";
+                                            endif;
+                                            ?>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            
                         </div>
                     </div>
                 </div>

@@ -38,10 +38,7 @@ class Idioma extends MY_ControllerLogado {
             "idioma" => $idioma,
             "nivel" => $nivel
         ]);
-
           redirect('Idioma/carregaIdiomas/?aviso=2');
-
-
     }
 
     public function carregaEditarIdioma($id_idioma){
@@ -55,16 +52,13 @@ class Idioma extends MY_ControllerLogado {
 
       $this->load->view('editar_idioma', $data);
 
-    }
+    }   
+    
 
     public function editaIdioma(){
-
-
       $this->load->model('Idioma_model');
-      $id_usuario = $this->session->userdata('id_usuario');
 
       $id_idioma = $this->input->post('id_idioma');
-      $idioma = $this->input->post('idioma');
       $nivel = $this->input->post('nivel');
 
       $this->Idioma_model->editaIdioma([
@@ -72,6 +66,26 @@ class Idioma extends MY_ControllerLogado {
       ], $id_idioma);
 
       redirect('Painel_academico/index/?aviso=4');
+    }
+    
+    public function salvarLinkedIdLattes(){
+      $this->load->model('LinkedIdLattes_model');
+      $id_usuario = $this->session->userdata('id_usuario');
+      $endereco = $this->input->post('endereco');
+
+        $this->LinkedIdLattes_model->salvaLinkedIdLattes([
+            "id_usuario" => $id_usuario,
+            "endereco" => $endereco,
+        ]);
+          redirect('Idioma/carregaLinkedIdLattes/?aviso=1');
+    }
+    
+    public function carregaLinkedIdLattes(){
+      $id_usuario = $this->session->userdata('id_usuario');
+      $data = array(
+          "dadosAcademico" => $this->Usuario_model->getUsuario($id_usuario)->row()
+      );
+      $this->load->view('cadastra_linkedid_lattes', $data);
     }
 
 }

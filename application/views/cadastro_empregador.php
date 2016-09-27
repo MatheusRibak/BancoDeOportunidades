@@ -111,7 +111,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </nav>
         
         <div class="page-content">
-            <div class="cadastro-content">
+            <div class="usuario-content">
                 <div class="container">
                     <div class="panel panel-default col-md-8 col-md-offset-2">
                         <div class="panel-body">

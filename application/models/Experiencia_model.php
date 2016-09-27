@@ -6,9 +6,9 @@ class Experiencia_model extends CI_Model {
         $this->db->insert('experiencia', $data);
     }
 
-    function getExp($id_experiencia) {
-        $id_experiencia = (int) $id_experiencia;
-        $this->db->where('id_experiencia', $id_experiencia);
+    function getExp($idAcademico) {
+        $idAcademico = (int) $idAcademico;
+        $this->db->where('id_usuario', $idAcademico);
         return $this->db->get('experiencia');
     }
 

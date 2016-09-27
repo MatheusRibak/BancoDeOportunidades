@@ -111,7 +111,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </nav>
 
         <div class="page-content">
-            <div class="cadastro-content">
+            <div class="usuario-content">
                 <div class="container">
                     <div class="panel panel-default col-md-8 col-md-offset-2">
                         <div class="panel-body">
@@ -199,21 +199,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <option value="TO">Tocantins</option>
                                         </select>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="" class="col-sm-2 control-label">Perfil do Linkedin
-                                    </label>
-                                    <div class="col-sm-7">
-                                        <input type="email" class="form-control" name = "linkedin"  placeholder="Perfil do Linkedin - Não Obrigatorio" >
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="" class="col-sm-2 control-label">Perfil do Lattes
-                                    </label>
-                                    <div class="col-sm-7">
-                                        <input type="email" class="form-control" name = "lattes"  placeholder="Perfil do Lattes - Não Obrigatorio" >
-                                    </div>
-                                </div>
+                                </div>                                
                                 <div class="form-group">
                                     <label for="email-cad" class="col-sm-2 control-label">E-mail:</label>
                                     <div class="col-sm-7">

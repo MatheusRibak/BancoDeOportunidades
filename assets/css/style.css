@@ -1,3 +1,6 @@
+body{
+    background-color: #eee !important;
+}
 .no-margin {
     margin: 0 !important;
 }
@@ -14,16 +17,13 @@
     cursor: pointer;
 }
 
-.usuario-content, .form-add-content {
-    background-color: #eee;
-}
-
 .usuario-content {
     padding: 30px 0;
 }
 
 .form-add-content {
     padding: 90px 0;
+    height: 100%;
 }
 
 .usuario-content .table-responsive {

@@ -96,7 +96,6 @@
                                     <br>
 
                                     <strong><i class="fa fa-street-view"></i> Local da Vaga:</strong><br><?php echo $dadosVaga->cidade; ?> </br>
-                                    <strong><i class="fa fa-adjust"></i> Horário de Trabalho:</strong><br><?php echo $dadosVaga->horario_inicio; ?> - <?php echo $dadosVaga->horario_termino; ?><br>
                                     <strong><i class="fa fa-calendar"></i> Período:</strong><br><?php echo $dadosVaga->periodo; ?><br>
                                     <br>
 

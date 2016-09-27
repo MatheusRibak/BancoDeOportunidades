@@ -61,11 +61,9 @@
                     <div class="row">
                         <div class="col-md-12">
 
+                            <h2 align="center">Curriculum Vitae</h2>
                             <div class="panel panel-default">
                                 <div class="panel-body">
-                                    <div class="pn-heading">
-                                        <h2>Currículo vitae</h2>
-                                    </div>
                                     <br>
                                     <ul class="list-unstyled">
                                         <li><b>Nome: </b><?php echo $dadosAcademico->nome_usuario ?></li>
@@ -81,7 +79,7 @@
                                 <div class="panel-body">
                                     <div class="pn-heading">
                                         <span class="pull-left">
-                                            <strong>Formação</strong>
+                                            <strong><b>Formação</b></strong>
                                         </span>
                                     </div>
                                     <br>

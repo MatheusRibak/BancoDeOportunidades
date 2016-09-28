@@ -18,7 +18,8 @@ class Painel_academico extends MY_ControllerLogado {
             "dadosFormacao" => $this->Formacao_model->getFormacao($id_usuario)->result(),
             "dadosExperiencia" => $this->Experiencia_model->getExpUsuario($id_usuario)->result(),
             "dadosIdioma" => $this->Idioma_model->getIdiomas($id_usuario)->result(),
-            "dadosLattesLonkedId" => $this->linkedIdLattes_model->getLinkedIdLattes($id_usuario)->result()
+            "dadosLattesLonkedId" => $this->linkedIdLattes_model->getLinkedIdLattes($id_usuario)->result(),
+            "dadosAtividadesComplementares" =>$this->Academico_model->getAtividade()->result()
         );
         $this->load->view('painel_academico', $data);
     }
@@ -163,7 +164,7 @@ class Painel_academico extends MY_ControllerLogado {
             "inicio" => $inicio,
             "termino" => $termino,
             "escola" => $escola,
-            "instituicao" =>$instituicao
+            "instituicao" => $instituicao
         ]);
         redirect('Painel_academico/carregaFormacao/?aviso=1');
     }
@@ -197,53 +198,97 @@ class Painel_academico extends MY_ControllerLogado {
         );
         $this->load->view('edita_experiencia', $data);
     }
-    
-    public function carregaEditarSenha(){
-      $id_usuario = $this->session->userdata('id_usuario');
-      $data = array(
-          "dadosUsuario" => $this->Usuario_model->getUsuario($id_usuario)->row()
-      );
-      $this->load->view('editar_senha', $data);
+
+    public function carregaEditarSenha() {
+        $id_usuario = $this->session->userdata('id_usuario');
+        $data = array(
+            "dadosUsuario" => $this->Usuario_model->getUsuario($id_usuario)->row()
+        );
+        $this->load->view('editar_senha', $data);
     }
 
-    public function novaSenha(){
-      $senha_atual =  md5($this->input->post('senha_atual'));
-      $nova_senha =  md5($this->input->post('nova_senha'));
-      $id_usuario = $this->session->userdata('id_usuario');
-      $this->db->select('*')
-      ->where('id_usuario', $id_usuario);
-      $retorno =   $this->db->get('usuario')->result();
+    public function novaSenha() {
+        $senha_atual = md5($this->input->post('senha_atual'));
+        $nova_senha = md5($this->input->post('nova_senha'));
+        $id_usuario = $this->session->userdata('id_usuario');
+        $this->db->select('*')
+                ->where('id_usuario', $id_usuario);
+        $retorno = $this->db->get('usuario')->result();
 
-      $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
-      $this->form_validation->set_rules('senha_atual', 'Senha Atual', 'required|max_length[120]');
-      $this->form_validation->set_rules('nova_senha', 'Nova Senha', 'required|max_length[120]');
+        $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
+        $this->form_validation->set_rules('senha_atual', 'Senha Atual', 'required|max_length[120]');
+        $this->form_validation->set_rules('nova_senha', 'Nova Senha', 'required|max_length[120]');
 
-      if ($this->form_validation->run() == FALSE) {
-          $this->carregaEditarSenha();
-          return;
-      }
-      else {
-        foreach ($retorno as $row) {
+        if ($this->form_validation->run() == FALSE) {
+            $this->carregaEditarSenha();
+            return;
+        } else {
+            foreach ($retorno as $row) {
 
-            if ($row->senha == $senha_atual) {
+                if ($row->senha == $senha_atual) {
 
-              $this->Usuario_model->editarSenha([
-                  "senha" => $nova_senha
-              ]);
-              redirect('PainelEmpregador/carregaEditarSenha/?aviso=1');
-            }
-            else {
-              redirect('PainelEmpregador/carregaEditarSenha/?aviso=2');
+                    $this->Usuario_model->editarSenha([
+                        "senha" => $nova_senha
+                    ]);
+                    redirect('PainelEmpregador/carregaEditarSenha/?aviso=1');
+                } else {
+                    redirect('PainelEmpregador/carregaEditarSenha/?aviso=2');
+                }
             }
         }
-      }
+    }
+
+    public function salvaAtividade() {
+        $id_usuario = $this->session->userdata('id_usuario');
+        $atividade = $this->input->post('atividades');
+
+        $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
+        $this->form_validation->set_rules('atividades', 'Atividades complementares', 'required|max_length[1000]');
+        if ($this->form_validation->run() == FALSE) {
+            $this->carregaCadastraAtividades();
+            return;
+        } else {
+            $this->Academico_model->cadastrarAtividade([
+                "id_usuario" => $id_usuario,
+                "atividade" => $atividade
+            ]);
+            redirect('Painel_academico/carregaCadastraAtividades/?aviso=2');
+        }
+    }
+
+    public function carregaCadastraAtividades() {
+        $id_usuario = $this->session->userdata('id_usuario');
+        $data = array(
+            "dadosAcademico" => $this->Usuario_model->getUsuario($id_usuario)->row()
+        );
+        $this->load->view('cadastra_complementar', $data);
+    }
+
+    public function carregaEditarAtividade($id_atividade) {
+        $id_usuario = $this->session->userdata('id_usuario');
+        $data = array(
+            "dadosAtividades" => $this->Academico_model->getAtividadeSozinha($id_atividade)->row(),
+            "dadosAcademico" => $this->Usuario_model->getUsuario($id_usuario)->row()
+        );
+        $this->load->view('edita_atividade', $data);
+    }
+
+    public function salvaEditarAtividade() {
+
+        $id_atividade = $this->input->post('id_atividade');
+        $atividade = $this->input->post('atividades');
+
+        $data = array(
+            "atividade" => $atividade
+        );
+
+        $this->Academico_model->editarAtividade($id_atividade, $data);
+        redirect('Painel_academico/index/?aviso=5');
     }
 
     public function deslogar() {
         $this->session->sess_destroy();
         redirect('Home');
     }
-    
-
 
 }

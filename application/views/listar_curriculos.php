@@ -103,8 +103,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                     </a>
                                                 </span>
                                                 <?php if ($tipo == "experiencia"): ?>
-                                                <footer><?php echo $r->nome_experiencia; ?></footer>
-                                                    <footer><?php echo $r->nome_curso; ?></footer>                                                    
+                                                    <footer><?php echo $r->nome_experiencia; ?></footer>
+                                                    <footer><?php echo $r->id_usuario; ?></footer>                                                    
                                                     <footer><?php echo $r->atividade; ?></footer>
                                                 <?php else: ?>
                                                     <footer><?php echo $r->nome_curso; ?></footer>

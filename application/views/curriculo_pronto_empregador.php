@@ -60,11 +60,13 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-
+                            <h2 align="center">Curriculum Vitae</h2>
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <div class="pn-heading">
-                                        <h2>Currículo vitae</h2>
+                                        <span class="pull-left">
+                                            <strong><b>Dados pessoais</b></strong>
+                                        </span>
                                     </div>
                                     <br>
                                     <ul class="list-unstyled">
@@ -132,6 +134,39 @@
                                     </ul>
                                 </div>
                             </div>
+                            
+                            <div class="panel panel-default break">
+                                <div class="panel-body">
+                                    <div class="pn-heading">
+                                        <span class="pull-left">
+                                            <strong>LinkedId | Lattes</strong>
+                                        </span>
+                                    </div>
+                                    <br>
+                                    <ul class="list-unstyled">
+                                        <?php foreach ($dadosLattesLonkedId as $item): ?>
+                                        <li><b>Endereço: </b><?php echo $item->endereco ?></li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="pn-heading">
+                                        <span class="pull-left">
+                                            <strong>Informações complementares</strong>
+                                        </span>
+                                    </div>
+                                    <br>
+                                    <ul class="list-unstyled">
+                                        <?php foreach ($dadosAtividadesComplementares as $item): ?>
+                                        <li><b>Atividade: </b><?php echo $item->atividade ?></li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                </div>
+                            </div>
+                            
                         </div>
                     </div>
                 </div>

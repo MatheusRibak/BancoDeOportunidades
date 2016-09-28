@@ -96,8 +96,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                     <p>Cargo:   <?php echo $row->cargo; ?> </p>
                                                     <span class="pull-right">
                                                         <a href="<?= site_url('Vaga_academico/vagaCompleta/' . $row->id_dado_vaga) ?>" 
-                                                           class="btn btn-info btn-xs" title="Visualizar o curriculo completo">
-                                                            <i class="fa fa-eye" aria-hidden="true"></i> ver vaga
+                                                           class="btn btn-info btn-xs" title="Visualizar o vaga completo">
+                                                            <i class="fa fa-search" aria-hidden="true"></i> ver vaga
                                                         </a>
                                                     </span>
                                                     <footer>Area : <?php echo $row->area; ?></footer> 

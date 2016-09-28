@@ -120,6 +120,7 @@
                                             <thead>
                                                 <tr>
                                                     <th>Empresa</th>
+                                                    <th>Cargo</th>
                                                     <th>Atividades</th>
                                                     <th>Status</th>
                                                     <th width='80'>Opções</th>
@@ -132,7 +133,8 @@
                                                         ?>
                                                         <tr>
                                                             <td><?= $vaga->nome_usuario; ?></td>
-                                                            <td><?= $vaga->area; ?></td>
+                                                            <td><?= $vaga->cargo; ?></td>
+                                                            <td><?= $vaga->atividades; ?></td>
                                                             <td><?= $vaga->status; ?></td>
                                                             <td align='center'>
                                                                 <a href="<?= site_url('Vaga_academico/excluir/' . $vaga->id_vaga) ?>"
@@ -140,6 +142,10 @@
                                                                    onclick="return confirm('Têm certeza que deseja excluir este registro?')"
                                                                    >
                                                                     <i class="fa fa-trash fa-fw"></i>
+                                                                </a>
+                                                                <a href="<?= site_url('Vaga_academico/vagaCompleta/' . $vaga->id_dado_vaga) ?>" 
+                                                                   class="btn btn-primary btn-xs" title="Visualizar o vaga completa">
+                                                                    <i class="fa fa-search" aria-hidden="true"></i>
                                                                 </a>
                                                             </td>
                                                         </tr>
@@ -298,7 +304,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <div class="pn-heading">
@@ -316,7 +322,7 @@
                                             <thead>
                                                 <tr>
                                                     <th>Endereço</th>
-                                                    <th></th>
+                                                    <th width='60'>Opções</th>
                                                 </tr>
                                             </thead>
                                             <?php
@@ -325,18 +331,69 @@
                                                     ?>
                                                     <tr>
                                                         <td><?php echo $dl->endereco; ?></td>
+                                                        <td align='center'>
+                                                            <a  href="<?= site_url('Idioma/carregaEditarLattes/' . $dl->id_obs) ?>" class="btn btn-primary btn-xs">
+                                                                <i class="fa fa-pencil fa-fw"></i>
+                                                            </a>
+                                                        </td>
                                                     </tr>
                                                     <?php
                                                 endforeach;
                                             else:
-                                                echo "<td colspan='5' align='center'>Nenhuma informação cadastrada!</td>";
+                                                echo "<td colspan='2' align='center'>Nenhuma informação cadastrada!</td>";
                                             endif;
                                             ?>
                                         </table>
                                     </div>
                                 </div>
                             </div>
-                            
+
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="pn-heading">
+                                        <span class="pull-left">
+                                            <strong> Atividades Complementares</strong>
+                                        </span>
+                                        <span class="pull-right">
+                                            <a href="<?= site_url('Painel_academico/carregaCadastraAtividades') ?>" class="btn btn-primary btn-xs">
+                                                Adicionar <i class="fa fa-plus fa-fw"></i>
+                                            </a>
+                                        </span>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-hover no-margin">
+                                            <thead>
+                                                <tr>
+                                                    <th>Atividade Complementar</th>
+                                                    <th width='60'>
+                                                        Opções
+                                                    </th>
+
+                                                </tr>
+                                            </thead>
+                                            <?php
+                                            if (!empty($dadosAtividadesComplementares)):
+                                                foreach ($dadosAtividadesComplementares as $ac):
+                                                    ?>
+                                                    <tr>
+                                                        <td><?php echo $ac->atividade; ?></td>
+                                                        <td align='center'>
+                                                            <a  href="<?= site_url('Painel_academico/carregaEditarAtividade/' . $ac->id_atividades) ?>" class="btn btn-primary btn-xs">
+                                                                <i class="fa fa-pencil fa-fw"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <?php
+                                                endforeach;
+                                            else:
+                                                echo "<td colspan='2' align='center'>Nenhuma Atividade Complementar cadastrada!</td>";
+                                            endif;
+                                            ?>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>

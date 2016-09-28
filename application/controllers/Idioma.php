@@ -19,73 +19,93 @@ class Idioma extends MY_ControllerLogado {
         $this->load->view('cadastra_idiomas', $data);
     }
 
-    public function carregaIdiomas(){
-      $id_usuario = $this->session->userdata('id_usuario');
-      $data = array(
-          "dadosAcademico" => $this->Usuario_model->getUsuario($id_usuario)->row()
-      );
-      $this->load->view('cadastra_idiomas', $data);
+    public function carregaIdiomas() {
+        $id_usuario = $this->session->userdata('id_usuario');
+        $data = array(
+            "dadosAcademico" => $this->Usuario_model->getUsuario($id_usuario)->row()
+        );
+        $this->load->view('cadastra_idiomas', $data);
     }
 
-    public function salvaIdioma(){
-      $this->load->model('Idioma_model');
-      $id_usuario = $this->session->userdata('id_usuario');
-      $idioma = $this->input->post('idioma');
-      $nivel = $this->input->post('nivel');
+    public function salvaIdioma() {
+        $this->load->model('Idioma_model');
+        $id_usuario = $this->session->userdata('id_usuario');
+        $idioma = $this->input->post('idioma');
+        $nivel = $this->input->post('nivel');
 
         $this->Idioma_model->salvaIdioma([
             "id_usuario" => $id_usuario,
             "idioma" => $idioma,
             "nivel" => $nivel
         ]);
-          redirect('Idioma/carregaIdiomas/?aviso=2');
+        redirect('Idioma/carregaIdiomas/?aviso=2');
     }
 
-    public function carregaEditarIdioma($id_idioma){
-      $this->load->model('Idioma_model');
-      $id_usuario = $this->session->userdata('id_usuario');
+    public function carregaEditarIdioma($id_idioma) {
+        $this->load->model('Idioma_model');
+        $id_usuario = $this->session->userdata('id_usuario');
 
-      $data = array(
-          "dadosAcademico" => $this->Usuario_model->getUsuario($id_usuario)->row(),
-          "dadosEditarIdioma" =>   $this->Idioma_model->getEditarIdioma($id_idioma)
-      );
+        $data = array(
+            "dadosAcademico" => $this->Usuario_model->getUsuario($id_usuario)->row(),
+            "dadosEditarIdioma" => $this->Idioma_model->getEditarIdioma($id_idioma)
+        );
 
-      $this->load->view('editar_idioma', $data);
-
-    }   
-    
-
-    public function editaIdioma(){
-      $this->load->model('Idioma_model');
-
-      $id_idioma = $this->input->post('id_idioma');
-      $nivel = $this->input->post('nivel');
-
-      $this->Idioma_model->editaIdioma([
-          "nivel" => $nivel
-      ], $id_idioma);
-
-      redirect('Painel_academico/index/?aviso=4');
+        $this->load->view('editar_idioma', $data);
     }
-    
-    public function salvarLinkedIdLattes(){
-      $this->load->model('LinkedIdLattes_model');
-      $id_usuario = $this->session->userdata('id_usuario');
-      $endereco = $this->input->post('endereco');
+
+    public function editaIdioma() {
+        $this->load->model('Idioma_model');
+
+        $id_idioma = $this->input->post('id_idioma');
+        $nivel = $this->input->post('nivel');
+
+        $this->Idioma_model->editaIdioma([
+            "nivel" => $nivel
+                ], $id_idioma);
+
+        redirect('Painel_academico/index/?aviso=4');
+    }
+
+    public function salvarLinkedIdLattes() {
+        $this->load->model('LinkedIdLattes_model');
+        $id_usuario = $this->session->userdata('id_usuario');
+        $endereco = $this->input->post('endereco');
 
         $this->LinkedIdLattes_model->salvaLinkedIdLattes([
             "id_usuario" => $id_usuario,
             "endereco" => $endereco,
         ]);
-          redirect('Idioma/carregaLinkedIdLattes/?aviso=1');
+        redirect('Idioma/carregaLinkedIdLattes/?aviso=1');
     }
-    
-    public function carregaLinkedIdLattes(){
-      $id_usuario = $this->session->userdata('id_usuario');
-      $data = array(
-          "dadosAcademico" => $this->Usuario_model->getUsuario($id_usuario)->row()
-      );
-      $this->load->view('cadastra_linkedid_lattes', $data);
+
+    public function carregaLinkedIdLattes() {
+        $id_usuario = $this->session->userdata('id_usuario');
+        $data = array(
+            "dadosAcademico" => $this->Usuario_model->getUsuario($id_usuario)->row()
+        );
+        $this->load->view('cadastra_linkedid_lattes', $data);
+    }
+
+    public function carregaEditarLattes($id) {
+        $this->load->model('LinkedIdLattes_model');
+        $id_usuario = $this->session->userdata('id_usuario');
+        $data = array(
+            "dadosAcademico" => $this->Usuario_model->getUsuario($id_usuario)->row(),
+            "dadosL" => $this->LinkedIdLattes_model->getLattes($id)->row()
+        );
+        $this->load->view('edita_linkedid_lattes', $data);
+    }
+
+    public function salvarEdicaoLinkedIdLattes() {
+        $this->load->model('LinkedIdLattes_model');
+        $id = $this->input->post('id_obs');
+        $endereco = $this->input->post('endereco');
+
+        $data['endereco'] = $endereco;
+
+        $this->LinkedIdLattes_model->editaLattes($data, $id);
+
+        redirect('Painel_academico/index/?aviso=5');
     }
 
 }

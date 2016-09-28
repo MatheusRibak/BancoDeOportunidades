@@ -162,39 +162,91 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php 
-                                                if(!empty($dadosVagaSelecionado)):
-                                                foreach ($dadosVagaSelecionado as $dvs): ?>
-                                                    <tr>
-                                                        <td><?php echo $dvs->nome_usuario; ?></td>
-                                                        <td><?php echo $dvs->telefone; ?></td>
-                                                        <td><?php echo $dvs->cargo; ?></td>
-                                                        <td align='center'>
-                                                            <a href="<?= site_url('Vagas/excluirCandidato/' . $dvs->id_vaga_selecionada) ?>" 
-                                                               class="btn btn-danger btn-xs"
-                                                               onclick="return confirm('Têm certeza que deseja excluir este registro?')"
-                                                               >
-                                                                <i class="fa fa-trash fa-fw"></i>
-                                                            </a>
-                                                            <a href="<?= site_url('GeraPdf/criaPdfEmpregador/' . $dvs->id_academico) ?>" 
-                                                               title="Imprimir curriculo"
-                                                               class="btn btn-primary btn-xs">
-                                                                <i class="fa fa-file-pdf-o fa-fw" aria-hidden="true"></i>
-                                                            </a>
-                                                        </td>
-                                                    </tr>
-                                                <?php endforeach; 
-                                                else: 
+                                                <?php
+                                                if (!empty($dadosVagaSelecionado)):
+                                                    foreach ($dadosVagaSelecionado as $dvs):
+                                                        ?>
+                                                        <tr>
+                                                            <td><?php echo $dvs->nome_usuario; ?></td>
+                                                            <td><?php echo $dvs->telefone; ?></td>
+                                                            <td><?php echo $dvs->cargo; ?></td>
+                                                            <td align='center'>
+                                                                <a href="<?= site_url('Vagas/excluirCandidato/' . $dvs->id_vaga_selecionada) ?>" 
+                                                                   class="btn btn-danger btn-xs"
+                                                                   onclick="return confirm('Têm certeza que deseja excluir este registro?')"
+                                                                   >
+                                                                    <i class="fa fa-trash fa-fw"></i>
+                                                                </a>
+                                                                <a href="<?= site_url('GeraPdf/criaPdfEmpregador/' . $dvs->id_academico) ?>" 
+                                                                   title="Imprimir curriculo"
+                                                                   class="btn btn-primary btn-xs">
+                                                                    <i class="fa fa-file-pdf-o fa-fw" aria-hidden="true"></i>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    <?php
+                                                    endforeach;
+                                                else:
                                                     echo "<td colspan='5' align='center'>Nenhum curriculo selecionado</td>";
-                                                    
+
                                                 endif;
                                                 ?>
-                                                    
+
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="pn-heading">
+                                        <span class="pull-left">
+                                            <strong>Vagas que receberam candidatos</strong>
+                                        </span>
+
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-hover no-margin">
+                                            <thead>
+                                                <tr>
+                                                    <th>Nome</th>
+                                                    <th>E-mail</th>
+                                                    <th>Vaga</th>
+                                                    <th width="80">Opções</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                if (!empty($candidato)):
+                                                    foreach ($candidato as $cand):
+                                                        ?>
+                                                        <tr>
+                                                            <td><?php echo $cand->nome_usuario; ?></td>
+                                                            <td><?php echo $cand->email; ?></td>
+                                                            <td><?php echo $cand->cargo; ?></td>
+                                                            <td align='center'>
+                                                                <a href="<?= site_url('GeraPdf/criaPdfEmpregador/' . $cand->id_academico) ?>" 
+                                                                   title="Imprimir curriculo"
+                                                                   class="btn btn-primary btn-xs">
+                                                                    <i class="fa fa-file-pdf-o fa-fw" aria-hidden="true"></i>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    <?php
+                                                    endforeach;
+                                                else:
+                                                    echo "<td colspan='5' align='center'>Suas Vagas ainda não receberam nenhum candidato</td>";
+
+                                                endif;
+                                                ?>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>

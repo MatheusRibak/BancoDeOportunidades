@@ -25,11 +25,13 @@ class Vaga_academico extends CI_Controller {
         $this->load->model('Vaga_academico_model');
         $id_vaga = $this->input->post('id_vaga');
         $id_academico = $this->input->post('id_academico');
+        $id_empregador = $this->input->post('id_empregador');
         $data = date('Y/m/d');
 
         $dados = array(
             "id_vaga" => $id_vaga,
             "id_academico" => $id_academico,
+            "id_empregador" =>$id_empregador,
             "data_cadastro" => $data
         );
 

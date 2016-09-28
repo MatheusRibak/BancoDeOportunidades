@@ -22,7 +22,7 @@ class Experiencia_model extends CI_Model {
         $this->db->select('*');
         $this->db->from('experiencia');
         $this->db->join('usuario', 'experiencia.id_usuario = usuario.id_usuario');
-        $this->db->join('formacao', 'formacao.id_usuario = usuario.id_usuario');
+        //$this->db->join('formacao', 'formacao.id_usuario = usuario.id_usuario');
         $this->db->group_by('nome_usuario');
         $this->db->like('experiencia.nome_experiencia', $search);
         return $query = $this->db->get()->result();

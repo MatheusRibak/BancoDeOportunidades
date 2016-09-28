@@ -64,6 +64,7 @@
                                                 <div class="form-group">
                                                     <input type="hidden" value="<?= $dadosAcademico->id_usuario; ?>" name="id_academico" />
                                                     <input type="hidden" value="<?= $dadosVaga->id_dado_vaga; ?>" name="id_vaga" />
+                                                    <input type="hidden" value="<?= $dadosVaga->id_usuario; ?>" name="id_empregador" />
                                                 </div>
                                                 <button type="submit" class="btn btn-success btn-sm"><li class="fa fa-check"></li> Candidatar a está vaga</button>
                                             </form>
@@ -85,9 +86,11 @@
                                                 <i class="fa fa-chevron-left"></i> Voltar 
                                             </a>
                                         </span>
+                                        
                                     </div>
-                                    
-                                    <strong> <i class="fa fa-star"></i> Faixa Salarial:</strong> <?php echo $dadosVaga->salario; ?><br>
+                                    <strong> <i class="fa fa-star"></i> Cargo:</strong> <?php echo $dadosVaga->cargo; ?><br>
+                                    <br>
+                                    <strong> <i class="fa fa-money" aria-hidden="true"></i> Faixa Salarial:</strong> <?php echo $dadosVaga->salario; ?><br>
                                     <br>
 
                                     <strong><i class="fa fa-th-list"></i> Requisitos:</strong><br><?php echo $dadosVaga->requisitos; ?><br>

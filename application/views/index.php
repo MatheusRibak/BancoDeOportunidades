@@ -216,27 +216,16 @@
                     </div>
                     <div class="col-lg-4">
                         <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-                        <h2>Heading</h2>
+                        <h2>Dicas e sugestões</h2>
                         <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-                        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                        <p><a class="btn btn-default" href="<?= site_url('Sugestao') ?>" role="button">Dicas e sugestões</a></p>
                     </div>
                 </div>
             </div>
         </div>
 
         <footer class="footer">
-            <div class="container">
-                <div class="col-md-12">
-                    <span class="pull-right">
-                        <strong><i class="fa fa-commenting-o" aria-hidden="true"></i>
-                            <a href="<?= site_url('Sugestao') ?>" >Dicas e sugestões</a>
-                        </strong>
-                    </span>
-                    <span class="pull-left">
-                        <strong>Banco de Oportunidades 2016</strong>
-                    </span>
-                </div>
-            </div>
+                <img src="<?= base_url('assets/img/footer.jpg') ?>"  class="img-responsive">
         </footer>
 
 

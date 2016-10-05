@@ -98,9 +98,10 @@
 
                                             <div class="col-sm-4">
                                                 <select class="col-sm-12 form-control" name="tipo">
-                                                    <option value="Graducão">Graduacao</option>
+                                                    <option value="Graduacao">Graduação</option>
+                                                    <option value="Especializacao/Pos-Graduacao">Especialização/Pós-Graduação</option>
                                                     <option value="Mestrado">Mestrado</option>
-                                                    <option value="Mestrado">Dotorado</option>
+                                                    <option value="Doutorado">Doutorado</option>                                                    
                                                     <option value="Outros">Outros</option>
                                                 </select>
                                             </div>
@@ -108,7 +109,6 @@
 
                                         <div class="form-group">
                                             <label for="senha" class="col-sm-2 control-label">Instituição</label>
-
                                             <div class="col-sm-10">
                                                 <input type="text" class="form-control" name="escola" placeholder="Digite a instituição" required>
                                             </div>

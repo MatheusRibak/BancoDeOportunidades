@@ -94,18 +94,12 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="nome" class="col-sm-2 control-label">Tipo Curso atual</label>
-                                            <div class="col-sm-2">
-                                                <input type="text" class="form-control" value="<?php echo $formacao->tipo; ?>" name="nome" disabled="true">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="nome" class="col-sm-2 control-label">Tipo curso</label>
+                                            <label for="tipoCurso" class="col-sm-2 control-label">Tipo curso</label>
                                             <div class="col-sm-4">
-                                                <select class="col-sm-12 form-control" name="tipo">
-                                                    <option value="Graducão">Graduacao</option>
+                                                <select class="col-sm-12 form-control" id="tipoCurso" name="tipo">
+                                                    <option value="Graduacao">Graduação</option>
                                                     <option value="Mestrado">Mestrado</option>
-                                                    <option value="Mestrado">Dotorado</option>
+                                                    <option value="Doutorado">Doutorado</option>
                                                     <option value="Outros">Outros</option>
                                                 </select>
                                             </div>
@@ -156,6 +150,7 @@
         <script type="text/javascript">
             $('.data').mask('0000');
              $('#instituicao').val('<?php echo $formacao->instituicao ?>');
+             $('#tipoCurso').val('<?php echo $formacao->tipo ?>');
         </script>
     </body>
 </html>

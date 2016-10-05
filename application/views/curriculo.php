@@ -172,6 +172,105 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     ?>
                                 </div>
                             </div>
+                            
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="pn-heading">
+                                        <span class="pull-left">
+                                            <strong>Idiomas</strong>
+                                        </span>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-hover no-margin">
+                                            <thead>
+                                                <tr>
+                                                    <th>Idioma</th>
+                                                    <th>Nivel</th>
+                                                </tr>
+                                            </thead>
+                                            <?php
+                                            if (!empty($dadosIdioma)):
+                                                foreach ($dadosIdioma as $idioma):
+                                                    ?>
+                                                    <tr>
+                                                        <td><?php echo $idioma->idioma; ?></td>
+                                                        <td><?php echo $idioma->nivel; ?></td>
+                                                    </tr>
+                                                    <?php
+                                                endforeach;
+                                            else:
+                                                echo "<td colspan='5' align='center'>Nenhum idioma cadastrado!</td>";
+                                            endif;
+                                            ?>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="pn-heading">
+                                        <span class="pull-left">
+                                            <strong> LinkedIn | Lattes</strong>
+                                        </span>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-hover no-margin">
+                                            <thead>
+                                                <tr>
+                                                    <th>Endereço</th>
+                                                </tr>
+                                            </thead>
+                                            <?php
+                                            if (!empty($dadosLattesLonkedId)):
+                                                foreach ($dadosLattesLonkedId as $dl):
+                                                    ?>
+                                                    <tr>
+                                                        <td><?php echo $dl->endereco; ?></td>
+                                                    </tr>
+                                                    <?php
+                                                endforeach;
+                                            else:
+                                                echo "<td colspan='1' align='center'>Nenhuma informação cadastrada!</td>";
+                                            endif;
+                                            ?>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="pn-heading">
+                                        <span class="pull-left">
+                                            <strong> Atividades Complementares</strong>
+                                        </span>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-hover no-margin">
+                                            <thead>
+                                                <tr>
+                                                    <th>Atividade Complementar</th>
+
+                                                </tr>
+                                            </thead>
+                                            <?php
+                                            if (!empty($dadosAtividadesComplementares)):
+                                                foreach ($dadosAtividadesComplementares as $ac):
+                                                    ?>
+                                                    <tr>
+                                                        <td><?php echo $ac->atividade; ?></td>
+                                                    </tr>
+                                                    <?php
+                                                endforeach;
+                                            else:
+                                                echo "<td colspan='1' align='center'>Nenhuma Atividade Complementar cadastrada!</td>";
+                                            endif;
+                                            ?>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
 
 
                         </div>

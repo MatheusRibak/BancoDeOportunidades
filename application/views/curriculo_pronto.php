@@ -1,3 +1,6 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -14,7 +17,7 @@
             @page {
                 margin: 10mm 5mm;
             }
-            
+
             .break {
                 page-break-inside: avoid;
             }
@@ -90,11 +93,11 @@
                                     <br>
                                     <ul class="list-unstyled">
                                         <?php foreach ($dadosFormacao as $formacao): ?>
-                                        <li><b>Curso: </b><?php echo $formacao->nome_curso ?></li>
-                                        <li><b>Tipo: </b><?php echo $formacao->tipo ?></li>
-                                        <li><b>escola: </b><?php echo $formacao->escola ?></li>
-                                        <li><b>Início do curso: </b><?php echo $formacao->inicio ?></li>
-                                        <li><b>Término do curso: </b><?php echo $formacao->termino ?></li><br>
+                                            <li><b>Curso: </b><?php echo $formacao->nome_curso ?></li>
+                                            <li><b>Tipo: </b><?php echo $formacao->tipo ?></li>
+                                            <li><b>escola: </b><?php echo $formacao->escola ?></li>
+                                            <li><b>Início do curso: </b><?php echo $formacao->inicio ?></li>
+                                            <li><b>Término do curso: </b><?php echo $formacao->termino ?></li><br>
                                         <?php endforeach; ?>
                                     </ul>
                                 </div>
@@ -109,11 +112,11 @@
                                     <br>
                                     <ul class="list-unstyled">
                                         <?php foreach ($dadosExperiencia as $exp): ?>
-                                        <li><b>Ocupação: </b><?php echo $exp->nome_experiencia ?></li>
-                                        <li><b>Empresa: </b><?php echo $exp->empresa ?></li>
-                                        <li><b>Atividades: </b><?php echo $exp->atividade ?></li>
-                                        <li><b>Início do trabalho: </b><?php echo $exp->inicio ?></li>
-                                        <li><b>Término do trabalho: </b><?php echo $exp->termino ?></li><br>
+                                            <li><b>Ocupação: </b><?php echo $exp->nome_experiencia ?></li>
+                                            <li><b>Empresa: </b><?php echo $exp->empresa ?></li>
+                                            <li><b>Atividades: </b><?php echo $exp->atividade ?></li>
+                                            <li><b>Início do trabalho: </b><?php echo $exp->inicio ?></li>
+                                            <li><b>Término do trabalho: </b><?php echo $exp->termino ?></li><br>
                                         <?php endforeach; ?>
                                     </ul>
                                 </div>
@@ -129,13 +132,13 @@
                                     <br>
                                     <ul class="list-unstyled">
                                         <?php foreach ($dadosIdioma as $idioma): ?>
-                                        <li><b>Idioma: </b><?php echo $idioma->idioma ?></li>
-                                        <li><b>Nível: </b><?php echo $idioma->nivel ?></li>
+                                            <li><b>Idioma: </b><?php echo $idioma->idioma ?></li>
+                                            <li><b>Nível: </b><?php echo $idioma->nivel ?></li>
                                         <?php endforeach; ?>
                                     </ul>
                                 </div>
                             </div>
-                            
+
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <div class="pn-heading">
@@ -146,12 +149,12 @@
                                     <br>
                                     <ul class="list-unstyled">
                                         <?php foreach ($dadosLattesLonkedId as $item): ?>
-                                        <li><b>Endereço: </b><?php echo $item->endereco ?></li>
+                                            <li><b>Endereço: </b><?php echo $item->endereco ?></li>
                                         <?php endforeach; ?>
                                     </ul>
                                 </div>
                             </div>
-                            
+
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <div class="pn-heading">
@@ -162,12 +165,27 @@
                                     <br>
                                     <ul class="list-unstyled">
                                         <?php foreach ($dadosAtividadesComplementares as $item): ?>
-                                        <li><b>Atividade: </b><?php echo $item->atividade ?></li>
+                                            <li><b>Atividade: </b><?php echo $item->atividade ?></li>
                                         <?php endforeach; ?>
                                     </ul>
                                 </div>
                             </div>
                             
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="pn-heading">
+                                        <span class="pull-left">
+                                            <strong>Formações complementares</strong>
+                                        </span>
+                                    </div>
+                                    <br>
+                                    <ul class="list-unstyled">
+                                        <?php foreach ($dadosFormacaoComplementares as $fr): ?>
+                                            <li><?php echo $fr->atividade; ?></li>
+                                        <?php endforeach; ?>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>

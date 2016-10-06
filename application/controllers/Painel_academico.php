@@ -11,6 +11,7 @@ class Painel_academico extends MY_ControllerLogado {
         $this->load->model('Vaga_academico_model');
         $this->load->model('Idioma_model');
         $this->load->model('linkedIdLattes_model');
+        $this->load->model('Formacao_complementar_model');
         $id_usuario = $this->session->userdata('id_usuario');
         $data = array(
             "vagas_candidatadas" => $this->Vaga_academico_model->getMinhasVagas($id_usuario)->result(),
@@ -19,7 +20,8 @@ class Painel_academico extends MY_ControllerLogado {
             "dadosExperiencia" => $this->Experiencia_model->getExpUsuario($id_usuario)->result(),
             "dadosIdioma" => $this->Idioma_model->getIdiomas($id_usuario)->result(),
             "dadosLattesLonkedId" => $this->linkedIdLattes_model->getLinkedIdLattes($id_usuario)->result(),
-            "dadosAtividadesComplementares" =>$this->Academico_model->getAtividade()->result()
+            "dadosAtividadesComplementares" =>$this->Academico_model->getAtividade()->result(),
+            "dadosFormacaoComplementares" => $this->Formacao_complementar_model->getFormacaoComplementar()->result()
         );
         $this->load->view('painel_academico', $data);
     }
@@ -241,6 +243,7 @@ class Painel_academico extends MY_ControllerLogado {
     public function salvaAtividade() {
         $id_usuario = $this->session->userdata('id_usuario');
         $atividade = $this->input->post('atividades');
+        $tipo = 'Atividades complementares';
 
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
         $this->form_validation->set_rules('atividades', 'Atividades complementares', 'required|max_length[1000]');
@@ -250,7 +253,8 @@ class Painel_academico extends MY_ControllerLogado {
         } else {
             $this->Academico_model->cadastrarAtividade([
                 "id_usuario" => $id_usuario,
-                "atividade" => $atividade
+                "atividade" => $atividade,
+                "tipo" => $tipo
             ]);
             redirect('Painel_academico/carregaCadastraAtividades/?aviso=2');
         }

@@ -37,7 +37,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
-                                   <a href="<?= site_url('PainelEmpregador/carregaEditarSenha') ?>"><i class="fa fa-wrench fa-fw"></i> Trocar de senha</a>
+                                    <a href="<?= site_url('PainelEmpregador/carregaEditarSenha') ?>"><i class="fa fa-wrench fa-fw"></i> Trocar de senha</a>
                                 </li>
                                 <li>
                                     <a href="<?= site_url('PainelEmpregador/fechaSessao') ?>"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
@@ -87,7 +87,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     </div>
                                     <div class="row">
                                         <div class="col-xs-6 col-md-12">
-                                            <form action="<?= site_url('Empregador/selecionar/')?>" method="post">
+                                            <form action="<?= site_url('Empregador/selecionar/') ?>" method="post">
                                                 <div class="form-group">
                                                     <label for="vaga">Vaga</label>
                                                     <select name="id_dado_vaga" class="form-control " id="vaga" style="min-width:200px;">
@@ -172,7 +172,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     ?>
                                 </div>
                             </div>
-                            
+
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <div class="pn-heading">
@@ -265,6 +265,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 endforeach;
                                             else:
                                                 echo "<td colspan='1' align='center'>Nenhuma Atividade Complementar cadastrada!</td>";
+                                            endif;
+                                            ?>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="pn-heading">
+                                        <span class="pull-left">
+                                            <strong> Formações Complementares</strong>
+                                        </span>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-hover no-margin">
+                                            <thead>
+                                                <tr>
+                                                    <th>Formação Completar</th>
+                                                </tr>
+                                            </thead>
+                                            <?php
+                                            if (!empty($dadosFormacaoComplementares)):
+                                                foreach ($dadosFormacaoComplementares as $fr):
+                                                    ?>
+                                                    <tr>
+                                                        <td><?php echo $fr->atividade; ?></td>
+                                                    </tr>
+                                                    <?php
+                                                endforeach;
+                                            else:
+                                                echo "<td colspan='5' align='center'>Nenhuma Formação Complementar cadastrada!</td>";
                                             endif;
                                             ?>
                                         </table>

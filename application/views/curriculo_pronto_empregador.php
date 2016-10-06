@@ -1,3 +1,6 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -164,6 +167,21 @@
                                         <li><b>Atividade: </b><?php echo $item->atividade ?></li>
                                         <?php endforeach; ?>
                                     </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="pn-heading">
+                                        <span class="pull-left">
+                                            <strong>Formações complementares</strong>
+                                        </span>
+                                    </div>
+                                    <br>
+                                    <ul class="list-unstyled">
+                                        <?php foreach ($dadosFormacaoComplementares as $fr): ?>
+                                            <li>Formação/cursos: <?php echo $fr->atividade; ?></li>
+                                        <?php endforeach; ?>
                                 </div>
                             </div>
                             

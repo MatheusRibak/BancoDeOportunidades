@@ -1,3 +1,6 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -79,7 +82,7 @@
                                           <div class="col-sm-9">
                                               <textarea name="atividades" class="form-control" cols="70" rows="7" placeholder="Digite a sua atividade complementar..."><?php echo $dadosAtividades->atividade; ?></textarea>
                                           </div>
-                                          <input type="hidden" name="id_atividade" value="<?php echo $dadosAtividades->id_atividades; ?>">
+                                          <input type="hidden" name="id_atividade" value="<?php echo $dadosAtividades->id_atividade; ?>">
                                       </div>
 
 

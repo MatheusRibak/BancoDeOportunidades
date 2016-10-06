@@ -110,6 +110,7 @@ class Empregador extends CI_Controller {
         $this->load->model('Vaga_empregador');
         $this->load->model('Idioma_model');
         $this->load->model('linkedIdLattes_model');
+        $this->load->model('Formacao_complementar_model');
         $id_usuario = $this->session->userdata('id_usuario');
         $id_usuario = (int) $id_usuario;
         $idAcademico = (int) $idAcademico;
@@ -124,7 +125,8 @@ class Empregador extends CI_Controller {
             "vagas" => $this->Vaga_empregador->getVagasAtivas($id_usuario)->result(),
             "dadosIdioma" => $this->Idioma_model->getIdiomas($idAcademico)->result(),
             "dadosLattesLonkedId" => $this->linkedIdLattes_model->getLinkedIdLattes($idAcademico)->result(),
-            "dadosAtividadesComplementares" =>$this->Academico_model->getAtividadeEmpregador($idAcademico)->result()
+            "dadosAtividadesComplementares" =>$this->Academico_model->getAtividadeEmpregador($idAcademico)->result(),
+            "dadosFormacaoComplementares" => $this->Formacao_complementar_model->getFormacaoComplementarEmpregador($idAcademico)->result()
         );
         $this->load->view('curriculo', $data);
     }

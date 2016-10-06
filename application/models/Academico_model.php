@@ -26,18 +26,20 @@ class Academico_model extends CI_Model {
     public function getAtividade() {
         $id_usuario = $this->session->userdata('id_usuario');
         $this->db->where('id_usuario', $id_usuario);
+        $this->db->where('tipo', 'Atividades Complementares');
         return $this->db->get('atividades_complementares');
     }
     
     public function getAtividadeEmpregador($id_usuario) {
         $this->db->where('id_usuario', $id_usuario);
+        $this->db->where('tipo', 'Atividades Complementares');
         return $this->db->get('atividades_complementares');
     }
 
     public function getAtividadeSozinha($id_atividade) {
         $id_usuario = $this->session->userdata('id_usuario');
         $this->db->where('id_usuario', $id_usuario);
-        $this->db->where('id_atividades', $id_atividade);
+        $this->db->where('id_atividade', $id_atividade);
         return $this->db->get('atividades_complementares');
     }
 
@@ -45,7 +47,7 @@ class Academico_model extends CI_Model {
         $id_usuario = $this->session->userdata('id_usuario');
 
         $this->db->where('id_usuario', $id_usuario);
-        $this->db->where('id_atividades', $id_atividade);
+        $this->db->where('id_atividade', $id_atividade);
         $this->db->set($data);
         return $this->db->update('atividades_complementares');
     }

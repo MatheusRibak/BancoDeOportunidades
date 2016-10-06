@@ -1,3 +1,6 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -68,7 +71,12 @@
                         <div class="alert alert-success">
                             Dados referente ao idioma alterados com sucesso!
                         </div>
-                    <?php } ?>                    
+                    <?php } ?>  
+                    <?php if ($this->input->get('aviso') == 5) { ?>
+                        <div class="alert alert-success">
+                            Dados referente a formação complementar alterada com sucesso!
+                        </div>
+                    <?php } ?>
                     <div class="row">
                         <div class="col-md-3">
                             <div class="panel panel-default">
@@ -365,9 +373,7 @@
                                             <thead>
                                                 <tr>
                                                     <th>Atividade Complementar</th>
-                                                    <th width='60'>
-                                                        Opções
-                                                    </th>
+                                                    <th width='60'>Opções</th>
 
                                                 </tr>
                                             </thead>
@@ -378,7 +384,7 @@
                                                     <tr>
                                                         <td><?php echo $ac->atividade; ?></td>
                                                         <td align='center'>
-                                                            <a  href="<?= site_url('Painel_academico/carregaEditarAtividade/' . $ac->id_atividades) ?>" class="btn btn-primary btn-xs">
+                                                            <a  href="<?= site_url('Painel_academico/carregaEditarAtividade/' . $ac->id_atividade) ?>" class="btn btn-primary btn-xs">
                                                                 <i class="fa fa-pencil fa-fw"></i>
                                                             </a>
                                                         </td>
@@ -387,6 +393,50 @@
                                                 endforeach;
                                             else:
                                                 echo "<td colspan='2' align='center'>Nenhuma Atividade Complementar cadastrada!</td>";
+                                            endif;
+                                            ?>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="pn-heading">
+                                        <span class="pull-left">
+                                            <strong> Formações Complementares</strong>
+                                        </span>
+                                        <span class="pull-right">
+                                            <a href="<?= site_url('Formacao_complementar/carregaCadastraFormacaoComplementar') ?>" class="btn btn-primary btn-xs">
+                                                Adicionar <i class="fa fa-plus fa-fw"></i>
+                                            </a>
+                                        </span>
+                                    </div>
+                                    
+                                    <div class="table-responsive">
+                                        <table class="table table-hover no-margin">
+                                            <thead>
+                                                <tr>
+                                                    <th>Formação Completar</th>
+                                                    <th width='60'>Opções</th>
+                                                </tr>
+                                            </thead>
+                                            <?php
+                                            if (!empty($dadosFormacaoComplementares)):
+                                                foreach ($dadosFormacaoComplementares as $fr):
+                                                    ?>
+                                                    <tr>
+                                                        <td><?php echo $fr->atividade; ?></td>
+                                                        <td align="center">
+                                                            <a  href="<?= site_url('Formacao_complementar/carregaEditarFormacao/' . $fr->id_atividade) ?>" class="btn btn-primary btn-xs">
+                                                                <i class="fa fa-pencil fa-fw"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <?php
+                                                endforeach;
+                                            else:
+                                                echo "<td colspan='5' align='center'>Nenhuma Formação Complementar cadastrada!</td>";
                                             endif;
                                             ?>
                                         </table>

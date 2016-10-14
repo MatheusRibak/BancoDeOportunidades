@@ -100,10 +100,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <label for="tipoCurso" class="col-sm-2 control-label">Tipo curso</label>
                                             <div class="col-sm-4">
                                                 <select class="col-sm-12 form-control" id="tipoCurso" name="tipo">
-                                                    <option value="Graduacao">Graduação</option>
+                                                    <option value="Graduação">Graduação</option>
+                                                    <option value="Especialização/Pós-Graduação">Especialização/Pós-Graduação</option>
                                                     <option value="Mestrado">Mestrado</option>
-                                                    <option value="Doutorado">Doutorado</option>
+                                                    <option value="Doutorado">Doutorado</option>                                                    
                                                     <option value="Outros">Outros</option>
+                                                </select>
                                                 </select>
                                             </div>
                                         </div>

@@ -121,7 +121,7 @@ class Empregador extends CI_Controller {
             "dadosEmpregador" => $this->Empregador_model->getEmpregador($id_usuario)->row(),
             "dadosAcademico" => $this->Usuario_model->getUsuario($idAcademico)->row(),
             "dadosFormacao" => $this->Formacao_model->todos($idAcademico)->result(),
-            "dadosExperiencia" => $this->Experiencia_model->getExp($idAcademico)->result(),
+            "dadosExperiencia" => $this->Experiencia_model->getExpAcademico($idAcademico)->result(),
             "vagas" => $this->Vaga_empregador->getVagasAtivas($id_usuario)->result(),
             "dadosIdioma" => $this->Idioma_model->getIdiomas($idAcademico)->result(),
             "dadosLattesLonkedId" => $this->linkedIdLattes_model->getLinkedIdLattes($idAcademico)->result(),

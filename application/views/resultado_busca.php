@@ -58,6 +58,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <div class="alert alert-success">
                                 Você se Candidatou a vaga com sucesso !!!
                             <?php } ?>
+                              <?php if ($this->input->get('aviso') == 5) { ?>
+                                <div class="alert alert-danger">
+                                    Você deve estar cursando ou já ter cursado ao menos um curso na UNOESC. Por favor reveja seus dados!!!
+                                <?php } ?>
+                                  <?php if ($this->input->get('aviso') == 6) { ?>
+                                <div class="alert alert-danger">
+                                    Você já se candidatou a essa vaga anteriormente....
+                                <?php } ?>
                         </div>
 
                         <div class="row">
@@ -96,12 +104,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                     <p>Cargo:   <?php echo $row->cargo; ?> </p>
                                                     <span class="pull-right">
                                                         <a href="<?= site_url('Vaga_academico/vagaCompleta/' . $row->id_dado_vaga) ?>" 
-                                                           class="btn btn-info btn-xs" title="Visualizar o vaga completo">
+                                                           class="btn btn-info btn-xs" title="Visualizar o curriculo completo">
                                                             <i class="fa fa-search" aria-hidden="true"></i> ver vaga
                                                         </a>
                                                     </span>
-                                                    <footer>Area : <?php echo $row->area; ?></footer> 
-                                                    <footer>Salario: <?php echo $row->salario; ?></footer> 
+                                                    <footer>Área : <?php echo $row->area; ?></footer> 
+                                                    <footer>Salário: <?php echo $row->salario; ?></footer> 
                                                     <footer>Atividades: <?php echo $row->atividades; ?></footer> 
                                                 </blockquote>
                                                 <?php

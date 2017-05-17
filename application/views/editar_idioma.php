@@ -1,6 +1,3 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -126,7 +123,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <script src="<?= base_url('assets/js/jquery.mask.min.js') ?>"></script>
         <script type="text/javascript">
             $('.data').mask('0000');
-            $('#nivel').val('<?php echo $row->nivel; ?>');
+            $('#nivel').val('<?php echo $row->nivel?>');
         </script>
     </body>
 </html>

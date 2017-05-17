@@ -10,6 +10,22 @@ class LinkedIdLattes_model extends CI_Model {
       $this->db->where('id_usuario', $id_usuario);
       return $this->db->get('linkedId_lattes');
     }
+    
+    public function getLattes($id){
+    $id_usuario = $this->session->userdata('id_usuario');
+    $this->db->where('id_obs', $id);
+    $this->db->where('id_usuario', $id_usuario);
+    return $this->db->get('linkedId_lattes');
+    
+    }
+    
+    public function editaLattes($data, $id){
+      $id_usuario = $this->session->userdata('id_usuario');
+        $this->db->where('id_obs', $id);
+        $this->db->where('id_usuario', $id_usuario);
+        $this->db->update('linkedId_lattes', $data);
+    }
+    
 
 
 }

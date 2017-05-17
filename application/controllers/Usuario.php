@@ -35,7 +35,6 @@ class Usuario extends CI_Controller {
             return;
         }
 
-        $this->load->model('Usuario_model');
         $this->Usuario_model->cadastrarUsuario([
             "nome_usuario" => $nome_empresa,
             "cnpj_cpf" => $cnpj_cpf,
@@ -53,7 +52,6 @@ class Usuario extends CI_Controller {
 
     public function editarPerfil($idEmpregador) {
 
-        $this->load->model('Empregador_model');
         $idEmpregador = $this->session->userdata('idAdministrador');
         $idEmpregador = (int) $idEmpregador;
 
@@ -65,10 +63,9 @@ class Usuario extends CI_Controller {
     }
 
     public function execAlterarEmpregado($idEmpregador) {
-        $this->load->model('Empregador_model');
+
 
         $idEmpregador = (int) $idEmpregador;
-        $cnpj = $this->input->post('cnpj');
         $nome_empresa = $this->input->post('nome');
         $telefone = $this->input->post('telefone');
         $endereco = $this->input->post('endereco');
@@ -76,7 +73,6 @@ class Usuario extends CI_Controller {
         $email = $this->input->post('email');
 
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
-        $this->form_validation->set_rules('cnpj', 'Cnpj', 'required|max_length[120]');
         $this->form_validation->set_rules('nome', 'Nome da empresa', 'required|max_length[120]');
         $this->form_validation->set_rules('endereco', 'Endereço', 'required|max_length[120]');
         $this->form_validation->set_rules('cidade', 'Cidade', 'required|max_length[120]');
@@ -102,11 +98,7 @@ class Usuario extends CI_Controller {
 
     
     public function curriculo($idAcademico){
-        $this->load->model('Academico_model');
-        $this->load->model('Empregador_model');
-        $this->load->model('Formacao_model');
-        $this->load->model('Experiencia_model');
-        $this->load->model('Vaga_empregador');
+ 
         $idEmpregador = $this->session->userdata('idAdministrador');
         $idEmpregador = (int) $idEmpregador;
         $idAcademico = (int) $idAcademico;
@@ -124,7 +116,7 @@ class Usuario extends CI_Controller {
     }
     
     public function selecionar() {
-        $this->load->model('Curriculo_selecionado');
+ 
         $idAcademico = $this->input->post('id_academico');
         $idEmpregador = $this->input->post('id_empregador');
         $idDadoVaga = $this->input->post('id_dado_vaga');

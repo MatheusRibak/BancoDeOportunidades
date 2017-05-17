@@ -51,7 +51,6 @@ class Academico extends CI_Controller {
             redirect('Academico/index/?aviso=2');
         } else {
             # code...
-            $this->load->model('Academico_model');
             $this->Academico_model->cadastrarAcademico([
                 "cnpj_cpf" =>$cpf,
                 "nome" => $nome,

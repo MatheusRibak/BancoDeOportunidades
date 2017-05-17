@@ -80,7 +80,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                       <div class="form-group">
                                           <label for="formacao" class="col-sm-2 control-label">Formação Complementar</label>
                                           <div class="col-sm-9">
-                                              <textarea name="formacao" class="form-control" cols="70" rows="7" placeholder="Digite a sua formação complementar..."></textarea>
+                                              <textarea name="formacao" class="form-control" cols="70" rows="7" placeholder="Atividades que complementem seu currículo, por exemplo participação em projetos, cursos ou entidades...."></textarea>
                                           </div>
                                       </div>
 

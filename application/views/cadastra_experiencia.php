@@ -75,8 +75,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="panel-body">
                                     <div class="pn-heading">
                                         <span class="pull-left">
-                                            <strong>Experiencia Profissional
-                                                <small class="text-muted">Adicione a sua experiencia</small>
+                                            <strong>Experiência Profissional
+                                                <small class="text-muted">Adicione uma experiência</small>
                                             </strong>
                                         </span>
                                         <span class="pull-right">

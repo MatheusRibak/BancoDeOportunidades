@@ -1,6 +1,3 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -97,9 +94,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                           </div>
                                           <div class="col-sm-4">
                                             <select class="form-control" name="nivel"  required >
+                                            	<option value="Básico">Básico</option>
                                               <option value="Fluente">Fluente</option>
-                                              <option value="Intermediario">Intermediario</option>
-                                              <option value="Básico">Básico</option>
+                                              <option value="Intermediario">Intermediario</option>                                              
                                             </select>
                                           </div>
                                       </div>

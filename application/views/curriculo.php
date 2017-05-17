@@ -238,40 +238,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="panel panel-default">
-                                <div class="panel-body">
-                                    <div class="pn-heading">
-                                        <span class="pull-left">
-                                            <strong> Atividades Complementares</strong>
-                                        </span>
-                                    </div>
-                                    <div class="table-responsive">
-                                        <table class="table table-hover no-margin">
-                                            <thead>
-                                                <tr>
-                                                    <th>Atividade Complementar</th>
-
-                                                </tr>
-                                            </thead>
-                                            <?php
-                                            if (!empty($dadosAtividadesComplementares)):
-                                                foreach ($dadosAtividadesComplementares as $ac):
-                                                    ?>
-                                                    <tr>
-                                                        <td><?php echo $ac->atividade; ?></td>
-                                                    </tr>
-                                                    <?php
-                                                endforeach;
-                                            else:
-                                                echo "<td colspan='1' align='center'>Nenhuma Atividade Complementar cadastrada!</td>";
-                                            endif;
-                                            ?>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-
+                            
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <div class="pn-heading">
@@ -304,6 +271,39 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </div>
                             </div>
 
+
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="pn-heading">
+                                        <span class="pull-left">
+                                            <strong> Atividades Complementares</strong>
+                                        </span>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-hover no-margin">
+                                            <thead>
+                                                <tr>
+                                                    <th>Atividade Complementar</th>
+
+                                                </tr>
+                                            </thead>
+                                            <?php
+                                            if (!empty($dadosAtividadesComplementares)):
+                                                foreach ($dadosAtividadesComplementares as $ac):
+                                                    ?>
+                                                    <tr>
+                                                        <td><?php echo $ac->atividade; ?></td>
+                                                    </tr>
+                                                    <?php
+                                                endforeach;
+                                            else:
+                                                echo "<td colspan='1' align='center'>Nenhuma Atividade Complementar cadastrada!</td>";
+                                            endif;
+                                            ?>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>                            
 
                         </div>
                     </div>

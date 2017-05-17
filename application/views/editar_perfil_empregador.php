@@ -75,12 +75,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <?php } ?>
                                     <form class="form-horizontal"  method="POST" action="<?= site_url('Empregador/execAlterarEmpregado/' . $dadosEmpregador->id_usuario) ?>">
                                         <div class="form-group">
-                                            <label for="cnpj" class="col-sm-2 control-label">CNPJ:</label>
-                                            <div class="col-sm-5">
-                                                <input type="text" class="form-control cnpj" id="cnpj" value="<?= $dadosEmpregador->cnpj_cpf ?>" name="cnpj">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
                                             <label for="empresa" class="col-sm-2 control-label">Empresa:</label>
                                             <div class="col-sm-8">
                                                 <input type="text" class="form-control" id="empresa"  value="<?= $dadosEmpregador->nome_usuario ?>"  name="nome">
@@ -105,7 +99,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="estado" class="col-sm-2 control-label">Estado  *</label>
+                                            <label for="estado" class="col-sm-2 control-label">Estado:</label>
                                             <div class="col-sm-3">
                                                 <select id="estado" class="form-control" name="estado">
                                                     <option value="AC">Acre</option>

@@ -1,6 +1,3 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -56,16 +53,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
                         <div class="col-sm-12">
-                            <?php if ($this->input->get('aviso') == 5) { ?>
-                                <div class="alert alert-danger">
-                                    Você já se cadastrou a essa vaga...
-                                </div>
-                            <?php } ?>
-                            <?php if ($this->input->get('aviso') == 4) { ?>
-                                <div class="alert alert-success">
-                                    Parabéns você se candidatou a vaga com sucesso!!!
-                                </div>
-                            <?php } ?>
+                          <?php if ($this->input->get('aviso') == 5) { ?>
+                              <div class="alert alert-danger">
+                                  Você já se cadastrou a essa vaga...
+                              </div>
+                          <?php } ?>
+                          <?php if ($this->input->get('aviso') == 4) { ?>
+                              <div class="alert alert-success">
+                                  Parabéns você se candidatou a vaga com sucesso!!!
+                              </div>
+                          <?php } ?>
                         </div>
                         <div class="col-sm-12">
 
@@ -77,33 +74,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         </span>
                                         <br><br>
 
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <form class="" action="<?= site_url('Vaga_academico/getVagas') ?>" method="post">
-                                                    <input type="text" name="input_busca" value="" class="form-control"> <br>
-                                                    <input type="submit" name="name" value="Pesquisar Vagas" class="btn btn-primary">
-                                                </form>
+<div class="row">
+  <div class="col-sm-12">
+    <form class="" action="<?= site_url('Vaga_academico/getVagas') ?>" method="post">
+      <input type="text" name="input_busca" value="" class="form-control"> <br>
+<input type="submit" name="name" value="Pesquisar Vagas" class="btn btn-primary">
+    </form>
 
-                                            </div>
+  </div>
 
 
-                                        </div>
-                                        <br>
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <select class="form-control" name="">
-                                                    <option value="option">Area</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <select class="form-control" name="">
-                                                    <option value="option">Nivel</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <input type="submit" name="name" value="Pesquisar Vagas" class="btn btn-primary">
-                                            </div>
-                                        </div>
+</div>
+  <br>
+<div class="row">
+  <div class="col-sm-3">
+    <select class="form-control" name="">
+      <option value="option">Area</option>
+    </select>
+  </div>
+  <div class="col-sm-3">
+    <select class="form-control" name="">
+      <option value="option">Nivel</option>
+    </select>
+  </div>
+  <div class="col-sm-3">
+  <input type="submit" name="name" value="Pesquisar Vagas" class="btn btn-primary">
+  </div>
+</div>
                                     </div>
 
                                 </div>
@@ -128,29 +125,35 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 </tr>
                                             </thead>
                                             <tbody id="myTable">
-                                            <td colspan='5' align = 'center'>
-                                                <div >
+
+
+
+
+
+
+                                                  <td colspan='5' align = 'center'>
+                                                  <div >
                                                     Você ainda não pesquisou nada...
-                                                </div>
-                                            </td>
+                                                  </div>
+                                                  </td>
 
                                             </tbody>
                                         </table>
                                     </div>
 
-                                </div>
-                                <td colspan="4" align = "center">
-
-                                </td>
-
                             </div>
+                            <td colspan="4" align = "center">
+
+                            </td>
+
                         </div>
                     </div>
                 </div>
             </div>
-            <script src="<?= base_url('assets/js/jquery.js') ?>"></script>
-            <script src="<?= base_url('assets/js/bootstrap.min.js') ?>"></script>
-            <script src="<?= base_url('assets/js/scripts.js') ?>"></script>
-            <script src="<?= base_url('assets/js/paginacao.js') ?>"></script>
+        </div>
+        <script src="<?= base_url('assets/js/jquery.js') ?>"></script>
+        <script src="<?= base_url('assets/js/bootstrap.min.js') ?>"></script>
+        <script src="<?= base_url('assets/js/scripts.js') ?>"></script>
+        <script src="<?= base_url('assets/js/paginacao.js') ?>"></script>
     </body>
 </html>

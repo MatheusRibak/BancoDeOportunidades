@@ -78,7 +78,7 @@ $idEmpregador = $this->session->userdata('idAdministrador');
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="area" class="col-sm-2 control-label">Area:</label>
+                                <label for="area" class="col-sm-2 control-label">Área:</label>
                                 <div class="col-sm-7">
                                     <input type="text" class="form-control" name="area" id="area" value="<?= $dadosVaga->area ?>">
                                 </div>
@@ -112,10 +112,18 @@ $idEmpregador = $this->session->userdata('idAdministrador');
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="beneficios" class="col-sm-2 control-label">Beneficios:</label>
+                                <label for="beneficios" class="col-sm-2 control-label">Benefícios:</label>
                                 <div class="col-sm-9">
                                     <textarea name="beneficios" id ="beneficios" class="form-control" cols="70" rows="3">
                                         <?= $dadosVaga->beneficios ?>
+                                    </textarea>
+                                </div>
+                            </div> 
+                            <div class="form-group">
+                                <label for="beneficios" class="col-sm-2 control-label">Observações:</label>
+                                <div class="col-sm-9">
+                                    <textarea name="observacao" id ="observacao" class="form-control" cols="70" rows="3">
+                                        <?= $dadosVaga->observacao ?>
                                     </textarea>
                                 </div>
                             </div> 

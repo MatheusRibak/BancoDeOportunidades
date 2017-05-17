@@ -1,6 +1,3 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -76,7 +73,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div class="alert alert-success">
                             Dados referente a formação complementar alterada com sucesso!
                         </div>
-                    <?php } ?>
+                    <?php } ?>                  
                     <div class="row">
                         <div class="col-md-3">
                             <div class="panel panel-default">
@@ -356,50 +353,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </div>
                             </div>
 
-                            <div class="panel panel-default">
-                                <div class="panel-body">
-                                    <div class="pn-heading">
-                                        <span class="pull-left">
-                                            <strong> Atividades Complementares</strong>
-                                        </span>
-                                        <span class="pull-right">
-                                            <a href="<?= site_url('Painel_academico/carregaCadastraAtividades') ?>" class="btn btn-primary btn-xs">
-                                                Adicionar <i class="fa fa-plus fa-fw"></i>
-                                            </a>
-                                        </span>
-                                    </div>
-                                    <div class="table-responsive">
-                                        <table class="table table-hover no-margin">
-                                            <thead>
-                                                <tr>
-                                                    <th>Atividade Complementar</th>
-                                                    <th width='60'>Opções</th>
-
-                                                </tr>
-                                            </thead>
-                                            <?php
-                                            if (!empty($dadosAtividadesComplementares)):
-                                                foreach ($dadosAtividadesComplementares as $ac):
-                                                    ?>
-                                                    <tr>
-                                                        <td><?php echo $ac->atividade; ?></td>
-                                                        <td align='center'>
-                                                            <a  href="<?= site_url('Painel_academico/carregaEditarAtividade/' . $ac->id_atividade) ?>" class="btn btn-primary btn-xs">
-                                                                <i class="fa fa-pencil fa-fw"></i>
-                                                            </a>
-                                                        </td>
-                                                    </tr>
-                                                    <?php
-                                                endforeach;
-                                            else:
-                                                echo "<td colspan='2' align='center'>Nenhuma Atividade Complementar cadastrada!</td>";
-                                            endif;
-                                            ?>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-
+                            
+                            
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <div class="pn-heading">
@@ -412,7 +367,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             </a>
                                         </span>
                                     </div>
-                                    
                                     <div class="table-responsive">
                                         <table class="table table-hover no-margin">
                                             <thead>
@@ -437,6 +391,52 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 endforeach;
                                             else:
                                                 echo "<td colspan='5' align='center'>Nenhuma Formação Complementar cadastrada!</td>";
+                                            endif;
+                                            ?>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="pn-heading">
+                                        <span class="pull-left">
+                                            <strong> Atividades Complementares</strong>
+                                        </span>
+                                        <span class="pull-right">
+                                            <a href="<?= site_url('Painel_academico/carregaCadastraAtividades') ?>" class="btn btn-primary btn-xs">
+                                                Adicionar <i class="fa fa-plus fa-fw"></i>
+                                            </a>
+                                        </span>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-hover no-margin">
+                                            <thead>
+                                                <tr>
+                                                    <th>Atividade Complementar</th>
+                                                    <th width='60'>
+                                                        Opções
+                                                    </th>
+
+                                                </tr>
+                                            </thead>
+                                            <?php
+                                            if (!empty($dadosAtividadesComplementares)):
+                                                foreach ($dadosAtividadesComplementares as $ac):
+                                                    ?>
+                                                    <tr>
+                                                        <td><?php echo $ac->atividade; ?></td>
+                                                        <td align='center'>
+                                                            <a  href="<?= site_url('Painel_academico/carregaEditarAtividade/' . $ac->id_atividade) ?>" class="btn btn-primary btn-xs">
+                                                                <i class="fa fa-pencil fa-fw"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <?php
+                                                endforeach;
+                                            else:
+                                                echo "<td colspan='2' align='center'>Nenhuma Atividade Complementar cadastrada!</td>";
                                             endif;
                                             ?>
                                         </table>

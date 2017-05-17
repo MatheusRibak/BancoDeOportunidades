@@ -61,8 +61,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="panel-body">
                                     <div class="pn-heading">
                                         <span class="pull-left">
-                                            <strong>Formacao Profissional
-                                                <small class="text-muted">Adicione a sua formacao</small>
+                                            <strong>Formação Profissional
+                                                <small class="text-muted">Adicione uma formação</small>
                                             </strong>
                                         </span>
                                         <span class="pull-right">

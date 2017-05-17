@@ -95,7 +95,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <?php foreach ($dadosFormacao as $formacao): ?>
                                             <li><b>Curso: </b><?php echo $formacao->nome_curso ?></li>
                                             <li><b>Tipo: </b><?php echo $formacao->tipo ?></li>
-                                            <li><b>escola: </b><?php echo $formacao->escola ?></li>
+                                            <li><b>Instituição: </b><?php echo $formacao->escola ?></li>
                                             <li><b>Início do curso: </b><?php echo $formacao->inicio ?></li>
                                             <li><b>Término do curso: </b><?php echo $formacao->termino ?></li><br>
                                         <?php endforeach; ?>

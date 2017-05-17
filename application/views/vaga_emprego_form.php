@@ -96,21 +96,42 @@ $id_usuario = $this->session->userdata('id_usuario');
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="area" class="col-sm-2 control-label">Area  *</label>
-                                            <div class="col-sm-7">
-                                                <input type="text" class="form-control" name="area" id="area" placeholder="Area">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="nivel" class="col-sm-2 control-label">Nível  *</label>
+                                            <label for="area" class="col-sm-2 control-label">Área</label>
                                             <div class="col-sm-6">
-                                                <input type="text" class="form-control" name="nivel" id="nivel" placeholder="Nível">
+                                                <input type="text" class="form-control" name="area" id="area" placeholder="Área">
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="periodo" class="col-sm-2 control-label">Período  *</label>
-                                            <div class="col-sm-7">
-                                                <input type="text" class="form-control" name="periodo" id="periodo" placeholder="Período">
+                                       <div class="form-group">
+                                            <label for="nivel" class="col-sm-2 control-label">Nível</label>
+                                            <div class="col-sm-6">
+                                                <select class="form-control" name="nivel">
+                                                  <option value="Estagiário">Estagiário</option>
+                                                  <option value="Operacional">Operacional</option>
+                                                  <option value="Auxiliar">Auxiliar</option>
+                                                  <option value="Assistente">Assistente</option>
+                                                  <option value="Trainee">Trainee</option>
+                                                  <option value="Analista">Analista</option>
+                                                  <option value="Encarregado">Encarregado</option>
+                                                  <option value="Supervisor">Supervisor</option>
+                                                  <option value="Consultor">Consultor</option>
+                                                  <option value="Especialista">Especialista</option>
+                                                  <option value="Coordenador">Coordenador</option>
+                                                  <option value="Gerente">Gerente</option>
+                                                  <option value="Diretor">Diretor</option>
+                                                  <option value="Não Informado">Não desejo informar</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                            <div class="form-group">
+                                            <label for="periodo" class="col-sm-2 control-label">Período</label>
+                                            <div class="col-sm-6">
+                                                <select class="form-control" name="periodo">
+                                                  <option value="A Combinar">A Combinar</option>
+                                                  <option value="Matutino/Vespertino">Matutino/Vespertino</option>
+                                                  <option value="Matutino">Matutino</option>
+                                                  <option value="Vespertino">Vespertino</option>
+                                                  <option value="Noturno">Noturno</option>
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -120,22 +141,29 @@ $id_usuario = $this->session->userdata('id_usuario');
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="requisitos" class="col-sm-2 control-label">Requisitos  *</label>
+                                            <label for="requisitos" class="col-sm-2 control-label">Requisitos</label>
                                             <div class="col-sm-8">
                                                 <textarea name="requisitos" class="form-control" cols="70" rows="5"></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="beneficios" class="col-sm-2 control-label">Beneficios  *</label>
+                                            <label for="beneficios" class="col-sm-2 control-label">Beneficios</label>
                                             <div class="col-sm-8">
                                                 <textarea name="beneficios" id ="beneficios" class="form-control" cols="70" rows="3"></textarea>
                                                 <input type="hidden" name="data_cadastro" value="<?php echo date('Y/m/d'); ?>"/>
                                             </div>
                                         </div>
+                                         <div class="form-group">
+                                            <label for="observacoes" class="col-sm-2 control-label">Observações</label>
+                                            <div class="col-sm-8">
+                                                <textarea name="observacao" id ="observacao" class="form-control" cols="70" rows="3"></textarea>
+                                               
+                                            </div>
+                                        </div>
                                         <div class="form-group">
                                             <div  class="col-sm-2 control-label"></div>
                                             <div class="col-sm-8">
-                                                * Dados obrigatorios
+                                                * Dados obrigatórios
                                             </div>
                                         </div>
                                         <div class="form-group">

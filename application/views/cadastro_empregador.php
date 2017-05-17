@@ -238,25 +238,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         CONTEÚDO E POLÍTICA DE USO DO SISTEMA DE BANCO DE OPORTUNIDADES DA EMPRESA JÚNIOR EXPRESSÃO UNIVERSITÁRIA UNOESC – XANXERÊ-SC.<br>
                         1. Este banco de profissionais tem por objetivo intermediar a relação entre profissionais disponíveis no mercado e aqueles que queiram contratá-los, seja como empregado, seja para execução de serviços temporários ou autônomos.
                         <br>
-                        2. ‘
+
+                        2. O cadastro de currículos é gratuito, e ficará ativado no site por tempo indeterminado, ou até que o usuário desative seu currículo por meio de seu login de acesso.
                         <br>
-                        3. O cadastro de currículos é gratuito, e ficará ativado no site por tempo indeterminado, ou até que o usuário desative seu currículo por meio de seu login de acesso.
-                        <br>
-                        4. O usuário declara conhecimento que este é um serviço aberto e que seus dados estarão disponíveis na internet para consulta por qualquer pessoa, não apenas empregadores. A ACIC não se responsabiliza pelo uso que possa ser feito dos dados constantes dos cadastros. CASO NÃO QUEIRA QUE SEUS DADOS SEJAM DISPONIBILIZADOS NA INTERNET, NÃO SE CADASTRE.
+                        3. O usuário declara conhecimento que este é um serviço aberto e que seus dados estarão disponíveis na internet para consulta por qualquer pessoa, não apenas empregadores. A Empresa Júnior Expressão Universitária  não se responsabiliza pelo uso que possa ser feito dos dados constantes dos cadastros. CASO NÃO QUEIRA QUE SEUS DADOS SEJAM DISPONIBILIZADOS NA INTERNET, NÃO SE CADASTRE.
                         <br><br>RESPONSABILIDADES<br>
                        <br>
-                        5.Todas as informações enviadas pelos candidatos e empregadores são de sua inteira responsabilidade. A Empresa Júnior Expressão Universitária se resguarda no direito de não autorizar ou excluir os cadastros que contenham expressões injuriosas, agressivas e/ou impróprias ou que não possuem dados cadastro de formação na instituição UNOESC.
+                        4.Todas as informações enviadas pelos candidatos e empregadores são de sua inteira responsabilidade. A Empresa Júnior Expressão Universitária se resguarda no direito de não autorizar ou excluir os cadastros que contenham expressões injuriosas, agressivas e/ou impróprias ou que não possuem dados cadastro de formação na instituição UNOESC.
                         <br>
-                        6. A Empresa Júnior Expressão Universitária não garante e não se responsabiliza por quaisquer perdas, danos, expectativas de ganhos, receitas e benefícios ou quaisquer outros prejuízos que resultem da utilização das informações contidas no site.
+                        5. A Empresa Júnior Expressão Universitária não garante e não se responsabiliza por quaisquer perdas, danos, expectativas de ganhos, receitas e benefícios ou quaisquer outros prejuízos que resultem da utilização das informações contidas no site.
                         <br>
-                        7. Os contatos e as negociações entre os empregadores ou clientes e os profissionais cadastrados neste serviço são de exclusiva responsabilidade das partes. A Empresa Júnior Expressão Universitária não se responsabiliza por quaisquer danos ou prejuízos que os usuários venham a sofrer.
+                        6. Os contatos e as negociações entre os empregadores ou clientes e os profissionais cadastrados neste serviço são de exclusiva responsabilidade das partes. A Empresa Júnior Expressão Universitária não se responsabiliza por quaisquer danos ou prejuízos que os usuários venham a sofrer.
                         <br><br>ADVERTÊNCIAS<br>
                         <br>
-                        8. Este é meramente um serviço de intermediação. A Empresa Júnior Expressão Universitária não endossa ou abona nenhuma empresa, cliente ou profissional cadastrado neste serviço.
+                        7. Este é meramente um serviço de intermediação. A Empresa Júnior Expressão Universitária não endossa ou abona nenhuma empresa, cliente ou profissional cadastrado neste serviço.
                         <br>
-                        9. Caso os profissionais tenham dúvidas a respeito da idoneidade, legalidade e/ou correção de um empregador ou cliente ou de uma alguma atitude deles, ou caso um empregador ou cliente tenha dúvidas quanto à idoneidade, legalidade e/ou capacitação de um profissional, essas dúvidas terão de ser dirimidas entre as partes ou nos foros apropriados, sem nenhuma intervenção ou responsabilização da Empresa Júnior Expressão Universitária.
+                        8. Caso os profissionais tenham dúvidas a respeito da idoneidade, legalidade e/ou correção de um empregador ou cliente ou de uma alguma atitude deles, ou caso um empregador ou cliente tenha dúvidas quanto à idoneidade, legalidade e/ou capacitação de um profissional, essas dúvidas terão de ser dirimidas entre as partes ou nos foros apropriados, sem nenhuma intervenção ou responsabilização da Empresa Júnior Expressão Universitária.
                         <br>
-                        10. Empresa Júnior Expressão Universitária se reserva o direito de modificar parcialmente ou totalmente os termos acima, sem qualquer aviso prévio.
+                        9. Empresa Júnior Expressão Universitária se reserva o direito de modificar parcialmente ou totalmente os termos acima, sem qualquer aviso prévio.
 
                     </div>
                     <div class="modal-footer">

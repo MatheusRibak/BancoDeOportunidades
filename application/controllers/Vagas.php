@@ -5,7 +5,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Vagas extends CI_Controller {
 
     public function index() {  
-        $this->load->model('Usuario_model');
         $id_usuario = $this->session->userdata('id_usuario');        
         $id_usuario = (int) $id_usuario;
 
@@ -27,23 +26,19 @@ class Vagas extends CI_Controller {
         $requisitos = $this->input->post('requisitos');
         $beneficios = $this->input->post('beneficios');
         $dataCadastro = $this->input->post('data_cadastro');
+        $observacao = $this->input->post('observacao');
 
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
         $this->form_validation->set_rules('cargo', 'Cargo', 'required|max_length[120]');
         $this->form_validation->set_rules('salario', 'Salario', 'required|max_length[120]');
-        $this->form_validation->set_rules('area', 'Área', 'required|max_length[120]');
-        $this->form_validation->set_rules('nivel', 'Nível', 'required|max_length[120]');
-        $this->form_validation->set_rules('periodo', 'Período', 'required|max_length[120]');
         $this->form_validation->set_rules('atividades', 'Atividades', 'required|max_length[1000]');
-        $this->form_validation->set_rules('requisitos', 'Requisitos', 'required|max_length[1000]');
-        $this->form_validation->set_rules('beneficios', 'Beneficios', 'required|max_length[1000]');
-
+ 
         if ($this->form_validation->run() == FALSE) {
             $this->index();
             return;
         }
 
-        $this->load->model('Vaga_empregador');
+
         $this->Vaga_empregador->cadastrarVaga([
             "id_usuario" => $id_usuario,
             "cargo" => $cargo,
@@ -54,15 +49,15 @@ class Vagas extends CI_Controller {
             "atividades" => $atividades,
             "requisitos" => $requisitos,
             "beneficios" => $beneficios,
-            "data_cadastro" => $dataCadastro
+            "data_cadastro" => $dataCadastro,
+            "observacao" => $observacao
         ]);
         redirect('PainelEmpregador/index/?aviso=1');
     }
 
     public function editarVaga($id_dado_vaga) {
-        $this->load->model('Vaga_empregador');   
-        $this->load->model('Usuario_model');
-        $id_usuario = $this->session->userdata('id_usuario');  
+
+        $id_usuario = $this->session->userdata('id_usuario'); 
         $id_dado_vaga = (int) $id_dado_vaga;
 
         //ARRAY COM TODAS AS VAGAS E DADOS DO EMPREGADOR
@@ -81,7 +76,7 @@ class Vagas extends CI_Controller {
     }
     
     public function execAlterarVaga($id_dado_vaga) {
-        $this->load->model('Vaga_empregador');
+
 
         $id_dado_vaga = (int) $id_dado_vaga;
         $cargo = $this->input->post('cargo');
@@ -93,17 +88,13 @@ class Vagas extends CI_Controller {
         $requisitos = $this->input->post('requisitos');
         $beneficios = $this->input->post('beneficios');
         $status = $this->input->post('status');
+        $observacao = $this->input->post('observacao');
 
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
         $this->form_validation->set_rules('cargo', 'Cargo', 'required|max_length[120]');
         $this->form_validation->set_rules('salario', 'Salario', 'required|max_length[120]');
-        $this->form_validation->set_rules('area', 'Área', 'required|max_length[120]');
-        $this->form_validation->set_rules('nivel', 'Nível', 'required|max_length[120]');
-        $this->form_validation->set_rules('periodo', 'Período', 'required|max_length[120]');
         $this->form_validation->set_rules('atividades', 'Atividades', 'required|max_length[1000]');
-        $this->form_validation->set_rules('requisitos', 'Requisitos', 'required|max_length[1000]');
-        $this->form_validation->set_rules('beneficios', 'Beneficios', 'required|max_length[1000]');
-
+   
         if ($this->form_validation->run() == FALSE) {
             $this->editarVaga($id_dado_vaga);
             return;
@@ -118,7 +109,8 @@ class Vagas extends CI_Controller {
             "atividades" => $atividades,
             "requisitos" => $requisitos,
             "beneficios" => $beneficios,
-            "status" => $status
+            "status" => $status,
+            "observacao" => $observacao
         );
         $this->Vaga_empregador->atualizaVaga($id_dado_vaga, $dados);
         redirect('/PainelEmpregador/?aviso=3');

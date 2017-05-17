@@ -10,7 +10,7 @@ class Vaga_academico extends CI_Controller {
 
     public function vagaCompleta($id_dado_vaga) {
 
-        $this->load->model('Vaga_academico_model');
+ 
         $id_usuario = $this->session->userdata('id_usuario');
 
         $data = array(
@@ -21,7 +21,7 @@ class Vaga_academico extends CI_Controller {
         $this->load->view('vaga_completa', $data);
     }
 
-    public function cadastraCandidato() {
+     public function cadastraCandidato() {
         $this->load->model('Vaga_academico_model');
         $id_vaga = $this->input->post('id_vaga');
         $id_academico = $this->input->post('id_academico');
@@ -44,19 +44,30 @@ class Vaga_academico extends CI_Controller {
         $id_usuario = $this->session->userdata('id_usuario');
         $search = $this->input->post('input_busca');
 
-        $data = array(
-            "dadosAcademico" => $this->Usuario_model->getUsuario($id_usuario)->row(),
-            "resultado" => $this->Usuario_model->getVagas($search)
-        );
+        
+       $unoesc = 'UNOESC';
 
-        $this->load->view('resultado_busca', $data);
+      $this->db->select('*')
+      ->from('formacao')
+      ->where('id_usuario', $id_usuario)
+      ->where('instituicao', $unoesc);
+      $tem_unoesc = $this->db->get();
+      
+      if ($tem_unoesc->num_rows() > 0) {
+              $data = array(
+            "dadosAcademico" => $this->Usuario_model->getUsuario($id_usuario)->row(),
+            "resultado" => $this->Usuario_model->getVagas($search));
+
+        $this->load->view('resultado_busca', $data); }
+          else {
+              redirect('Painel_academico/carregaBusca/?aviso=5');
+          }
+
+
     }
 
     public function minhasVaga() {
-        $this->load->model('Academico_model');
-        $this->load->model('Formacao_model');
-        $this->load->model('Experiencia_model');
-        $this->load->model('Vaga_academico_model');
+  
         $id_academico = $this->session->userdata('id_academico');
         $data = array(
             "dadosAcademico" => $this->Academico_model->getAcademico($id_academico)->row(),

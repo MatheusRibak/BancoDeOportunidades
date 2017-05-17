@@ -1,6 +1,3 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
@@ -89,7 +86,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <i class="fa fa-chevron-left"></i> Voltar 
                                             </a>
                                         </span>
-                                        
                                     </div>
                                     <strong> <i class="fa fa-star"></i> Cargo:</strong> <?php echo $dadosVaga->cargo; ?><br>
                                     <br>

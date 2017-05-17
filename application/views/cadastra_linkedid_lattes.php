@@ -1,6 +1,3 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -61,8 +58,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="panel-body">
                                     <div class="pn-heading">
                                         <span class="pull-left">
-                                            <strong>Idioma
-                                                <small class="text-muted">Cadastre seus idiomas</small>
+                                            <strong>LinkedIn | Lattes
+                                                <small class="text-muted">Cadastre suas informações</small>
                                             </strong>
                                         </span>
                                         <span class="pull-right">

@@ -1,6 +1,3 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -43,7 +40,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <a href="<?= site_url('PainelEmpregador/carregaEditarSenha') ?>"><i class="fa fa-wrench fa-fw"></i> Trocar de senha</a>
                                 </li>
                                 <li>
-                                    <a href="<?= site_url('PainelEmpregador/deslogar') ?>"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
+                                    <a href="<?= site_url('PainelEmpregador/fechaSessao') ?>"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
                                 </li>
                             </ul>
                         </li>

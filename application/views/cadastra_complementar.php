@@ -1,6 +1,3 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -80,7 +77,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                       <div class="form-group">
                                           <label for="atividades" class="col-sm-2 control-label">Atividades Complementares</label>
                                           <div class="col-sm-9">
-                                              <textarea name="atividades" class="form-control" cols="70" rows="7" placeholder="Digite a sua atividade complementar..."></textarea>
+                                              <input type="text" name="atividades" placeholder="Digite a sua atividade complementar..." required class="form-control">
                                           </div>
                                       </div>
 

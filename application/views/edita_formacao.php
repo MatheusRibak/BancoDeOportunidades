@@ -61,7 +61,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="panel-body">
                                     <div class="pn-heading">
                                         <span class="pull-left">
-                                            <strong>Formacao Profissional
+                                            <strong>Formação Profissional
                                                 <small class="text-muted">Edite a sua Formação</small>
                                             </strong>
                                         </span>
@@ -153,7 +153,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <script src="<?= base_url('assets/js/jquery-ui.min.js') ?>"></script>
         <script src="<?= base_url('assets/js/jquery.mask.min.js') ?>"></script>
         <script type="text/javascript">
-            $('.data').mask('0000');
+            $('.data').mask('00/00/0000');
              $('#instituicao').val('<?php echo $formacao->instituicao ?>');
              $('#tipoCurso').val('<?php echo $formacao->tipo ?>');
         </script>

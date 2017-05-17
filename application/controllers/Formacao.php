@@ -6,7 +6,7 @@ class Formacao extends CI_Controller {
 
     public function salvaFormacaoEditada() {
 
-        $this->load->model('Formacao_model');
+
         //RECEBENDO DATAS
         $inicio = $this->input->post('inicio');
         $termino = $this->input->post('termino');
@@ -18,7 +18,7 @@ class Formacao extends CI_Controller {
         $data['tipo'] = $this->input->post('tipo');
         $data['termino'] = $salvaTermino;
         $data['inicio'] = $salvaInicio;
-        $data['escola'] = $this->input->post('escola');
+
         $id_formacao = $this->input->post('id_formacao');
 
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
@@ -26,7 +26,7 @@ class Formacao extends CI_Controller {
         $this->form_validation->set_rules('tipo', 'Tipo', 'required|max_length[120]');
         $this->form_validation->set_rules('termino', 'termino', 'required|max_length[120]');
         $this->form_validation->set_rules('inicio', 'inicio', 'required|max_length[120]');
-        $this->form_validation->set_rules('escola', 'escola', 'required|max_length[120]');
+
 
         if ($this->form_validation->run() == FALSE) {
             $this->getFormacao($id_formacao);

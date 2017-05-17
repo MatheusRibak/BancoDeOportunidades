@@ -162,42 +162,40 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php
-                                                if (!empty($dadosVagaSelecionado)):
-                                                    foreach ($dadosVagaSelecionado as $dvs):
-                                                        ?>
-                                                        <tr>
-                                                            <td><?php echo $dvs->nome_usuario; ?></td>
-                                                            <td><?php echo $dvs->telefone; ?></td>
-                                                            <td><?php echo $dvs->cargo; ?></td>
-                                                            <td align='center'>
-                                                                <a href="<?= site_url('Vagas/excluirCandidato/' . $dvs->id_vaga_selecionada) ?>" 
-                                                                   class="btn btn-danger btn-xs"
-                                                                   onclick="return confirm('Têm certeza que deseja excluir este registro?')"
-                                                                   >
-                                                                    <i class="fa fa-trash fa-fw"></i>
-                                                                </a>
-                                                                <a href="<?= site_url('GeraPdf/criaPdfEmpregador/' . $dvs->id_academico) ?>" 
-                                                                   title="Imprimir curriculo"
-                                                                   class="btn btn-primary btn-xs">
-                                                                    <i class="fa fa-file-pdf-o fa-fw" aria-hidden="true"></i>
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                    <?php
-                                                    endforeach;
-                                                else:
+                                                <?php 
+                                                if(!empty($dadosVagaSelecionado)):
+                                                foreach ($dadosVagaSelecionado as $dvs): ?>
+                                                    <tr>
+                                                        <td><?php echo $dvs->nome_usuario; ?></td>
+                                                        <td><?php echo $dvs->telefone; ?></td>
+                                                        <td><?php echo $dvs->cargo; ?></td>
+                                                        <td align='center'>
+                                                            <a href="<?= site_url('Vagas/excluirCandidato/' . $dvs->id_vaga_selecionada) ?>" 
+                                                               class="btn btn-danger btn-xs"
+                                                               onclick="return confirm('Têm certeza que deseja excluir este registro?')"
+                                                               >
+                                                                <i class="fa fa-trash fa-fw"></i>
+                                                            </a>
+                                                            <a href="<?= site_url('GeraPdf/criaPdfEmpregador/' . $dvs->id_academico) ?>" 
+                                                               title="Imprimir curriculo"
+                                                               class="btn btn-primary btn-xs">
+                                                                <i class="fa fa-file-pdf-o fa-fw" aria-hidden="true"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                <?php endforeach; 
+                                                else: 
                                                     echo "<td colspan='5' align='center'>Nenhum curriculo selecionado</td>";
-
+                                                    
                                                 endif;
                                                 ?>
-
+                                                    
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
                             </div>
-
+                            
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <div class="pn-heading">
@@ -245,8 +243,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         </table>
                                     </div>
                                 </div>
-                            </div>
-
+                            </div> 
+                            
                         </div>
                     </div>
                 </div>

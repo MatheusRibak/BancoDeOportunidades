@@ -6,7 +6,6 @@ class Experiencia extends CI_Controller {
     
      function getExperiencia($id_experiencia) {
         $id_usuario = $this->session->userdata('id_usuario');
-        $this->load->model('Experiencia_model');
         $data = array(
             "dadosAcademico" => $this->Usuario_model->getUsuario($id_usuario)->row(),
             "experiencia" => $this->Experiencia_model->getExp($id_experiencia)->row()
@@ -16,7 +15,6 @@ class Experiencia extends CI_Controller {
 
     public function salvaExpEditada() {
 
-        $this->load->model('Experiencia_model');
         $inicio = $this->input->post('inicio');
         $termino = $this->input->post('termino');
         $salvaInicio = implode("-", array_reverse(explode("/", $inicio)));
